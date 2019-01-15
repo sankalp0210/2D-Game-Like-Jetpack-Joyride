@@ -15,6 +15,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o
  /home/sankalp/Jetpack-Joyride/src/ball.h
  /home/sankalp/Jetpack-Joyride/src/main.cpp
  /home/sankalp/Jetpack-Joyride/src/main.h
+ /home/sankalp/Jetpack-Joyride/src/player.h
  /home/sankalp/Jetpack-Joyride/src/timer.h
 CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o
  /home/sankalp/Jetpack-Joyride/src/main.h
@@ -22,6 +23,14 @@ CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o
 CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o
  /home/sankalp/Jetpack-Joyride/src/main.h
  /home/sankalp/Jetpack-Joyride/src/other_handlers.cpp
+CMakeFiles/graphics_asgn1.dir/platform.cpp.o
+ /home/sankalp/Jetpack-Joyride/src/main.h
+ /home/sankalp/Jetpack-Joyride/src/platform.cpp
+ /home/sankalp/Jetpack-Joyride/src/platform.h
+CMakeFiles/graphics_asgn1.dir/player.cpp.o
+ /home/sankalp/Jetpack-Joyride/src/main.h
+ /home/sankalp/Jetpack-Joyride/src/player.cpp
+ /home/sankalp/Jetpack-Joyride/src/player.h
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o
  /home/sankalp/Jetpack-Joyride/src/timer.cpp
  /home/sankalp/Jetpack-Joyride/src/timer.h

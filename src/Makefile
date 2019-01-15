@@ -285,6 +285,60 @@ other_handlers.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.s
 .PHONY : other_handlers.cpp.s
 
+platform.o: platform.cpp.o
+
+.PHONY : platform.o
+
+# target to build an object file
+platform.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/platform.cpp.o
+.PHONY : platform.cpp.o
+
+platform.i: platform.cpp.i
+
+.PHONY : platform.i
+
+# target to preprocess a source file
+platform.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/platform.cpp.i
+.PHONY : platform.cpp.i
+
+platform.s: platform.cpp.s
+
+.PHONY : platform.s
+
+# target to generate assembly for a file
+platform.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/platform.cpp.s
+.PHONY : platform.cpp.s
+
+player.o: player.cpp.o
+
+.PHONY : player.o
+
+# target to build an object file
+player.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/player.cpp.o
+.PHONY : player.cpp.o
+
+player.i: player.cpp.i
+
+.PHONY : player.i
+
+# target to preprocess a source file
+player.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/player.cpp.i
+.PHONY : player.cpp.i
+
+player.s: player.cpp.s
+
+.PHONY : player.s
+
+# target to generate assembly for a file
+player.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/player.cpp.s
+.PHONY : player.cpp.s
+
 timer.o: timer.cpp.o
 
 .PHONY : timer.o
@@ -339,6 +393,12 @@ help:
 	@echo "... other_handlers.o"
 	@echo "... other_handlers.i"
 	@echo "... other_handlers.s"
+	@echo "... platform.o"
+	@echo "... platform.i"
+	@echo "... platform.s"
+	@echo "... player.o"
+	@echo "... player.i"
+	@echo "... player.s"
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"

@@ -10,6 +10,8 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sankalp/Jetpack-Joyride/src/main.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/main.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/nonedit.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/other_handlers.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o"
+  "/home/sankalp/Jetpack-Joyride/src/platform.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/platform.cpp.o"
+  "/home/sankalp/Jetpack-Joyride/src/player.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/player.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/timer.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

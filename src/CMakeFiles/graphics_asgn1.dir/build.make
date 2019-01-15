@@ -201,9 +201,57 @@ CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o.provides: CMakeFiles/graphics
 CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/platform.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/platform.cpp.o: platform.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/platform.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/platform.cpp.o -c /home/sankalp/Jetpack-Joyride/src/platform.cpp
+
+CMakeFiles/graphics_asgn1.dir/platform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/platform.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sankalp/Jetpack-Joyride/src/platform.cpp > CMakeFiles/graphics_asgn1.dir/platform.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/platform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/platform.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sankalp/Jetpack-Joyride/src/platform.cpp -o CMakeFiles/graphics_asgn1.dir/platform.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/platform.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/platform.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/platform.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/platform.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/platform.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/platform.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/platform.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/platform.cpp.o
+
+
+CMakeFiles/graphics_asgn1.dir/player.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/player.cpp.o: player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphics_asgn1.dir/player.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/player.cpp.o -c /home/sankalp/Jetpack-Joyride/src/player.cpp
+
+CMakeFiles/graphics_asgn1.dir/player.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/player.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sankalp/Jetpack-Joyride/src/player.cpp > CMakeFiles/graphics_asgn1.dir/player.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/player.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/player.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sankalp/Jetpack-Joyride/src/player.cpp -o CMakeFiles/graphics_asgn1.dir/player.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/player.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/player.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/player.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/player.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/player.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/player.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/player.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/player.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/timer.cpp.o -c /home/sankalp/Jetpack-Joyride/src/timer.cpp
 
 CMakeFiles/graphics_asgn1.dir/timer.cpp.i: cmake_force
@@ -233,6 +281,8 @@ graphics_asgn1_OBJECTS = \
 "CMakeFiles/graphics_asgn1.dir/main.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/platform.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/player.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
 
 # External object files for target graphics_asgn1
@@ -244,10 +294,12 @@ graphics_asgn1: CMakeFiles/graphics_asgn1.dir/input.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/main.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/platform.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/player.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/timer.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/build.make
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable graphics_asgn1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable graphics_asgn1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graphics_asgn1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -261,6 +313,8 @@ CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/input.cpp.
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/main.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/platform.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/player.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/timer.cpp.o.requires
 
 .PHONY : CMakeFiles/graphics_asgn1.dir/requires

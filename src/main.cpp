@@ -1,6 +1,7 @@
 #include "main.h"
 #include "timer.h"
 #include "ball.h"
+#include "player.h"
 
 using namespace std;
 
@@ -8,15 +9,13 @@ GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
 
-/**************************
-* Customizable functions *
-**************************/
-
 Ball ball1;
 Ball ball2;
-
+Player pl;
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
+int width  = 600;
+int height = 600;
 
 Timer t60(1.0 / 60);
 
@@ -55,8 +54,9 @@ void draw() {
     glm::mat4 MVP;  // MVP = Projection * View * Model
 
     // Scene render
-    ball1.draw(VP);
-    ball2.draw(VP);
+    // ball1.draw(VP);
+    // ball2.draw(VP);
+    pl.draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -71,12 +71,14 @@ void tick_input(GLFWwindow *window) {
        ball2.position.x = 7;
     }
     if (up){
-        screen_zoom += 0.1;
-        if(screen_zoom > 4)
-            screen_zoom = 4;
-        reset_screen();
+        pl.position.y += 0.1;
+        // screen_zoom += 0.1;
+        // if(screen_zoom > 4)
+        //     screen_zoom = 4;
+        // reset_screen();
     }
     if (down){
+        pl.position.y -= 0.1;
         screen_zoom -= 0.1;
         if(screen_zoom < 1)
             screen_zoom = 1;
@@ -85,8 +87,9 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
-    ball1.tick();
-    ball2.tick();
+    // ball1.tick();
+    // ball2.tick();
+    pl.tick();
     // camera_rotation_angle += 1;
 }
 
@@ -98,7 +101,7 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     ball1 = Ball(-7, 0, COLOR_RED, -1);
     ball2 = Ball(7, 0, COLOR_GREEN, 1);
-
+    pl    = Player(0.0f, 5.0f, COLOR_GREEN, COLOR_RED);
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
@@ -108,7 +111,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     reshapeWindow (window, width, height);
 
     // Background color of the scene
-    glClearColor (COLOR_BACKGROUND.r / 256.0, COLOR_BACKGROUND.g / 256.0, COLOR_BACKGROUND.b / 256.0, 0.0f); // R, G, B, A
+    glClearColor (COLOR_BACKGROUND.r / 256.0, COLOR_BACKGROUND.g / 256.0, COLOR_BACKGROUND.b / 256.0, 0.5f); // R, G, B, A
     glClearDepth (1.0f);
 
     glEnable (GL_DEPTH_TEST);
@@ -123,9 +126,7 @@ void initGL(GLFWwindow *window, int width, int height) {
 
 int main(int argc, char **argv) {
     srand(time(0));
-    int width  = 600;
-    int height = 600;
-
+    
     window = initGLFW(width, height);
 
     initGL (window, width, height);
@@ -168,7 +169,5 @@ void reset_screen() {
     float bottom = screen_center_y - 8 / screen_zoom;
     float left   = screen_center_x - 8 / screen_zoom;
     float right  = screen_center_x + 8 / screen_zoom;
-    // Matrices.projection = glm::perspectiveFov(0,0, 0.1f, 500.0f);
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);
-    // Matrices.projection = glm::ortho(left, screen_zoom*right, bottom, screen_zoom*top, 0.1f, 500.0f);
 }

@@ -49,6 +49,8 @@ timer.h
 /home/sankalp/Jetpack-Joyride/src/timer.h
 ball.h
 /home/sankalp/Jetpack-Joyride/src/ball.h
+player.h
+/home/sankalp/Jetpack-Joyride/src/player.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream
@@ -111,6 +113,26 @@ glm/gtx/transform.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/platform.cpp
+platform.h
+/home/sankalp/Jetpack-Joyride/src/platform.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/platform.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/player.cpp
+player.h
+/home/sankalp/Jetpack-Joyride/src/player.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/player.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
