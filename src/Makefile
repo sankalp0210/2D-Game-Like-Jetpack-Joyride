@@ -150,6 +150,33 @@ ball.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ball.cpp.s
 .PHONY : ball.cpp.s
 
+coin.o: coin.cpp.o
+
+.PHONY : coin.o
+
+# target to build an object file
+coin.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/coin.cpp.o
+.PHONY : coin.cpp.o
+
+coin.i: coin.cpp.i
+
+.PHONY : coin.i
+
+# target to preprocess a source file
+coin.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/coin.cpp.i
+.PHONY : coin.cpp.i
+
+coin.s: coin.cpp.s
+
+.PHONY : coin.s
+
+# target to generate assembly for a file
+coin.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/coin.cpp.s
+.PHONY : coin.cpp.s
+
 color.o: color.cpp.o
 
 .PHONY : color.o
@@ -378,6 +405,9 @@ help:
 	@echo "... ball.o"
 	@echo "... ball.i"
 	@echo "... ball.s"
+	@echo "... coin.o"
+	@echo "... coin.i"
+	@echo "... coin.s"
 	@echo "... color.o"
 	@echo "... color.i"
 	@echo "... color.s"

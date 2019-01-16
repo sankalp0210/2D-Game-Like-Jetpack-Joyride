@@ -16,6 +16,16 @@ main.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
+/home/sankalp/Jetpack-Joyride/src/coin.cpp
+coin.h
+/home/sankalp/Jetpack-Joyride/src/coin.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/coin.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
 /home/sankalp/Jetpack-Joyride/src/color.cpp
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
@@ -53,6 +63,8 @@ player.h
 /home/sankalp/Jetpack-Joyride/src/player.h
 platform.h
 /home/sankalp/Jetpack-Joyride/src/platform.h
+coin.h
+/home/sankalp/Jetpack-Joyride/src/coin.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream

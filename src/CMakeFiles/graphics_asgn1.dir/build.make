@@ -81,9 +81,33 @@ CMakeFiles/graphics_asgn1.dir/ball.cpp.o.provides: CMakeFiles/graphics_asgn1.dir
 CMakeFiles/graphics_asgn1.dir/ball.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/ball.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/coin.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/coin.cpp.o: coin.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graphics_asgn1.dir/coin.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/coin.cpp.o -c /home/sankalp/Jetpack-Joyride/src/coin.cpp
+
+CMakeFiles/graphics_asgn1.dir/coin.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/coin.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/sankalp/Jetpack-Joyride/src/coin.cpp > CMakeFiles/graphics_asgn1.dir/coin.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/coin.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/coin.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/sankalp/Jetpack-Joyride/src/coin.cpp -o CMakeFiles/graphics_asgn1.dir/coin.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/coin.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/coin.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/coin.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/coin.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/coin.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/coin.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/coin.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/coin.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/color.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/color.cpp.o: color.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/graphics_asgn1.dir/color.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graphics_asgn1.dir/color.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/color.cpp.o -c /home/sankalp/Jetpack-Joyride/src/color.cpp
 
 CMakeFiles/graphics_asgn1.dir/color.cpp.i: cmake_force
@@ -107,7 +131,7 @@ CMakeFiles/graphics_asgn1.dir/color.cpp.o.provides.build: CMakeFiles/graphics_as
 
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: input.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/graphics_asgn1.dir/input.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graphics_asgn1.dir/input.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/input.cpp.o -c /home/sankalp/Jetpack-Joyride/src/input.cpp
 
 CMakeFiles/graphics_asgn1.dir/input.cpp.i: cmake_force
@@ -131,7 +155,7 @@ CMakeFiles/graphics_asgn1.dir/input.cpp.o.provides.build: CMakeFiles/graphics_as
 
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/graphics_asgn1.dir/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/graphics_asgn1.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/main.cpp.o -c /home/sankalp/Jetpack-Joyride/src/main.cpp
 
 CMakeFiles/graphics_asgn1.dir/main.cpp.i: cmake_force
@@ -155,7 +179,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o.provides.build: CMakeFiles/graphics_asg
 
 CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o: nonedit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o -c /home/sankalp/Jetpack-Joyride/src/nonedit.cpp
 
 CMakeFiles/graphics_asgn1.dir/nonedit.cpp.i: cmake_force
@@ -179,7 +203,7 @@ CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o.provides.build: CMakeFiles/graphics_
 
 CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o: other_handlers.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o -c /home/sankalp/Jetpack-Joyride/src/other_handlers.cpp
 
 CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o.provides.build: CMakeFiles/gr
 
 CMakeFiles/graphics_asgn1.dir/platform.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/platform.cpp.o: platform.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/platform.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphics_asgn1.dir/platform.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/platform.cpp.o -c /home/sankalp/Jetpack-Joyride/src/platform.cpp
 
 CMakeFiles/graphics_asgn1.dir/platform.cpp.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/graphics_asgn1.dir/platform.cpp.o.provides.build: CMakeFiles/graphics
 
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphics_asgn1.dir/player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphics_asgn1.dir/player.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/player.cpp.o -c /home/sankalp/Jetpack-Joyride/src/player.cpp
 
 CMakeFiles/graphics_asgn1.dir/player.cpp.i: cmake_force
@@ -251,7 +275,7 @@ CMakeFiles/graphics_asgn1.dir/player.cpp.o.provides.build: CMakeFiles/graphics_a
 
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/timer.cpp.o -c /home/sankalp/Jetpack-Joyride/src/timer.cpp
 
 CMakeFiles/graphics_asgn1.dir/timer.cpp.i: cmake_force
@@ -276,6 +300,7 @@ CMakeFiles/graphics_asgn1.dir/timer.cpp.o.provides.build: CMakeFiles/graphics_as
 # Object files for target graphics_asgn1
 graphics_asgn1_OBJECTS = \
 "CMakeFiles/graphics_asgn1.dir/ball.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/coin.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/color.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/input.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/main.cpp.o" \
@@ -289,6 +314,7 @@ graphics_asgn1_OBJECTS = \
 graphics_asgn1_EXTERNAL_OBJECTS =
 
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/ball.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/coin.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/color.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/input.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/main.cpp.o
@@ -299,7 +325,7 @@ graphics_asgn1: CMakeFiles/graphics_asgn1.dir/player.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/timer.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/build.make
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable graphics_asgn1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sankalp/Jetpack-Joyride/src/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable graphics_asgn1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graphics_asgn1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -308,6 +334,7 @@ CMakeFiles/graphics_asgn1.dir/build: graphics_asgn1
 .PHONY : CMakeFiles/graphics_asgn1.dir/build
 
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/ball.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/coin.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/color.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/input.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/main.cpp.o.requires

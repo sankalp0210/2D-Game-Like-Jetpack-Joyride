@@ -5,6 +5,10 @@ CMakeFiles/graphics_asgn1.dir/ball.cpp.o
  /home/sankalp/Jetpack-Joyride/src/ball.cpp
  /home/sankalp/Jetpack-Joyride/src/ball.h
  /home/sankalp/Jetpack-Joyride/src/main.h
+CMakeFiles/graphics_asgn1.dir/coin.cpp.o
+ /home/sankalp/Jetpack-Joyride/src/coin.cpp
+ /home/sankalp/Jetpack-Joyride/src/coin.h
+ /home/sankalp/Jetpack-Joyride/src/main.h
 CMakeFiles/graphics_asgn1.dir/color.cpp.o
  /home/sankalp/Jetpack-Joyride/src/color.cpp
  /home/sankalp/Jetpack-Joyride/src/main.h
@@ -13,6 +17,7 @@ CMakeFiles/graphics_asgn1.dir/input.cpp.o
  /home/sankalp/Jetpack-Joyride/src/main.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o
  /home/sankalp/Jetpack-Joyride/src/ball.h
+ /home/sankalp/Jetpack-Joyride/src/coin.h
  /home/sankalp/Jetpack-Joyride/src/main.cpp
  /home/sankalp/Jetpack-Joyride/src/main.h
  /home/sankalp/Jetpack-Joyride/src/platform.h

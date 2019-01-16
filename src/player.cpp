@@ -5,7 +5,7 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
     this->position = glm::vec3(x, y, 0);
     this->rotation = 0;
     speedVer = 0.00;
-    speedHor = 0.00;
+    speedHor = 0.0;
 
 	GLfloat vertex_buffer_data[100] = {
         -1.0f, -0.5f, 0, 
@@ -15,7 +15,7 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
          1.0f, -2.5f, 0,
         -1.0f, -2.5f, 0,
     };
-    int n = 5000;
+    int n = 500;
     GLfloat g_vertex_buffer_data[9*n+100];
 	GLfloat deg = 2*3.1415926/((float)n), r = 0.75f;
     float x1 = r, y1 = 0.0f, z = 0.0f;
@@ -55,8 +55,11 @@ void Player::set_position(float x, float y) {
 }
 
 void Player::tick() {
-    // std::cout << this->position.x << " " << this->position.y << std::endl;
-    std::cout << this->position.x << " " << this->position.y << std::endl;
+
+    this->speedHor -= 0.01;
+    if((this->speedHor < 0.02 and this->speedHor > 0) or (this->speedHor > -0.02 and this->speedHor < 0))
+        this->speedHor = 0;
+    this->position.x += this->speedHor;
     this->speedVer -= 0.01;
     this->position.y += (float)this->speedVer;
     if(this->position.y < 4.5f){
@@ -67,5 +70,9 @@ void Player::tick() {
         this->position.y = 15.5f;
         this->speedVer = 0.0;
     }
+    if(this->position.x < screen_center_x - 4)
+        this->position.x = screen_center_x - 4;
+    if(this->position.x > screen_center_x + 4)
+        screen_center_x += this->speedHor;
 
 }

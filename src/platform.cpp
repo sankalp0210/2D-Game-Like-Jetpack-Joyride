@@ -3,13 +3,14 @@
 
 Platform::Platform(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
+    float var = 10000.0f;
     GLfloat vertex_buffer_data[20] = {
-        -16.0f,  1.0f, 0, 
-         16.0f, -1.0f, 0,
-        -16.0f, -1.0f, 0, 
-        -16.0f,  1.0f, 0, 
-         16.0f, -1.0f, 0,
-         16.0f,  1.0f, 0,
+         -var,  1.0f, 0, 
+          var, -1.0f, 0,
+         -var, -1.0f, 0, 
+         -var,  1.0f, 0, 
+          var, -1.0f, 0,
+          var,  1.0f, 0,
     };
     this->object = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data, color, GL_FILL);
 }

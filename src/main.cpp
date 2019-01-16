@@ -3,6 +3,7 @@
 #include "ball.h"
 #include "player.h"
 #include "platform.h"
+#include "coin.h"
 
 using namespace std;
 
@@ -10,10 +11,10 @@ GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
 
-Ball ball1;
-Ball ball2;
+Ball ball;
 Player pl;
 Platform plat;
+vector<Coin> coins;
 float screen_zoom = 1, screen_center_x = 4, screen_center_y = 4;
 float camera_rotation_angle = 0;
 int width  = 600;
@@ -32,34 +33,23 @@ void draw() {
     glUseProgram (programID);
 
     // Eye - Location of camera. Don't change unless you are sure!!
-    // glm::vec3 eye ( 5*cos(camera_rotation_angle*M_PI/180.0f), 0, 5*sin(camera_rotation_angle*M_PI/180.0f) );
-    
-    glm::vec3 eye (screen_center_x, screen_center_y, 10);
+   glm::vec3 eye (screen_center_x, screen_center_y, 10);
     
     // Target - Where is the camera looking at.  Don't change unless you are sure!!
     glm::vec3 target (screen_center_x, screen_center_y, 0);
+ 
     // Up - Up vector defines tilt of camera.  Don't change unless you are sure!!
     glm::vec3 up (0, 1, 0);
 
     // Compute Camera matrix (view)
     Matrices.view = glm::lookAt( eye, target, up ); // Rotating Camera for 3D
-    // Don't change unless you are sure!!
-    // Matrices.view = glm::lookAt(glm::vec3(0, 0, 3), glm::vec3(0, 0, 0), glm::vec3(0, 1, 0)); // Fixed camera for 2D (ortho) in XY plane
-
-    // Compute ViewProject matrix as view/camera might not be changed for this frame (basic scenario)
-    // Don't change unless you are sure!!
     glm::mat4 VP = Matrices.projection * Matrices.view;
 
-    // Send our transformation to the currently bound shader, in the "MVP" uniform
-    // For each model you render, since the MVP will be different (at least the M part)
-    // Don't change unless you are sure!!
-    glm::mat4 MVP;  // MVP = Projection * View * Model
-
-    // Scene render
-    // ball1.draw(VP);
-    // ball2.draw(VP);
     pl.draw(VP);
     plat.draw(VP);
+    for(int i=0;i<coins.size();i++){
+        coins[i].draw(VP);
+    }
 }
 
 void tick_input(GLFWwindow *window) {
@@ -68,16 +58,17 @@ void tick_input(GLFWwindow *window) {
     int up = glfwGetKey(window, GLFW_KEY_UP);
     int down = glfwGetKey(window, GLFW_KEY_DOWN);
     if (left) {
-       pl.position.x -= 0.2f;
-       screen_center_x -= 0.2f;
+        pl.speedHor = -0.2;
+    //    pl.position.x -= pl.speedHor;
+    //    plat.position.x -= pl.speedHor;
     }
     if (right) {
-       pl.position.x += 0.2f;
-       screen_center_x += 0.2f;
+        pl.speedHor = 0.2;
+    //    pl.position.x += pl.speedHor;
+    //    plat.position.x += pl.speedHor;
     }
     if (up){
-        // pl.position.y += 0.1;
-        pl.speedVer += 0.05;
+        pl.speedVer = 0.15;
         // screen_zoom += 0.1;
         // if(screen_zoom > 4)
         //     screen_zoom = 4;
@@ -105,10 +96,11 @@ void initGL(GLFWwindow *window, int width, int height) {
     /* Objects should be created before any other gl function and shaders */
     // Create the models
 
-    ball1 = Ball(-7, 0, COLOR_RED, -1);
-    ball2 = Ball(7, 0, COLOR_GREEN, 1);
+    ball  = Ball(7.0f, 7.0f, COLOR_RED, 1);
     pl    = Player(2.0f, 5.0f, COLOR_GREEN, COLOR_RED);
     plat  = Platform(8.0f, 1.0f, COLOR_BLACK);
+    Coin coin = Coin(10, 10, COLOR_YELLOW);
+    coins.push_back(coin);
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
@@ -141,14 +133,6 @@ int main(int argc, char **argv) {
     while (!glfwWindowShouldClose(window)) {
         // Process timers
         // reset_screen();
-        if(detect_collision({ball1.position.x,ball1.position.y,2.0f,2.0f},{ball2.position.x,ball2.position.y,2.0f,2.0f}))
-        {
-            ball1.dir1 = ball2.dir1 = 0;
-            ball1.dir2 = ball2.dir2 = 1;
-            ball1.speed = ball2.speed = 0.1;
-        }
-        if(ball1.position.y < -5 or ball2.position.y < -5)
-            return 0;
         if (t60.processTick()) {
             // 60 fps
             // OpenGL Draw commands
