@@ -14,6 +14,7 @@ CMakeFiles/graphics_asgn1.dir/input.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: ball.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: platform.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: player.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: timer.h
 

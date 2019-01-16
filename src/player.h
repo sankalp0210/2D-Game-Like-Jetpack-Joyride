@@ -15,7 +15,7 @@ public:
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
     void tick();
-    double speed;
+    double speedVer, speedHor;
 private:
     VAO *object1;
     VAO *object2;

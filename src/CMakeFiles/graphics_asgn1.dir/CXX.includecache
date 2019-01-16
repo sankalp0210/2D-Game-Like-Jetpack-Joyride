@@ -51,6 +51,8 @@ ball.h
 /home/sankalp/Jetpack-Joyride/src/ball.h
 player.h
 /home/sankalp/Jetpack-Joyride/src/player.h
+platform.h
+/home/sankalp/Jetpack-Joyride/src/platform.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream

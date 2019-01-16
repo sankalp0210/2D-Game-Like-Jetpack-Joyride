@@ -4,10 +4,10 @@
 Player::Player(float x, float y, color_t color1, color_t color2) {
     this->position = glm::vec3(x, y, 0);
     this->rotation = 0;
-    speed = 0.01;
+    speedVer = 0.00;
+    speedHor = 0.00;
 
-    int n = 5000;
-	GLfloat vertex_buffer_data[9*n+100] = {
+	GLfloat vertex_buffer_data[100] = {
         -1.0f, -0.5f, 0, 
          1.0f, -2.5f, 0,
          1.0f, -0.5f, 0, 
@@ -15,6 +15,7 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
          1.0f, -2.5f, 0,
         -1.0f, -2.5f, 0,
     };
+    int n = 5000;
     GLfloat g_vertex_buffer_data[9*n+100];
 	GLfloat deg = 2*3.1415926/((float)n), r = 0.75f;
     float x1 = r, y1 = 0.0f, z = 0.0f;
@@ -32,7 +33,7 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
 		g_vertex_buffer_data[9*i + 8] = z;
 	}
 
-    this->object1 = create3DObject(GL_TRIANGLES, n*3, g_vertex_buffer_data, color2, GL_FILL);
+    this->object1 = create3DObject(GL_TRIANGLES, (n-2)*3, g_vertex_buffer_data, color2, GL_FILL);
     this->object2 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data, color1, GL_FILL);
 }
 
@@ -54,8 +55,17 @@ void Player::set_position(float x, float y) {
 }
 
 void Player::tick() {
-    // this->rotation += speed;
-    // this->position.x -= dir1*speed;
-    // this->position.y -= dir2*speed;
-}
+    // std::cout << this->position.x << " " << this->position.y << std::endl;
+    std::cout << this->position.x << " " << this->position.y << std::endl;
+    this->speedVer -= 0.01;
+    this->position.y += (float)this->speedVer;
+    if(this->position.y < 4.5f){
+        this->position.y = 4.5f;
+        this->speedVer = 0.0;
+    }
+    if(this->position.y > 15.5f){
+        this->position.y = 15.5f;
+        this->speedVer = 0.0;
+    }
 
+}

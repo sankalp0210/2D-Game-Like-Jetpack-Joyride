@@ -2,6 +2,7 @@
 #include "timer.h"
 #include "ball.h"
 #include "player.h"
+#include "platform.h"
 
 using namespace std;
 
@@ -12,7 +13,8 @@ GLFWwindow *window;
 Ball ball1;
 Ball ball2;
 Player pl;
-float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
+Platform plat;
+float screen_zoom = 1, screen_center_x = 4, screen_center_y = 4;
 float camera_rotation_angle = 0;
 int width  = 600;
 int height = 600;
@@ -32,10 +34,10 @@ void draw() {
     // Eye - Location of camera. Don't change unless you are sure!!
     // glm::vec3 eye ( 5*cos(camera_rotation_angle*M_PI/180.0f), 0, 5*sin(camera_rotation_angle*M_PI/180.0f) );
     
-    glm::vec3 eye (0, 0, 100);
+    glm::vec3 eye (screen_center_x, screen_center_y, 10);
     
     // Target - Where is the camera looking at.  Don't change unless you are sure!!
-    glm::vec3 target (0, 0, 0);
+    glm::vec3 target (screen_center_x, screen_center_y, 0);
     // Up - Up vector defines tilt of camera.  Don't change unless you are sure!!
     glm::vec3 up (0, 1, 0);
 
@@ -57,6 +59,7 @@ void draw() {
     // ball1.draw(VP);
     // ball2.draw(VP);
     pl.draw(VP);
+    plat.draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -65,24 +68,27 @@ void tick_input(GLFWwindow *window) {
     int up = glfwGetKey(window, GLFW_KEY_UP);
     int down = glfwGetKey(window, GLFW_KEY_DOWN);
     if (left) {
-       ball1.position.x = -7;
+       pl.position.x -= 0.2f;
+       screen_center_x -= 0.2f;
     }
     if (right) {
-       ball2.position.x = 7;
+       pl.position.x += 0.2f;
+       screen_center_x += 0.2f;
     }
     if (up){
-        pl.position.y += 0.1;
+        // pl.position.y += 0.1;
+        pl.speedVer += 0.05;
         // screen_zoom += 0.1;
         // if(screen_zoom > 4)
         //     screen_zoom = 4;
         // reset_screen();
     }
     if (down){
-        pl.position.y -= 0.1;
-        screen_zoom -= 0.1;
-        if(screen_zoom < 1)
-            screen_zoom = 1;
-        reset_screen();
+        // pl.position.y -= 0.1;
+        // screen_zoom -= 0.1;
+        // if(screen_zoom < 1)
+        //     screen_zoom = 1;
+        // reset_screen();
     }
 }
 
@@ -101,7 +107,8 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     ball1 = Ball(-7, 0, COLOR_RED, -1);
     ball2 = Ball(7, 0, COLOR_GREEN, 1);
-    pl    = Player(0.0f, 5.0f, COLOR_GREEN, COLOR_RED);
+    pl    = Player(2.0f, 5.0f, COLOR_GREEN, COLOR_RED);
+    plat  = Platform(8.0f, 1.0f, COLOR_BLACK);
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
@@ -111,7 +118,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     reshapeWindow (window, width, height);
 
     // Background color of the scene
-    glClearColor (COLOR_BACKGROUND.r / 256.0, COLOR_BACKGROUND.g / 256.0, COLOR_BACKGROUND.b / 256.0, 0.5f); // R, G, B, A
+    glClearColor (COLOR_BACKGROUND.r / 256.0, COLOR_BACKGROUND.g / 256.0, COLOR_BACKGROUND.b / 256.0, 1.0f); // R, G, B, A
     glClearDepth (1.0f);
 
     glEnable (GL_DEPTH_TEST);
@@ -133,6 +140,7 @@ int main(int argc, char **argv) {
     /* Draw in loop */
     while (!glfwWindowShouldClose(window)) {
         // Process timers
+        // reset_screen();
         if(detect_collision({ball1.position.x,ball1.position.y,2.0f,2.0f},{ball2.position.x,ball2.position.y,2.0f,2.0f}))
         {
             ball1.dir1 = ball2.dir1 = 0;
@@ -170,4 +178,5 @@ void reset_screen() {
     float left   = screen_center_x - 8 / screen_zoom;
     float right  = screen_center_x + 8 / screen_zoom;
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);
+    std::cout << top << " " << bottom << " " << left << " " << right << std::endl;    
 }
