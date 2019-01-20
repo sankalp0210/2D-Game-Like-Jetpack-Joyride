@@ -52,6 +52,16 @@ glm/gtc/matrix_transform.hpp
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
+/home/sankalp/Jetpack-Joyride/src/magnet.cpp
+magnet.h
+/home/sankalp/Jetpack-Joyride/src/magnet.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/magnet.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
 /home/sankalp/Jetpack-Joyride/src/main.cpp
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
@@ -65,6 +75,8 @@ platform.h
 /home/sankalp/Jetpack-Joyride/src/platform.h
 coin.h
 /home/sankalp/Jetpack-Joyride/src/coin.h
+magnet.h
+/home/sankalp/Jetpack-Joyride/src/magnet.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream
@@ -74,6 +86,8 @@ cmath
 fstream
 -
 vector
+-
+set
 -
 GL/glew.h
 -

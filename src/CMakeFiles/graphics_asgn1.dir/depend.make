@@ -15,8 +15,13 @@ CMakeFiles/graphics_asgn1.dir/color.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: input.cpp
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: main.h
 
+CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.cpp
+CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.h
+CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: main.h
+
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: ball.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: coin.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: magnet.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: platform.h

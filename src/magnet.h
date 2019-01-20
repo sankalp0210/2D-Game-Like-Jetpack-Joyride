@@ -1,16 +1,16 @@
 #include "main.h"
 
-#ifndef COIN_H
-#define COIN_H
+#ifndef MAGNET_H
+#define MAGNET_H
 
 
-class Coin {
+class Magnet {
 public:
-    Coin() {}
-    Coin(float x, float y, color_t color1);
+    Magnet() {}
+    Magnet(float x, float y, color_t color1);
     glm::vec3 position;
     bounding_box_t box;
-    bool operator<(const Coin& a){
+    bool operator<(const Magnet& a){
         return this->position.x < a.position.x;
     };
     void draw(glm::mat4 VP);
@@ -20,4 +20,4 @@ private:
     VAO *object;
 };
 
-#endif // COIN_H
+#endif // Magnet_H

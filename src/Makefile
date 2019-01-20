@@ -231,6 +231,33 @@ input.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/input.cpp.s
 .PHONY : input.cpp.s
 
+magnet.o: magnet.cpp.o
+
+.PHONY : magnet.o
+
+# target to build an object file
+magnet.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/magnet.cpp.o
+.PHONY : magnet.cpp.o
+
+magnet.i: magnet.cpp.i
+
+.PHONY : magnet.i
+
+# target to preprocess a source file
+magnet.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/magnet.cpp.i
+.PHONY : magnet.cpp.i
+
+magnet.s: magnet.cpp.s
+
+.PHONY : magnet.s
+
+# target to generate assembly for a file
+magnet.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/magnet.cpp.s
+.PHONY : magnet.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -414,6 +441,9 @@ help:
 	@echo "... input.o"
 	@echo "... input.i"
 	@echo "... input.s"
+	@echo "... magnet.o"
+	@echo "... magnet.i"
+	@echo "... magnet.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

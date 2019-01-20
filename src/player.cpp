@@ -4,9 +4,9 @@
 Player::Player(float x, float y, color_t color1, color_t color2) {
     this->position = glm::vec3(x, y, 0);
     this->rotation = 0;
-    speedVer = 0.00;
-    speedHor = 0.0;
-
+    this->speedVer = 0.00;
+    this->speedHor = 0.0;
+    
 	GLfloat vertex_buffer_data[100] = {
         -1.0f, -0.5f, 0, 
          1.0f, -2.5f, 0,
@@ -32,6 +32,10 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
 		g_vertex_buffer_data[9*i + 7] = y1 = (r*sin(o));
 		g_vertex_buffer_data[9*i + 8] = z;
 	}
+    this->box.x = x - 1;
+    this->box.y = y - 2.75;
+    this->box.width = 2;
+    this->box.height = 3;
 
     this->object1 = create3DObject(GL_TRIANGLES, (n-2)*3, g_vertex_buffer_data, color2, GL_FILL);
     this->object2 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data, color1, GL_FILL);
@@ -74,5 +78,6 @@ void Player::tick() {
         this->position.x = screen_center_x - 4;
     if(this->position.x > screen_center_x + 4)
         screen_center_x += this->speedHor;
-
+    this->box.x = this->position.x - 1;
+    this->box.y = this->position.y - 2.75;
 }

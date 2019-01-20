@@ -3,9 +3,10 @@
 
 Coin::Coin(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
+    
     int n = 5000;
     GLfloat g_vertex_buffer_data[9*n+100];
-	GLfloat deg = 2*3.1415926/((float)n), r = 0.75f;
+	GLfloat deg = 2*3.1415926/((float)n), r = 0.25f;
     float x1 = r, y1 = 0.0f, z = 0.0f;
 	for(int i=0;i<n;i++)
 	{
@@ -20,7 +21,11 @@ Coin::Coin(float x, float y, color_t color) {
 		g_vertex_buffer_data[9*i + 7] = y1 = (r*sin(o));
 		g_vertex_buffer_data[9*i + 8] = z;
 	}
-
+    this->box.x = x -r;
+    this->box.y = y -r;
+    this->box.width  = 2*r;
+    this->box.height = 2*r;
+    
     this->object = create3DObject(GL_TRIANGLES, (n-2)*3, g_vertex_buffer_data, color, GL_FILL);
 }
 
@@ -34,6 +39,10 @@ void Coin::draw(glm::mat4 VP) {
     glUniformMatrix4fv(Matrices.MatrixID, 1, GL_FALSE, &MVP[0][0]);
     draw3DObject(this->object);
 }
+// bool Coin::operator()(const Coin& a, const Coin& b)
+// {
+//     return (a.position.x - b.position.x);
+// }
 
 void Coin::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);

@@ -4,7 +4,7 @@
 #include "player.h"
 #include "platform.h"
 #include "coin.h"
-
+#include "magnet.h"
 using namespace std;
 
 GLMatrices Matrices;
@@ -14,6 +14,8 @@ GLFWwindow *window;
 Ball ball;
 Player pl;
 Platform plat;
+Magnet mg;
+// set<Coin> coinss;
 vector<Coin> coins;
 float screen_zoom = 1, screen_center_x = 4, screen_center_y = 4;
 float camera_rotation_angle = 0;
@@ -37,14 +39,14 @@ void draw() {
     
     // Target - Where is the camera looking at.  Don't change unless you are sure!!
     glm::vec3 target (screen_center_x, screen_center_y, 0);
- 
+
     // Up - Up vector defines tilt of camera.  Don't change unless you are sure!!
     glm::vec3 up (0, 1, 0);
 
     // Compute Camera matrix (view)
     Matrices.view = glm::lookAt( eye, target, up ); // Rotating Camera for 3D
     glm::mat4 VP = Matrices.projection * Matrices.view;
-
+    mg.draw(VP);
     pl.draw(VP);
     plat.draw(VP);
     for(int i=0;i<coins.size();i++){
@@ -100,7 +102,11 @@ void initGL(GLFWwindow *window, int width, int height) {
     pl    = Player(2.0f, 5.0f, COLOR_GREEN, COLOR_RED);
     plat  = Platform(8.0f, 1.0f, COLOR_BLACK);
     Coin coin = Coin(10, 10, COLOR_YELLOW);
+    Coin coin2 = Coin(10, 12, COLOR_YELLOW);
+    mg = Magnet(15, 10, COLOR_BLUE);
     coins.push_back(coin);
+    // coinss.insert(coin);
+    // coinss.insert(coin2);
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
@@ -137,6 +143,13 @@ int main(int argc, char **argv) {
             // 60 fps
             // OpenGL Draw commands
             draw();
+            if(coins.size() && detect_collision(pl.box, coins[0].box)){
+                cout<<pl.position.x << " " << pl.position.y<<endl;
+                Coin *c = &coins[0];
+                cout<<c->position.x << " " << c->position.y<<endl;
+                coins.pop_back();
+                delete c;
+            }
             // Swap Frame Buffer in double buffering
             glfwSwapBuffers(window);
 
@@ -152,8 +165,11 @@ int main(int argc, char **argv) {
 }
 
 bool detect_collision(bounding_box_t a, bounding_box_t b) {
-    return (abs(a.x - b.x) * 2 < (a.width + b.width)) &&
-           (abs(a.y - b.y) * 2 < (a.height + b.height));
+    int x = a.x + a.width > b.x and b.x + b.width >a.x?1:0;
+    int y = a.y + a.height > b.y and b.y + b.height >a.y?1:0;
+    return (x and y);
+    // return (abs(a.x - b.x) * 2 < (a.width + b.width)) &&
+        //    (abs(a.y - b.y) * 2 < (a.height + b.height));
 }
 
 void reset_screen() {

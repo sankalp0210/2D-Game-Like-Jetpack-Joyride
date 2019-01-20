@@ -5,6 +5,7 @@
 #include <cmath>
 #include <fstream>
 #include <vector>
+#include <set>
 
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
