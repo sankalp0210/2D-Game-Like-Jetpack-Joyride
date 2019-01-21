@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/ball.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/coin.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/color.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/fireline.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/input.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/magnet.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/main.cpp.o"

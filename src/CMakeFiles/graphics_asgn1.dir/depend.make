@@ -12,6 +12,10 @@ CMakeFiles/graphics_asgn1.dir/coin.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/color.cpp.o: color.cpp
 CMakeFiles/graphics_asgn1.dir/color.cpp.o: main.h
 
+CMakeFiles/graphics_asgn1.dir/fireline.cpp.o: fireline.cpp
+CMakeFiles/graphics_asgn1.dir/fireline.cpp.o: fireline.h
+CMakeFiles/graphics_asgn1.dir/fireline.cpp.o: main.h
+
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: input.cpp
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: main.h
 
@@ -21,6 +25,7 @@ CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: main.h
 
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: ball.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: coin.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: fireline.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: magnet.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.h

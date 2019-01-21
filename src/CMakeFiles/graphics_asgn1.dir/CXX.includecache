@@ -30,6 +30,16 @@ main.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
+/home/sankalp/Jetpack-Joyride/src/fireline.cpp
+fireline.h
+/home/sankalp/Jetpack-Joyride/src/fireline.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/fireline.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
 /home/sankalp/Jetpack-Joyride/src/input.cpp
 iostream
 -
@@ -77,6 +87,8 @@ coin.h
 /home/sankalp/Jetpack-Joyride/src/coin.h
 magnet.h
 /home/sankalp/Jetpack-Joyride/src/magnet.h
+fireline.h
+/home/sankalp/Jetpack-Joyride/src/fireline.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream
@@ -86,8 +98,6 @@ cmath
 fstream
 -
 vector
--
-set
 -
 GL/glew.h
 -

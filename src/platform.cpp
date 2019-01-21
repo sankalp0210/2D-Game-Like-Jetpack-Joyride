@@ -3,7 +3,7 @@
 
 Platform::Platform(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
-    float var = 10000.0f;
+    float var = 1.0f;
     GLfloat vertex_buffer_data[20] = {
          -var,  1.0f, 0, 
           var, -1.0f, 0,
@@ -29,4 +29,6 @@ void Platform::set_position(float x, float y) {
 }
 
 void Platform::tick() {
+    if(this->position.x < (screen_center_x - 8))
+        this->position.x += 40;
 }

@@ -5,18 +5,18 @@
 #include "platform.h"
 #include "coin.h"
 #include "magnet.h"
+#include "fireline.h"
 using namespace std;
 
 GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
-
+vector<Fireline> fireline;
 Ball ball;
 Player pl;
-Platform plat;
 Magnet mg;
-// set<Coin> coinss;
 vector<Coin> coins;
+vector<Platform> plat;
 float screen_zoom = 1, screen_center_x = 4, screen_center_y = 4;
 float camera_rotation_angle = 0;
 int width  = 600;
@@ -48,9 +48,14 @@ void draw() {
     glm::mat4 VP = Matrices.projection * Matrices.view;
     mg.draw(VP);
     pl.draw(VP);
-    plat.draw(VP);
+    // plat.draw(VP);
+    for(int i=0;i<plat.size();i++)
+        plat[i].draw(VP);
     for(int i=0;i<coins.size();i++){
         coins[i].draw(VP);
+    }
+    for(int i=0;i<fireline.size();i++){
+        fireline[i].draw(VP);
     }
 }
 
@@ -61,13 +66,9 @@ void tick_input(GLFWwindow *window) {
     int down = glfwGetKey(window, GLFW_KEY_DOWN);
     if (left) {
         pl.speedHor = -0.2;
-    //    pl.position.x -= pl.speedHor;
-    //    plat.position.x -= pl.speedHor;
     }
     if (right) {
         pl.speedHor = 0.2;
-    //    pl.position.x += pl.speedHor;
-    //    plat.position.x += pl.speedHor;
     }
     if (up){
         pl.speedVer = 0.15;
@@ -86,10 +87,11 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
-    // ball1.tick();
-    // ball2.tick();
+    // for(int i=0;i<)
+    mg.tick();
+    for(int i=0;i<plat.size();i++)
+        plat[i].tick();
     pl.tick();
-    // camera_rotation_angle += 1;
 }
 
 /* Initialize the OpenGL rendering properties */
@@ -100,13 +102,18 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     ball  = Ball(7.0f, 7.0f, COLOR_RED, 1);
     pl    = Player(2.0f, 5.0f, COLOR_GREEN, COLOR_RED);
-    plat  = Platform(8.0f, 1.0f, COLOR_BLACK);
+    for(int i=0;i<20;i++)    
+    {
+        plat.push_back(Platform(0.0f + (float)(i*2), 1.0f, i%2?COLOR_BLACK:COLOR_RED));
+    }
     Coin coin = Coin(10, 10, COLOR_YELLOW);
     Coin coin2 = Coin(10, 12, COLOR_YELLOW);
-    mg = Magnet(15, 10, COLOR_BLUE);
+    mg = Magnet(25, 10, COLOR_BLUE);
     coins.push_back(coin);
-    // coinss.insert(coin);
-    // coinss.insert(coin2);
+    fireline.push_back(Fireline(16.0f, 8.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
+    
+    
+    
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
