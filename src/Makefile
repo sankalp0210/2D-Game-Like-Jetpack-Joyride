@@ -204,6 +204,33 @@ color.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/color.cpp.s
 .PHONY : color.cpp.s
 
+firebeam.o: firebeam.cpp.o
+
+.PHONY : firebeam.o
+
+# target to build an object file
+firebeam.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/firebeam.cpp.o
+.PHONY : firebeam.cpp.o
+
+firebeam.i: firebeam.cpp.i
+
+.PHONY : firebeam.i
+
+# target to preprocess a source file
+firebeam.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/firebeam.cpp.i
+.PHONY : firebeam.cpp.i
+
+firebeam.s: firebeam.cpp.s
+
+.PHONY : firebeam.s
+
+# target to generate assembly for a file
+firebeam.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/firebeam.cpp.s
+.PHONY : firebeam.cpp.s
+
 fireline.o: fireline.cpp.o
 
 .PHONY : fireline.o
@@ -465,6 +492,9 @@ help:
 	@echo "... color.o"
 	@echo "... color.i"
 	@echo "... color.s"
+	@echo "... firebeam.o"
+	@echo "... firebeam.i"
+	@echo "... firebeam.s"
 	@echo "... fireline.o"
 	@echo "... fireline.i"
 	@echo "... fireline.s"

@@ -7,6 +7,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sankalp/Jetpack-Joyride/src/ball.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/ball.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/coin.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/coin.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/color.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/color.cpp.o"
+  "/home/sankalp/Jetpack-Joyride/src/firebeam.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/firebeam.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/fireline.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/fireline.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/input.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/input.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/magnet.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/magnet.cpp.o"

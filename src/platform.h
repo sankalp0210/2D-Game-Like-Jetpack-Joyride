@@ -14,6 +14,6 @@ public:
     void tick();
 private:
     VAO *object;
-};
+    };
 
 #endif // PLATFORM_H

@@ -6,12 +6,14 @@
 #include "coin.h"
 #include "magnet.h"
 #include "fireline.h"
+#include "firebeam.h"
 using namespace std;
 
 GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
 vector<Fireline> fireline;
+Firebeam firebeam1, firebeam2;
 Ball ball;
 Player pl;
 Magnet mg;
@@ -47,16 +49,18 @@ void draw() {
     Matrices.view = glm::lookAt( eye, target, up ); // Rotating Camera for 3D
     glm::mat4 VP = Matrices.projection * Matrices.view;
     mg.draw(VP);
-    pl.draw(VP);
     // plat.draw(VP);
     for(int i=0;i<plat.size();i++)
         plat[i].draw(VP);
     for(int i=0;i<coins.size();i++){
         coins[i].draw(VP);
     }
+    pl.draw(VP);
     for(int i=0;i<fireline.size();i++){
         fireline[i].draw(VP);
     }
+    firebeam1.draw(VP);
+    firebeam2.draw(VP);
 }
 
 void tick_input(GLFWwindow *window) {
@@ -92,6 +96,19 @@ void tick_elements() {
     for(int i=0;i<plat.size();i++)
         plat[i].tick();
     pl.tick();
+    firebeam1.tick();
+    firebeam2.tick();
+    if(!firebeam1.time)
+    {
+        int r = rand()%10000;
+        if(r < 10){
+            firebeam1.time = firebeam2.time = 1;
+            float y = 1.0f*(rand()%2) + 1;
+            firebeam1.position.y = screen_center_y - y;
+            firebeam2.position.y = screen_center_y + 7 - y;
+        }
+    }
+    
 }
 
 /* Initialize the OpenGL rendering properties */
@@ -102,7 +119,7 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     ball  = Ball(7.0f, 7.0f, COLOR_RED, 1);
     pl    = Player(2.0f, 5.0f, COLOR_GREEN, COLOR_RED);
-    for(int i=0;i<20;i++)    
+    for(int i=0;i<20;i++)
     {
         plat.push_back(Platform(0.0f + (float)(i*2), 1.0f, i%2?COLOR_BLACK:COLOR_RED));
     }
@@ -111,7 +128,9 @@ void initGL(GLFWwindow *window, int width, int height) {
     mg = Magnet(25, 10, COLOR_BLUE);
     coins.push_back(coin);
     fireline.push_back(Fireline(16.0f, 8.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
-    
+    float y = 1.0f*(rand()%2) + 1;
+    firebeam1 = Firebeam((screen_center_x),(screen_center_y + 1 - y),COLOR_BLACK, COLOR_RED);
+    firebeam2 = Firebeam((screen_center_x),(screen_center_y + 7 + y),COLOR_BLACK, COLOR_RED);
     
     
     // Create and compile our GLSL program from the shaders
@@ -135,7 +154,30 @@ void initGL(GLFWwindow *window, int width, int height) {
     cout << "GLSL: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl;
 }
 
+void checkColissions()
+{
+    // Colission with coins
+    if(coins.size() && detect_collision(pl.box, coins[0].box)){
+        cout<<pl.position.x << " " << pl.position.y<<endl;
+        Coin *c = &coins[0];
+        cout<<c->position.x << " " << c->position.y<<endl;
+        coins.pop_back();
+        delete c;
+    }
 
+    // Colission with firebeams
+    // cout<<firebeam1.time<<" "<<firebeam2.time<<endl;
+    if(firebeam1.time > 0)
+    {
+        // cout<<pl.position.x<<" "<<pl.position.y<<"   "<<firebeam1.position.x<<" "<<firebeam1.position.y<<endl;
+        if(detect_collision(pl.box,firebeam1.box) or detect_collision(pl.box,firebeam2.box))
+        {
+            cout<<"mar gaya : "<<firebeam1.time<<endl;
+            // exit(0);
+        }
+    }
+    
+}
 int main(int argc, char **argv) {
     srand(time(0));
     
@@ -150,13 +192,8 @@ int main(int argc, char **argv) {
             // 60 fps
             // OpenGL Draw commands
             draw();
-            if(coins.size() && detect_collision(pl.box, coins[0].box)){
-                cout<<pl.position.x << " " << pl.position.y<<endl;
-                Coin *c = &coins[0];
-                cout<<c->position.x << " " << c->position.y<<endl;
-                coins.pop_back();
-                delete c;
-            }
+            checkColissions();
+            
             // Swap Frame Buffer in double buffering
             glfwSwapBuffers(window);
 

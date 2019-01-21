@@ -30,6 +30,16 @@ main.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
+/home/sankalp/Jetpack-Joyride/src/firebeam.cpp
+firebeam.h
+/home/sankalp/Jetpack-Joyride/src/firebeam.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/firebeam.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
 /home/sankalp/Jetpack-Joyride/src/fireline.cpp
 fireline.h
 /home/sankalp/Jetpack-Joyride/src/fireline.h
@@ -89,6 +99,8 @@ magnet.h
 /home/sankalp/Jetpack-Joyride/src/magnet.h
 fireline.h
 /home/sankalp/Jetpack-Joyride/src/fireline.h
+firebeam.h
+/home/sankalp/Jetpack-Joyride/src/firebeam.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream
