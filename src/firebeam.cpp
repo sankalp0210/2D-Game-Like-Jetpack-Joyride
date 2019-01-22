@@ -35,7 +35,8 @@ Firebeam::Firebeam(float x, float y, color_t color1, color_t color2) {
     this->box.width = len+2;
     this->box.height = 0.2;
     this->time = 0;
-    this->existTime = 10;
+    this->col = 0;
+    this->existTime = 12;
 }
 
 void Firebeam::draw(glm::mat4 VP) {
@@ -46,7 +47,9 @@ void Firebeam::draw(glm::mat4 VP) {
     glUniformMatrix4fv(Matrices.MatrixID, 1, GL_FALSE, &MVP[0][0]);
     if(this->time > 0) {
         draw3DObject(this->object1);
-        draw3DObject(this->object2);
+        if(this->time > 2*60){
+            draw3DObject(this->object2);
+        }
     }
 }
 
@@ -58,8 +61,12 @@ void Firebeam::tick() {
     this->position.x = screen_center_x;
     if(this->time > 0)
         this->time++;
-    if(this->time > 60*this->existTime)
+    if(this->time > 2*60)
+        this->col = 1;
+    if(this->time > 60*this->existTime){
         this->time = 0;
+        this->col = 0;
+    }
     this->box.x = this->position.x;
     this->box.y = this->position.y;
     

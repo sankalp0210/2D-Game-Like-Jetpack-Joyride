@@ -9,6 +9,7 @@
 #include "firebeam.h"
 using namespace std;
 
+// Declarations
 GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
@@ -63,33 +64,38 @@ void draw() {
     firebeam2.draw(VP);
 }
 
+// processing the inputs
 void tick_input(GLFWwindow *window) {
     int left  = glfwGetKey(window, GLFW_KEY_LEFT);
     int right = glfwGetKey(window, GLFW_KEY_RIGHT);
     int up = glfwGetKey(window, GLFW_KEY_UP);
     int down = glfwGetKey(window, GLFW_KEY_DOWN);
+    int space = glfwGetKey(window, GLFW_KEY_SPACE);
     if (left) {
         pl.speedHor = -0.2;
     }
     if (right) {
         pl.speedHor = 0.2;
     }
-    if (up){
+    if (space){
         pl.speedVer = 0.15;
-        // screen_zoom += 0.1;
-        // if(screen_zoom > 4)
-        //     screen_zoom = 4;
-        // reset_screen();
+    }
+    if (up){
+        screen_zoom += 0.1;
+        if(screen_zoom > 4)
+            screen_zoom = 4;
+        reset_screen();
     }
     if (down){
-        // pl.position.y -= 0.1;
-        // screen_zoom -= 0.1;
-        // if(screen_zoom < 1)
-        //     screen_zoom = 1;
-        // reset_screen();
+        pl.position.y -= 0.1;
+        screen_zoom -= 0.1;
+        if(screen_zoom < 1)
+            screen_zoom = 1;
+        reset_screen();
     }
 }
 
+// ticking all the elements
 void tick_elements() {
     // for(int i=0;i<)
     mg.tick();
@@ -98,16 +104,6 @@ void tick_elements() {
     pl.tick();
     firebeam1.tick();
     firebeam2.tick();
-    if(!firebeam1.time)
-    {
-        int r = rand()%10000;
-        if(r < 10){
-            firebeam1.time = firebeam2.time = 1;
-            float y = 1.0f*(rand()%2) + 1;
-            firebeam1.position.y = screen_center_y - y;
-            firebeam2.position.y = screen_center_y + 7 - y;
-        }
-    }
     
 }
 
@@ -123,10 +119,9 @@ void initGL(GLFWwindow *window, int width, int height) {
     {
         plat.push_back(Platform(0.0f + (float)(i*2), 1.0f, i%2?COLOR_BLACK:COLOR_RED));
     }
-    Coin coin = Coin(10, 10, COLOR_YELLOW);
-    Coin coin2 = Coin(10, 12, COLOR_YELLOW);
+    for(int i=0;i<10;i++)
+        coins.push_back(Coin(10+i, 10, COLOR_YELLOW));
     mg = Magnet(25, 10, COLOR_BLUE);
-    coins.push_back(coin);
     fireline.push_back(Fireline(16.0f, 8.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
     float y = 1.0f*(rand()%2) + 1;
     firebeam1 = Firebeam((screen_center_x),(screen_center_y + 1 - y),COLOR_BLACK, COLOR_RED);
@@ -154,22 +149,22 @@ void initGL(GLFWwindow *window, int width, int height) {
     cout << "GLSL: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << endl;
 }
 
+
 void checkColissions()
 {
     // Colission with coins
-    if(coins.size() && detect_collision(pl.box, coins[0].box)){
-        cout<<pl.position.x << " " << pl.position.y<<endl;
-        Coin *c = &coins[0];
-        cout<<c->position.x << " " << c->position.y<<endl;
-        coins.pop_back();
-        delete c;
+    for(int i=0;i<coins.size();i++){
+        if(detect_collision(pl.box, coins[i].box)){
+            Coin *c = &coins[i];
+            coins.erase(coins.begin()+i);
+            delete c;
+            break;
+        }
     }
 
     // Colission with firebeams
-    // cout<<firebeam1.time<<" "<<firebeam2.time<<endl;
-    if(firebeam1.time > 0)
+    if(firebeam1.col)
     {
-        // cout<<pl.position.x<<" "<<pl.position.y<<"   "<<firebeam1.position.x<<" "<<firebeam1.position.y<<endl;
         if(detect_collision(pl.box,firebeam1.box) or detect_collision(pl.box,firebeam2.box))
         {
             cout<<"mar gaya : "<<firebeam1.time<<endl;
@@ -178,6 +173,25 @@ void checkColissions()
     }
     
 }
+
+void generateNewObjects()
+{
+    // generating coins
+    // int 
+
+    // generating firebeams
+    if(!firebeam1.time)
+    {
+        int r = rand()%10000;
+        if(r < 20){
+            firebeam1.time = firebeam2.time = 1;
+            float y = (rand()%2) + 1.0f;
+            firebeam1.position.y = screen_center_y + 2 - y;
+            firebeam2.position.y = screen_center_y + 8 - y;
+        }
+    }
+}
+
 int main(int argc, char **argv) {
     srand(time(0));
     
@@ -191,6 +205,7 @@ int main(int argc, char **argv) {
         if (t60.processTick()) {
             // 60 fps
             // OpenGL Draw commands
+            generateNewObjects();
             draw();
             checkColissions();
             
@@ -222,5 +237,4 @@ void reset_screen() {
     float left   = screen_center_x - 8 / screen_zoom;
     float right  = screen_center_x + 8 / screen_zoom;
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);
-    std::cout << top << " " << bottom << " " << left << " " << right << std::endl;    
 }

@@ -9,6 +9,7 @@ public:
     Firebeam() {}
     Firebeam(float x, float y, color_t color1, color_t color2);
     glm::vec3 position;
+    int col;
     int time;
     int existTime;
     bounding_box_t box;
