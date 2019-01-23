@@ -27,7 +27,6 @@ CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.cpp
 CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.h
 CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: main.h
 
-CMakeFiles/graphics_asgn1.dir/main.cpp.o: ball.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: coin.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: firebeam.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: fireline.h

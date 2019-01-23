@@ -29,6 +29,6 @@ void Platform::set_position(float x, float y) {
 }
 
 void Platform::tick() {
-    if(this->position.x < (screen_center_x - 8))
+    if(this->position.x < (screen_center_x - 16))
         this->position.x += 40;
 }

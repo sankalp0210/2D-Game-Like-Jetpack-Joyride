@@ -14,7 +14,8 @@ GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
 Player pl;
-Magnet mg;
+// Magnet mg;
+vector<Magnet> mg;
 vector<Coin> coins;
 vector<Platform> plat;
 Firebeam firebeam1, firebeam2;
@@ -49,7 +50,8 @@ void draw() {
     // Compute Camera matrix (view)
     Matrices.view = glm::lookAt( eye, target, up ); // Rotating Camera for 3D
     glm::mat4 VP = Matrices.projection * Matrices.view;
-    mg.draw(VP);
+    for(int i=0;i<mg.size();i++)
+        mg[i].draw(VP);
     // plat.draw(VP);
     for(int i=0;i<plat.size();i++)
         plat[i].draw(VP);
@@ -82,23 +84,42 @@ void tick_input(GLFWwindow *window) {
     if (space){
         pl.speedVer = 0.15;
     }
-    // if (up){
-    //     screen_zoom += 0.1;
-    //     if(screen_zoom > 4)
-    //         screen_zoom = 4;
-    // }
-    // if (down){
-    //     pl.position.y -= 0.1;
-    //     screen_zoom -= 0.1;
-    //     if(screen_zoom < 1)
-    //         screen_zoom = 1;
-    // }
+    if (up){
+        screen_zoom += 0.1;
+        if(screen_zoom > 4)
+            screen_zoom = 4;
+    }
+    if (down){
+        pl.position.y -= 0.1;
+        screen_zoom -= 0.1;
+        if(screen_zoom < 1)
+            screen_zoom = 1;
+    }
 }
 
 // ticking all the elements
 void tick_elements() {
-    // for(int i=0;i<)
-    mg.tick();
+    //magnetic force
+    for(int i=0;i<mg.size();i++)
+    {
+        mg[i].tick();
+        float x = mg[i].position.x - pl.position.x;
+        float y = mg[i].position.y - pl.position.y;
+        float dist = sqrt((x*x)+(y*y));
+        if(dist < 1.5){
+            // pl.position.x = mg[i].position.x;
+            // pl.position.y = mg[i].position.y;
+        }
+        else {
+            double f = 1.5/(dist*dist);
+            double xcomp = f*(x/dist);
+            double ycomp = f*(y/dist);
+            if(xcomp > 0.000001)
+                pl.position.x += xcomp;
+            if(ycomp > 0.000001)
+                pl.position.y += ycomp;
+        }
+    }
     for(int i=0;i<plat.size();i++)
         plat[i].tick();
     for(int i=0;i<spObj.size();i++)
@@ -115,18 +136,18 @@ void initGL(GLFWwindow *window, int width, int height) {
     /* Objects should be created before any other gl function and shaders */
     // Create the models
 
-    pl    = Player(2.0f, 5.0f, COLOR_GREEN, COLOR_RED);
+    pl    = Player(2.0f, 1.0f, COLOR_GREEN, COLOR_RED);
     for(int i=0;i<20;i++)
     {
-        plat.push_back(Platform(0.0f + (float)(i*2), 1.0f, i%2?COLOR_BLACK:COLOR_RED));
+        plat.push_back(Platform(-8.0f + (float)(i*2), -3.0f, i%2?COLOR_BLACK:COLOR_RED));
     }
     for(int i=0;i<10;i++)
-        coins.push_back(Coin(10+i, 10, COLOR_YELLOW));
-    mg = Magnet(25, 10, COLOR_BLUE);
-    fireline.push_back(Fireline(20.0f, 8.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
+        coins.push_back(Coin(10+i, 6, COLOR_YELLOW));
+    mg.push_back(Magnet(28, 6, COLOR_BLUE));
+    fireline.push_back(Fireline(20.0f, 4.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
     float y = 1.0f*(rand()%2) + 1;
-    firebeam1 = Firebeam((screen_center_x),(screen_center_y + 1 - y),COLOR_BLACK, COLOR_RED);
-    firebeam2 = Firebeam((screen_center_x),(screen_center_y + 7 + y),COLOR_BLACK, COLOR_RED);
+    firebeam1 = Firebeam((screen_center_x),(screen_center_y - y),COLOR_BLACK, COLOR_RED);
+    firebeam2 = Firebeam((screen_center_x),(screen_center_y + y),COLOR_BLACK, COLOR_RED);
 
 
     // Create and compile our GLSL program from the shaders
@@ -153,6 +174,14 @@ void initGL(GLFWwindow *window, int width, int height) {
 
 void checkColissions()
 {
+    // Colission with magnet
+    for(int i=0;i<mg.size();i++){
+        if(detect_collision(pl.box, mg[i].box)){
+            pl.position.x = mg[i].position.x;
+            pl.position.y = mg[i].position.y;
+        }
+    }
+
     // Colission with coins
     for(int i=0;i<coins.size();i++){
         if(detect_collision(pl.box, coins[i].box)){
@@ -192,27 +221,35 @@ void checkColissions()
 
 void generateNewObjects()
 {
+    //rand value
+    int randV = 10000;
+    int r = rand()%randV;
+    
+    // generating magnets
+    float pr = 0.0001;
+    if(r > 3*pr*randV and r < 4*pr*randV)
+        mg.push_back(Magnet(screen_center_x + 8, 6.0f,COLOR_BLUE));
+
     // generating coins
     // int 
 
     // generating firebeams
-    int randV = 10000;
-    int r = rand()%randV;
     if(!firebeam1.time)
     {
         float pr = 0.0005;
         if(r < pr*randV){
             firebeam1.time = firebeam2.time = 1;
-            float y = (rand()%2) + 1.0f;
-            firebeam1.position.y = screen_center_y + 2 - y;
-            firebeam2.position.y = screen_center_y + 10 - y;
+            firebeam1.position.x = firebeam2.position.x = screen_center_x - 4;
+            float y = (rand()%3) + 3.0f;
+            firebeam1.position.y = screen_center_y - y;
+            firebeam2.position.y = screen_center_y + y;
         }
     }
 
     // generating special objects
     float prso = 0.0005;
     if(r >= (randV-prso*randV))
-        spObj.push_back(Specialobject(screen_center_x + 20, 10.0f,COLOR_RED));
+        spObj.push_back(Specialobject(screen_center_x + 20, 6.0f,COLOR_RED));
 }
 
 int main(int argc, char **argv) {
@@ -256,9 +293,9 @@ bool detect_collision(bounding_box_t a, bounding_box_t b) {
 }
 
 void reset_screen() {
-    float top    = screen_center_y + 8 / screen_zoom;
-    float bottom = screen_center_y - 8 / screen_zoom;
-    float left   = screen_center_x - 8 / screen_zoom;
-    float right  = screen_center_x + 8 / screen_zoom;
+    float top    =  + 8 / screen_zoom;
+    float bottom =  - 8 / screen_zoom;
+    float left   =  - 8 / screen_zoom;
+    float right  =  + 8 / screen_zoom;
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);
 }

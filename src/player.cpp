@@ -66,18 +66,19 @@ void Player::tick() {
     this->position.x += this->speedHor;
     this->speedVer -= 0.01;
     this->position.y += (float)this->speedVer;
-    if(this->position.y < 4.5f){
-        this->position.y = 4.5f;
+    if(this->position.y < 0.5f){
+        this->position.y = 0.5f;
         this->speedVer = 0.0;
     }
-    if(this->position.y > 15.5f){
-        this->position.y = 15.5f;
+    if(this->position.y > 11.5f){
+        this->position.y = 11.5f;
         this->speedVer = 0.0;
     }
-    if(this->position.x < screen_center_x - 4)
-        this->position.x = screen_center_x - 4;
-    if(this->position.x > screen_center_x + 4)
-        screen_center_x += this->speedHor;
+    screen_center_x = this->position.x;
+    // if(this->position.x < screen_center_x - 4)
+    //     this->position.x = screen_center_x - 4;
+    // if(this->position.x > screen_center_x + 4)
+    //     screen_center_x += this->speedHor;
     this->box.x = this->position.x - 1;
     this->box.y = this->position.y - 2.75;
 }

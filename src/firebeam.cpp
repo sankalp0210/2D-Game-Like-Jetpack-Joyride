@@ -58,7 +58,7 @@ void Firebeam::set_position(float x, float y) {
 }
 
 void Firebeam::tick() {
-    this->position.x = screen_center_x;
+    this->position.x = screen_center_x - 4;
     if(this->time > 0)
         this->time++;
     if(this->time > 2*60)

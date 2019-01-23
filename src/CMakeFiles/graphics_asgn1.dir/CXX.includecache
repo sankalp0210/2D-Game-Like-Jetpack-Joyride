@@ -87,8 +87,6 @@ main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 timer.h
 /home/sankalp/Jetpack-Joyride/src/timer.h
-ball.h
-/home/sankalp/Jetpack-Joyride/src/ball.h
 player.h
 /home/sankalp/Jetpack-Joyride/src/player.h
 platform.h
