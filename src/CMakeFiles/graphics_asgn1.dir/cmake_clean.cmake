@@ -11,6 +11,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/platform.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/player.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
   "graphics_asgn1.pdb"
   "graphics_asgn1"

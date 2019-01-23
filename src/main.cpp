@@ -1,25 +1,25 @@
 #include "main.h"
 #include "timer.h"
-#include "ball.h"
 #include "player.h"
 #include "platform.h"
 #include "coin.h"
 #include "magnet.h"
 #include "fireline.h"
 #include "firebeam.h"
+#include "specialobject.h"
 using namespace std;
 
 // Declarations
 GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
-vector<Fireline> fireline;
-Firebeam firebeam1, firebeam2;
-Ball ball;
 Player pl;
 Magnet mg;
 vector<Coin> coins;
 vector<Platform> plat;
+Firebeam firebeam1, firebeam2;
+vector<Fireline> fireline;
+vector<Specialobject> spObj;
 float screen_zoom = 1, screen_center_x = 4, screen_center_y = 4;
 float camera_rotation_angle = 0;
 int width  = 600;
@@ -53,6 +53,8 @@ void draw() {
     // plat.draw(VP);
     for(int i=0;i<plat.size();i++)
         plat[i].draw(VP);
+    for(int i=0;i<spObj.size();i++)
+        spObj[i].draw(VP);
     for(int i=0;i<coins.size();i++){
         coins[i].draw(VP);
     }
@@ -80,19 +82,17 @@ void tick_input(GLFWwindow *window) {
     if (space){
         pl.speedVer = 0.15;
     }
-    if (up){
-        screen_zoom += 0.1;
-        if(screen_zoom > 4)
-            screen_zoom = 4;
-        reset_screen();
-    }
-    if (down){
-        pl.position.y -= 0.1;
-        screen_zoom -= 0.1;
-        if(screen_zoom < 1)
-            screen_zoom = 1;
-        reset_screen();
-    }
+    // if (up){
+    //     screen_zoom += 0.1;
+    //     if(screen_zoom > 4)
+    //         screen_zoom = 4;
+    // }
+    // if (down){
+    //     pl.position.y -= 0.1;
+    //     screen_zoom -= 0.1;
+    //     if(screen_zoom < 1)
+    //         screen_zoom = 1;
+    // }
 }
 
 // ticking all the elements
@@ -101,6 +101,8 @@ void tick_elements() {
     mg.tick();
     for(int i=0;i<plat.size();i++)
         plat[i].tick();
+    for(int i=0;i<spObj.size();i++)
+        spObj[i].tick();
     pl.tick();
     firebeam1.tick();
     firebeam2.tick();
@@ -113,7 +115,6 @@ void initGL(GLFWwindow *window, int width, int height) {
     /* Objects should be created before any other gl function and shaders */
     // Create the models
 
-    ball  = Ball(7.0f, 7.0f, COLOR_RED, 1);
     pl    = Player(2.0f, 5.0f, COLOR_GREEN, COLOR_RED);
     for(int i=0;i<20;i++)
     {
@@ -122,12 +123,12 @@ void initGL(GLFWwindow *window, int width, int height) {
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 10, COLOR_YELLOW));
     mg = Magnet(25, 10, COLOR_BLUE);
-    fireline.push_back(Fireline(16.0f, 8.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
+    fireline.push_back(Fireline(20.0f, 8.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
     float y = 1.0f*(rand()%2) + 1;
     firebeam1 = Firebeam((screen_center_x),(screen_center_y + 1 - y),COLOR_BLACK, COLOR_RED);
     firebeam2 = Firebeam((screen_center_x),(screen_center_y + 7 + y),COLOR_BLACK, COLOR_RED);
-    
-    
+
+
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
@@ -155,9 +156,15 @@ void checkColissions()
     // Colission with coins
     for(int i=0;i<coins.size();i++){
         if(detect_collision(pl.box, coins[i].box)){
-            Coin *c = &coins[i];
             coins.erase(coins.begin()+i);
-            delete c;
+            break;
+        }
+    }
+
+    // Colission with special objects
+    for(int i=0;i<spObj.size();i++){
+        if(detect_collision(pl.box, spObj[i].box)){
+            spObj.erase(spObj.begin()+i);
             break;
         }
     }
@@ -172,6 +179,15 @@ void checkColissions()
         }
     }
     
+    // Colission with firelines
+    for(int i=0;i<fireline.size();i++){
+        if(detect_collision(pl.box,fireline[i].box))
+        {
+            cout<<"mar gaya : fireline "<<endl;
+            // exit(0);
+        }
+    }
+    
 }
 
 void generateNewObjects()
@@ -180,16 +196,23 @@ void generateNewObjects()
     // int 
 
     // generating firebeams
+    int randV = 10000;
+    int r = rand()%randV;
     if(!firebeam1.time)
     {
-        int r = rand()%10000;
-        if(r < 20){
+        float pr = 0.0005;
+        if(r < pr*randV){
             firebeam1.time = firebeam2.time = 1;
             float y = (rand()%2) + 1.0f;
             firebeam1.position.y = screen_center_y + 2 - y;
-            firebeam2.position.y = screen_center_y + 8 - y;
+            firebeam2.position.y = screen_center_y + 10 - y;
         }
     }
+
+    // generating special objects
+    float prso = 0.0005;
+    if(r >= (randV-prso*randV))
+        spObj.push_back(Specialobject(screen_center_x + 20, 10.0f,COLOR_RED));
 }
 
 int main(int argc, char **argv) {
@@ -214,6 +237,7 @@ int main(int argc, char **argv) {
 
             tick_elements();
             tick_input(window);
+            reset_screen();
         }
 
         // Poll for Keyboard and mouse events

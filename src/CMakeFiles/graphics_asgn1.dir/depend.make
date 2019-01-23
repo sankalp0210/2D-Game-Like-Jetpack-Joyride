@@ -36,6 +36,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: platform.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: player.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: specialobject.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: timer.h
 
 CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o: main.h
@@ -51,6 +52,10 @@ CMakeFiles/graphics_asgn1.dir/platform.cpp.o: platform.h
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: player.cpp
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: player.h
+
+CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: main.h
+CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: specialobject.cpp
+CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: specialobject.h
 
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.cpp
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.h

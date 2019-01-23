@@ -101,6 +101,8 @@ fireline.h
 /home/sankalp/Jetpack-Joyride/src/fireline.h
 firebeam.h
 /home/sankalp/Jetpack-Joyride/src/firebeam.h
+specialobject.h
+/home/sankalp/Jetpack-Joyride/src/specialobject.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream
@@ -183,6 +185,16 @@ main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
 /home/sankalp/Jetpack-Joyride/src/player.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/specialobject.cpp
+specialobject.h
+/home/sankalp/Jetpack-Joyride/src/specialobject.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/specialobject.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 

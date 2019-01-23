@@ -447,6 +447,33 @@ player.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/player.cpp.s
 .PHONY : player.cpp.s
 
+specialobject.o: specialobject.cpp.o
+
+.PHONY : specialobject.o
+
+# target to build an object file
+specialobject.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o
+.PHONY : specialobject.cpp.o
+
+specialobject.i: specialobject.cpp.i
+
+.PHONY : specialobject.i
+
+# target to preprocess a source file
+specialobject.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/specialobject.cpp.i
+.PHONY : specialobject.cpp.i
+
+specialobject.s: specialobject.cpp.s
+
+.PHONY : specialobject.s
+
+# target to generate assembly for a file
+specialobject.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/specialobject.cpp.s
+.PHONY : specialobject.cpp.s
+
 timer.o: timer.cpp.o
 
 .PHONY : timer.o
@@ -519,6 +546,9 @@ help:
 	@echo "... player.o"
 	@echo "... player.i"
 	@echo "... player.s"
+	@echo "... specialobject.o"
+	@echo "... specialobject.i"
+	@echo "... specialobject.s"
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"
