@@ -1,14 +1,15 @@
 #include "main.h"
 
-#ifndef MAGNET_H
-#define MAGNET_H
+#ifndef BOOMERANG_H
+#define BOOMERANG_H
 
 
-class Magnet {
+class Boomerang {
 public:
-    Magnet() {}
-    Magnet(float x, float y, color_t color1);
+    Boomerang() {}
+    Boomerang(float x, float y, color_t color1);
     glm::vec3 position;
+    float r, a, b, centreX, centreY, angle;
     bounding_box_t box;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
@@ -17,4 +18,4 @@ private:
     VAO *object;
 };
 
-#endif // Magnet_H
+#endif // Boomerang_H

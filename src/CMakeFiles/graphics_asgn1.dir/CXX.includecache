@@ -16,6 +16,16 @@ main.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
+/home/sankalp/Jetpack-Joyride/src/boomerang.cpp
+boomerang.h
+/home/sankalp/Jetpack-Joyride/src/boomerang.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/boomerang.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
 /home/sankalp/Jetpack-Joyride/src/coin.cpp
 coin.h
 /home/sankalp/Jetpack-Joyride/src/coin.h
@@ -101,6 +111,8 @@ firebeam.h
 /home/sankalp/Jetpack-Joyride/src/firebeam.h
 specialobject.h
 /home/sankalp/Jetpack-Joyride/src/specialobject.h
+boomerang.h
+/home/sankalp/Jetpack-Joyride/src/boomerang.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream

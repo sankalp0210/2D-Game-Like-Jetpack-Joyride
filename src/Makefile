@@ -150,6 +150,33 @@ ball.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ball.cpp.s
 .PHONY : ball.cpp.s
 
+boomerang.o: boomerang.cpp.o
+
+.PHONY : boomerang.o
+
+# target to build an object file
+boomerang.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/boomerang.cpp.o
+.PHONY : boomerang.cpp.o
+
+boomerang.i: boomerang.cpp.i
+
+.PHONY : boomerang.i
+
+# target to preprocess a source file
+boomerang.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/boomerang.cpp.i
+.PHONY : boomerang.cpp.i
+
+boomerang.s: boomerang.cpp.s
+
+.PHONY : boomerang.s
+
+# target to generate assembly for a file
+boomerang.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/boomerang.cpp.s
+.PHONY : boomerang.cpp.s
+
 coin.o: coin.cpp.o
 
 .PHONY : coin.o
@@ -513,6 +540,9 @@ help:
 	@echo "... ball.o"
 	@echo "... ball.i"
 	@echo "... ball.s"
+	@echo "... boomerang.o"
+	@echo "... boomerang.i"
+	@echo "... boomerang.s"
 	@echo "... coin.o"
 	@echo "... coin.i"
 	@echo "... coin.s"

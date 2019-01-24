@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sankalp/Jetpack-Joyride/src/ball.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/ball.cpp.o"
+  "/home/sankalp/Jetpack-Joyride/src/boomerang.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/boomerang.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/coin.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/coin.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/color.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/color.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/firebeam.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/firebeam.cpp.o"

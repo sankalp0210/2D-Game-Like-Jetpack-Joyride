@@ -11,9 +11,6 @@ public:
     glm::vec3 position;
     float r;
     bounding_box_t box;
-    bool operator<(const Specialobject& a){
-        return this->position.x < a.position.x;
-    };
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
     void tick();

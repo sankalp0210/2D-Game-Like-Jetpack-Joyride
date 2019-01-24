@@ -7,6 +7,8 @@
 #include "fireline.h"
 #include "firebeam.h"
 #include "specialobject.h"
+#include "boomerang.h"
+
 using namespace std;
 
 // Declarations
@@ -16,6 +18,7 @@ GLFWwindow *window;
 Player pl;
 // Magnet mg;
 vector<Magnet> mg;
+vector<Boomerang> boom;
 vector<Coin> coins;
 vector<Platform> plat;
 Firebeam firebeam1, firebeam2;
@@ -52,6 +55,8 @@ void draw() {
     glm::mat4 VP = Matrices.projection * Matrices.view;
     for(int i=0;i<mg.size();i++)
         mg[i].draw(VP);
+    for(int i=0;i<boom.size();i++)
+        boom[i].draw(VP);
     // plat.draw(VP);
     for(int i=0;i<plat.size();i++)
         plat[i].draw(VP);
@@ -99,6 +104,7 @@ void tick_input(GLFWwindow *window) {
 
 // ticking all the elements
 void tick_elements() {
+    
     //magnetic force
     for(int i=0;i<mg.size();i++)
     {
@@ -106,28 +112,28 @@ void tick_elements() {
         float x = mg[i].position.x - pl.position.x;
         float y = mg[i].position.y - pl.position.y;
         float dist = sqrt((x*x)+(y*y));
-        if(dist < 1.5){
-            // pl.position.x = mg[i].position.x;
-            // pl.position.y = mg[i].position.y;
-        }
-        else {
-            double f = 1.5/(dist*dist);
-            double xcomp = f*(x/dist);
-            double ycomp = f*(y/dist);
-            if(xcomp > 0.000001)
-                pl.position.x += xcomp;
-            if(ycomp > 0.000001)
-                pl.position.y += ycomp;
-        }
+        double f = 1.5/(dist*dist);
+        double xcomp = f*(x/dist);
+        double ycomp = f*(y/dist);
+        if(xcomp > 0.000001)
+            pl.position.x += xcomp;
+        if(ycomp > 0.000001)
+            pl.position.y += ycomp;
     }
+
     for(int i=0;i<plat.size();i++)
         plat[i].tick();
+    
     for(int i=0;i<spObj.size();i++)
         spObj[i].tick();
+    
+    for(int i=0;i<boom.size();i++)
+        boom[i].tick();
+    
     pl.tick();
+    
     firebeam1.tick();
     firebeam2.tick();
-    
 }
 
 /* Initialize the OpenGL rendering properties */
@@ -143,12 +149,12 @@ void initGL(GLFWwindow *window, int width, int height) {
     }
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 6, COLOR_YELLOW));
-    mg.push_back(Magnet(28, 6, COLOR_BLUE));
+    // mg.push_back(Magnet(28, 6, COLOR_BLUE));
     fireline.push_back(Fireline(20.0f, 4.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
     float y = 1.0f*(rand()%2) + 1;
     firebeam1 = Firebeam((screen_center_x),(screen_center_y - y),COLOR_BLACK, COLOR_RED);
     firebeam2 = Firebeam((screen_center_x),(screen_center_y + y),COLOR_BLACK, COLOR_RED);
-
+    boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BLACK));
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
@@ -190,6 +196,13 @@ void checkColissions()
         }
     }
 
+    // Colission with boomerang
+    for(int i=0;i<boom.size();i++){
+        if(detect_collision(pl.box, boom[i].box)){
+            cout<<"btbtbtbtbt"<<endl;
+        }
+    }
+
     // Colission with special objects
     for(int i=0;i<spObj.size();i++){
         if(detect_collision(pl.box, spObj[i].box)){
@@ -226,7 +239,7 @@ void generateNewObjects()
     int r = rand()%randV;
     
     // generating magnets
-    float pr = 0.0001;
+    float pr = 0.0005;
     if(r > 3*pr*randV and r < 4*pr*randV)
         mg.push_back(Magnet(screen_center_x + 8, 6.0f,COLOR_BLUE));
 
@@ -236,7 +249,7 @@ void generateNewObjects()
     // generating firebeams
     if(!firebeam1.time)
     {
-        float pr = 0.0005;
+        pr = 0.0005;
         if(r < pr*randV){
             firebeam1.time = firebeam2.time = 1;
             firebeam1.position.x = firebeam2.position.x = screen_center_x - 4;
@@ -246,9 +259,15 @@ void generateNewObjects()
         }
     }
 
+    // generating boomerang
+    pr = 0.000005;
+    if(r < 10*pr*randV and r > 9*pr*randV){
+        boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BLACK));
+    }
+
     // generating special objects
-    float prso = 0.0005;
-    if(r >= (randV-prso*randV))
+    pr = 0.0005;
+    if(r >= (randV-pr*randV))
         spObj.push_back(Specialobject(screen_center_x + 20, 6.0f,COLOR_RED));
 }
 

@@ -8,8 +8,7 @@ Coin::Coin(float x, float y, color_t color) {
     GLfloat g_vertex_buffer_data[9*n+100];
 	GLfloat deg = 2*3.1415926/((float)n), r = 0.25f;
     float x1 = r, y1 = 0.0f, z = 0.0f;
-	for(int i=0;i<n;i++)
-	{
+	for(int i=0;i<n;i++){
 		GLfloat o = deg*(i+1);
 		g_vertex_buffer_data[9*i + 0] = z;
 		g_vertex_buffer_data[9*i + 1] = z;

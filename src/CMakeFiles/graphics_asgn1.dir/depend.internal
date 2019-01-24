@@ -5,6 +5,10 @@ CMakeFiles/graphics_asgn1.dir/ball.cpp.o
  /home/sankalp/Jetpack-Joyride/src/ball.cpp
  /home/sankalp/Jetpack-Joyride/src/ball.h
  /home/sankalp/Jetpack-Joyride/src/main.h
+CMakeFiles/graphics_asgn1.dir/boomerang.cpp.o
+ /home/sankalp/Jetpack-Joyride/src/boomerang.cpp
+ /home/sankalp/Jetpack-Joyride/src/boomerang.h
+ /home/sankalp/Jetpack-Joyride/src/main.h
 CMakeFiles/graphics_asgn1.dir/coin.cpp.o
  /home/sankalp/Jetpack-Joyride/src/coin.cpp
  /home/sankalp/Jetpack-Joyride/src/coin.h
@@ -28,6 +32,7 @@ CMakeFiles/graphics_asgn1.dir/magnet.cpp.o
  /home/sankalp/Jetpack-Joyride/src/magnet.h
  /home/sankalp/Jetpack-Joyride/src/main.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o
+ /home/sankalp/Jetpack-Joyride/src/boomerang.h
  /home/sankalp/Jetpack-Joyride/src/coin.h
  /home/sankalp/Jetpack-Joyride/src/firebeam.h
  /home/sankalp/Jetpack-Joyride/src/fireline.h
