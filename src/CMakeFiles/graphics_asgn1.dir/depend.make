@@ -5,6 +5,10 @@ CMakeFiles/graphics_asgn1.dir/ball.cpp.o: ball.cpp
 CMakeFiles/graphics_asgn1.dir/ball.cpp.o: ball.h
 CMakeFiles/graphics_asgn1.dir/ball.cpp.o: main.h
 
+CMakeFiles/graphics_asgn1.dir/balloon.cpp.o: balloon.cpp
+CMakeFiles/graphics_asgn1.dir/balloon.cpp.o: balloon.h
+CMakeFiles/graphics_asgn1.dir/balloon.cpp.o: main.h
+
 CMakeFiles/graphics_asgn1.dir/boomerang.cpp.o: boomerang.cpp
 CMakeFiles/graphics_asgn1.dir/boomerang.cpp.o: boomerang.h
 CMakeFiles/graphics_asgn1.dir/boomerang.cpp.o: main.h
@@ -31,6 +35,7 @@ CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.cpp
 CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.h
 CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: main.h
 
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: balloon.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: boomerang.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: coin.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: firebeam.h

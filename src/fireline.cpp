@@ -22,12 +22,12 @@ Fireline::Fireline(float x, float y, color_t color1, color_t color2, float angle
          len+1.0f,  0.5f, 0,
     };
     GLfloat g_vertex_buffer_data[20] = {
-         0.5f    ,  0.15f, 0, 
-         len+0.5f,  0.15f, 0,
-         len+0.5f,  0.35f, 0, 
-         0.5f    ,  0.15f, 0, 
-         0.5f    ,  0.35f, 0,
-         len+0.5f,  0.35f, 0,
+         0.5f    ,  0.20f, 0, 
+         len+0.5f,  0.20f, 0,
+         len+0.5f,  0.30f, 0,
+         0.5f    ,  0.20f, 0,
+         0.5f    ,  0.30f, 0,
+         len+0.5f,  0.30f, 0,
     };
     this->object1 = create3DObject(GL_TRIANGLES, 4*3, vertex_buffer_data, color1, GL_FILL);
     this->object2 = create3DObject(GL_TRIANGLES, 2*3, g_vertex_buffer_data, color2, GL_FILL);

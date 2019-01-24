@@ -6,7 +6,8 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
     this->rotation = 0;
     this->speedVer = 0.00;
     this->speedHor = 0.0;
-    
+    this->bal = 1;
+    this->score = 0;
 	GLfloat vertex_buffer_data[100] = {
         -1.0f, -0.5f, 0, 
          1.0f, -2.5f, 0,
@@ -57,9 +58,12 @@ void Player::draw(glm::mat4 VP) {
 void Player::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);
 }
-
+ 
 void Player::tick() {
-
+    if(this->bal > 1)
+        this->bal+=2;
+    if(this->bal == 120)
+        this->bal = 1;
     this->speedHor -= 0.01;
     if((this->speedHor < 0.02 and this->speedHor > 0) or (this->speedHor > -0.02 and this->speedHor < 0))
         this->speedHor = 0;
@@ -75,10 +79,6 @@ void Player::tick() {
         this->speedVer = 0.0;
     }
     screen_center_x = this->position.x;
-    // if(this->position.x < screen_center_x - 4)
-    //     this->position.x = screen_center_x - 4;
-    // if(this->position.x > screen_center_x + 4)
-    //     screen_center_x += this->speedHor;
     this->box.x = this->position.x - 1;
     this->box.y = this->position.y - 2.75;
 }

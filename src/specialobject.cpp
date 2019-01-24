@@ -40,10 +40,6 @@ void Specialobject::draw(glm::mat4 VP) {
     glUniformMatrix4fv(Matrices.MatrixID, 1, GL_FALSE, &MVP[0][0]);
     draw3DObject(this->object);
 }
-// bool Specialobject::operator()(const Specialobject& a, const Specialobject& b)
-// {
-//     return (a.position.x - b.position.x);
-// }
 
 void Specialobject::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);

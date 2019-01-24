@@ -10,6 +10,7 @@ public:
     Boomerang(float x, float y, color_t color1);
     glm::vec3 position;
     float r, a, b, centreX, centreY, angle;
+    float rotation;
     bounding_box_t box;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);

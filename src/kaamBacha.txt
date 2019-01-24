@@ -1,0 +1,13 @@
+Score
+Wall
+Semi Circular Ring
+Viserion
+Proper Zooming
+Jet Propulsion
+Proper Colors
+Special Flying Objects (2)
+Disappear magnets(Single magnet with timer)
+Delete all other Objects
+Move forward only
+Spawn Randomly
+Stage

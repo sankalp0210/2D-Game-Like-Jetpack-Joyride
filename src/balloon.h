@@ -1,16 +1,17 @@
 #include "main.h"
 
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef BALLOON_H
+#define BALLOON_H
 
 
-class Player {
+class Balloon {
 public:
-    Player() {}
-    Player(float x, float y, color_t color1,  color_t color2);
+    Balloon() {}
+    Balloon(float x, float y);
     glm::vec3 position;
     float rotation;
-    int dir1, dir2, bal, score;
+    int dir1;
+    int dir2;
     bounding_box_t box;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
@@ -21,4 +22,4 @@ private:
     VAO *object2;
 };
 
-#endif // PLAYER_H
+#endif // Balloon_H

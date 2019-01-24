@@ -150,6 +150,33 @@ ball.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ball.cpp.s
 .PHONY : ball.cpp.s
 
+balloon.o: balloon.cpp.o
+
+.PHONY : balloon.o
+
+# target to build an object file
+balloon.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/balloon.cpp.o
+.PHONY : balloon.cpp.o
+
+balloon.i: balloon.cpp.i
+
+.PHONY : balloon.i
+
+# target to preprocess a source file
+balloon.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/balloon.cpp.i
+.PHONY : balloon.cpp.i
+
+balloon.s: balloon.cpp.s
+
+.PHONY : balloon.s
+
+# target to generate assembly for a file
+balloon.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/balloon.cpp.s
+.PHONY : balloon.cpp.s
+
 boomerang.o: boomerang.cpp.o
 
 .PHONY : boomerang.o
@@ -540,6 +567,9 @@ help:
 	@echo "... ball.o"
 	@echo "... ball.i"
 	@echo "... ball.s"
+	@echo "... balloon.o"
+	@echo "... balloon.i"
+	@echo "... balloon.s"
 	@echo "... boomerang.o"
 	@echo "... boomerang.i"
 	@echo "... boomerang.s"

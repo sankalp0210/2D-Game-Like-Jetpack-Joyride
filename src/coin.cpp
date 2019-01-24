@@ -1,9 +1,9 @@
 #include "coin.h"
 #include "main.h"
 
-Coin::Coin(float x, float y, color_t color) {
+Coin::Coin(float x, float y, color_t color, int score) {
     this->position = glm::vec3(x, y, 0);
-    
+    this->score = score;
     int n = 5000;
     GLfloat g_vertex_buffer_data[9*n+100];
 	GLfloat deg = 2*3.1415926/((float)n), r = 0.25f;
