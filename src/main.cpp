@@ -12,6 +12,8 @@
 #include "wall.h"
 #include "score.h"
 #include "ring.h"
+#include "viserion.h"
+#include "iceball.h"
 
 using namespace std;
 
@@ -24,7 +26,9 @@ bool insideRing;
 Player pl;
 Magnet mg;
 Ring ring;
+Viserion viserion;
 vector<Balloon> balloon;
+vector<Iceball> iceball;
 vector<Boomerang> boom;
 vector<Coin> coins;
 vector<Platform> plat;
@@ -68,11 +72,13 @@ void draw() {
         score[i].draw(VP, (pl.score/x)%10);
         x*=10;
     }
-
     ring.draw(VP);
-    for(int i=0;i<balloon.size();i++){
+    for(int i=0;i<balloon.size();i++)
         balloon[i].draw(VP);
-    }
+
+    for(int i=0;i<iceball.size();i++)
+        iceball[i].draw(VP);
+
     for(int i=0;i<boom.size();i++)
         boom[i].draw(VP);
 
@@ -86,6 +92,7 @@ void draw() {
         coins[i].draw(VP);
     }
     pl.draw(VP);
+    viserion.draw(VP);
     for(int i=0;i<fireline.size();i++){
         fireline[i].draw(VP);
     }
@@ -161,6 +168,9 @@ void tick_elements() {
     for(int i=0;i<balloon.size();i++)
         balloon[i].tick();
 
+    for(int i=0;i<iceball.size();i++)
+        iceball[i].tick();
+
     for(int i=0;i<4;i++) {
         score[i].position.x = screen_center_x - 3.3 / screen_zoom - 0.7*i;
         if(screen_zoom > 1.2f)
@@ -171,6 +181,7 @@ void tick_elements() {
         
     // player
     pl.tick();
+    viserion.tick();
     
     firebeam1.tick();
     firebeam2.tick();
@@ -185,6 +196,10 @@ void initGL(GLFWwindow *window, int width, int height) {
     // creating the player
     insideRing = false;
     pl    = Player(2.0f, 1.0f, COLOR_GREEN, COLOR_RED);
+    
+    // Initialising the dragon
+    viserion = Viserion(100.0f, 1.0f,COLOR_RED, COLOR_GREEN);
+    
     // creating platform
     for(int i=0;i<20;i++)
         plat.push_back(Platform(-8.0f + (float)(i*2), -4.0f, i%2?COLOR_BLACK:COLOR_RED));
@@ -194,7 +209,7 @@ void initGL(GLFWwindow *window, int width, int height) {
         wall.push_back(Wall(-8.0f + (float)(i*2), 13.5f, i%2?COLOR_BLACK:COLOR_RED));
     
     // creating semi circular ring
-    ring = Ring(screen_center_x, screen_center_y - 3.5, COLOR_SCORE);
+    ring = Ring(screen_center_x + 40, screen_center_y - 3.5, COLOR_SCORE);
 
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 5, COLOR_YELLOW, 10));
@@ -236,8 +251,22 @@ void initGL(GLFWwindow *window, int width, int height) {
 
 void checkColissions()
 {
-    //Colission of player with ring
-    
+    // Colission of player with ice balls
+    for(int i=0;i<iceball.size();i++){
+        if(detect_collision(pl.box, iceball[i].box)){
+            iceball.erase(iceball.begin()+i);
+            cout<<"ice ball se mar gaya"<<endl;
+            // decrease life
+            break;
+        }
+    }
+    // Colission of player with dragon
+    if(detect_collision(pl.box, viserion.box)) {
+        cout<<"dragon ne chod diya"<<endl;
+        // decrease life
+    }
+
+    // Colission of player with ring   
     if(detect_collision(pl.box, ring.box) && !insideRing) {
         pl.position.x = ring.box.x + 1.0f;
         pl.position.y = ring.box.y + 1.0f;
@@ -262,10 +291,8 @@ void checkColissions()
     // Colission of player with boomerang
     for(int i=0;i<boom.size();i++){
         if(detect_collision(pl.box, boom[i].box)){
-            pl.score -= 50;
-            if(pl.score < 0)
-                pl.score = 0;
             cout<<"btbtbtbtbt"<<endl;
+            // decrease life
         }
     }
 
@@ -283,6 +310,7 @@ void checkColissions()
         if(detect_collision(pl.box,firebeam1.box) or detect_collision(pl.box,firebeam2.box))
         {
             cout<<"mar gaya : "<<firebeam1.time<<endl;
+            // decrease life
             // exit(0);
         }
     }
@@ -308,12 +336,13 @@ void checkColissions()
         }
     }
     
-    
+
     // Colission of player with firelines
     for(int i=0;i<fireline.size();i++){
         if(detect_collision_fireline(pl.box,fireline[i].box,fireline[i].rotation))
         {
             cout<<"mar gaya : fireline "<<endl;
+            // decrease life
             // exit(0);
         }
     }
@@ -341,7 +370,7 @@ void moveInsideRing()
     float ang = ring.angle*(2*3.1415926/360.0f);
     pl.position.x = ring.centreX + ring.r1*cos(ang);
     pl.position.y = ring.centreY + ring.r2*sin(ang);
-    ring.angle --;
+    ring.angle -= 0.5f;
     if(ring.angle < -6)
         insideRing = false;
 }
@@ -357,6 +386,12 @@ void deleteObjects()
     for(int i=0;i<balloon.size();i++){
         if(balloon[i].position.y < -3)
             balloon.erase(balloon.begin() + i);
+    }
+
+    // deleting iceballs
+    for(int i=0;i<iceball.size();i++){
+        if(iceball[i].position.y < -3)
+            iceball.erase(iceball.begin() + i);
     }
 
     // deleting coins
@@ -392,6 +427,14 @@ void generateNewObjects()
     int r = rand()%randV;
     float pr;
     
+    // generating dragon
+
+    // generating ice balls
+    if(viserion.bal==1) {
+        viserion.bal = 2;
+        iceball.push_back(Iceball(viserion.position.x, viserion.position.y));
+    }
+
     // generating semi-circular ring (Tunnel)
     // if()
 

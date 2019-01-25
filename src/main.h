@@ -87,5 +87,6 @@ extern const color_t COLOR_BLUE;
 extern const color_t COLOR_BACKGROUND;
 extern const color_t COLOR_BALLOON;
 extern const color_t COLOR_SCORE;
+extern const color_t COLOR_ICEBALL;
 
 #endif

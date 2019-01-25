@@ -22,7 +22,7 @@ Ring::Ring(float x, float y, color_t color) {
     this->object1 = create3DObject(GL_TRIANGLES, n/2*3, g_vertex_buffer_data, color, GL_FILL);
     this->r1 = r1 - 1.0f;
     this->r2 = r2 - 0.5f;
-    r1 -= 2.5f;
+    r1 -= 2.75f;
     r2 -= 3.5f; 
     x1 = r1, y1 = 0.0f, z = 0.0f;
     for(int i=0;i<n/2;i++) {
@@ -40,7 +40,7 @@ Ring::Ring(float x, float y, color_t color) {
     this->object2 = create3DObject(GL_TRIANGLES, n/2*3, g_vertex_buffer_data, COLOR_BACKGROUND, GL_FILL);
     this->centreX = x;
     this->centreY = y;
-    this->angle = 180;
+    this->angle = 180.0f;
     this->box.height = 0.1f;
     this->box.width  = 1.6f;
     this->box.y = y;

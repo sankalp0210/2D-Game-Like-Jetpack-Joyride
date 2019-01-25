@@ -28,6 +28,10 @@ CMakeFiles/graphics_asgn1.dir/fireline.cpp.o
  /home/sankalp/Jetpack-Joyride/src/fireline.cpp
  /home/sankalp/Jetpack-Joyride/src/fireline.h
  /home/sankalp/Jetpack-Joyride/src/main.h
+CMakeFiles/graphics_asgn1.dir/iceball.cpp.o
+ /home/sankalp/Jetpack-Joyride/src/iceball.cpp
+ /home/sankalp/Jetpack-Joyride/src/iceball.h
+ /home/sankalp/Jetpack-Joyride/src/main.h
 CMakeFiles/graphics_asgn1.dir/input.cpp.o
  /home/sankalp/Jetpack-Joyride/src/input.cpp
  /home/sankalp/Jetpack-Joyride/src/main.h
@@ -41,6 +45,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o
  /home/sankalp/Jetpack-Joyride/src/coin.h
  /home/sankalp/Jetpack-Joyride/src/firebeam.h
  /home/sankalp/Jetpack-Joyride/src/fireline.h
+ /home/sankalp/Jetpack-Joyride/src/iceball.h
  /home/sankalp/Jetpack-Joyride/src/magnet.h
  /home/sankalp/Jetpack-Joyride/src/main.cpp
  /home/sankalp/Jetpack-Joyride/src/main.h
@@ -50,6 +55,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o
  /home/sankalp/Jetpack-Joyride/src/score.h
  /home/sankalp/Jetpack-Joyride/src/specialobject.h
  /home/sankalp/Jetpack-Joyride/src/timer.h
+ /home/sankalp/Jetpack-Joyride/src/viserion.h
  /home/sankalp/Jetpack-Joyride/src/wall.h
 CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o
  /home/sankalp/Jetpack-Joyride/src/main.h
@@ -80,6 +86,10 @@ CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o
  /home/sankalp/Jetpack-Joyride/src/timer.cpp
  /home/sankalp/Jetpack-Joyride/src/timer.h
+CMakeFiles/graphics_asgn1.dir/viserion.cpp.o
+ /home/sankalp/Jetpack-Joyride/src/main.h
+ /home/sankalp/Jetpack-Joyride/src/viserion.cpp
+ /home/sankalp/Jetpack-Joyride/src/viserion.h
 CMakeFiles/graphics_asgn1.dir/wall.cpp.o
  /home/sankalp/Jetpack-Joyride/src/main.h
  /home/sankalp/Jetpack-Joyride/src/wall.cpp

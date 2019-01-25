@@ -90,7 +90,6 @@ Score::Score(float x, float y) {
 }
 
 void Score::draw(glm::mat4 VP, int num) {
-    // std::cout<<num<<std::endl;
     Matrices.model = glm::mat4(0.5f);
     glm::mat4 translate = glm::translate (this->position);    // glTranslatef
     glm::mat4 rotate    = glm::rotate((float) (this->rotation * M_PI / 180.0f), glm::vec3(0, 0, 1));

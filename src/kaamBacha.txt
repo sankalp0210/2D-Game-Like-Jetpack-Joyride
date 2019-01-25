@@ -1,6 +1,6 @@
 Shield
 Viserion
-Jet Propulsion
+Jet Propulsion(Jetpack and legs of player)
 Proper Colors
 Special Flying Objects (2)
 Spawn Randomly

@@ -28,6 +28,10 @@ CMakeFiles/graphics_asgn1.dir/fireline.cpp.o: fireline.cpp
 CMakeFiles/graphics_asgn1.dir/fireline.cpp.o: fireline.h
 CMakeFiles/graphics_asgn1.dir/fireline.cpp.o: main.h
 
+CMakeFiles/graphics_asgn1.dir/iceball.cpp.o: iceball.cpp
+CMakeFiles/graphics_asgn1.dir/iceball.cpp.o: iceball.h
+CMakeFiles/graphics_asgn1.dir/iceball.cpp.o: main.h
+
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: input.cpp
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: main.h
 
@@ -40,6 +44,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o: boomerang.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: coin.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: firebeam.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: fireline.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: iceball.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: magnet.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.h
@@ -49,6 +54,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o: ring.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: score.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: specialobject.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: timer.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: viserion.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: wall.h
 
 CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o: main.h
@@ -79,6 +85,10 @@ CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: specialobject.h
 
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.cpp
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.h
+
+CMakeFiles/graphics_asgn1.dir/viserion.cpp.o: main.h
+CMakeFiles/graphics_asgn1.dir/viserion.cpp.o: viserion.cpp
+CMakeFiles/graphics_asgn1.dir/viserion.cpp.o: viserion.h
 
 CMakeFiles/graphics_asgn1.dir/wall.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/wall.cpp.o: wall.cpp

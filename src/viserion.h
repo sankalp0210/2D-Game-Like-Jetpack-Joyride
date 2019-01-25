@@ -1,24 +1,23 @@
 #include "main.h"
 
-#ifndef RING_H
-#define RING_H
+#ifndef VISERION_H
+#define VISERION_H
 
 
-class Ring {
+class Viserion {
 public:
-    Ring() {}
-    Ring(float x, float y, color_t color);
+    Viserion() {}
+    Viserion(float x, float y, color_t color1,  color_t color2);
     glm::vec3 position;
+    int bal, score;
     bounding_box_t box;
-    float r1, r2;
-    float angle;
-    float centreX, centreY;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
     void tick();
+    double speedVer, speedHor;
 private:
     VAO *object1;
     VAO *object2;
 };
 
-#endif // Ring_H
+#endif // Viserion_H

@@ -312,6 +312,33 @@ fireline.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/fireline.cpp.s
 .PHONY : fireline.cpp.s
 
+iceball.o: iceball.cpp.o
+
+.PHONY : iceball.o
+
+# target to build an object file
+iceball.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/iceball.cpp.o
+.PHONY : iceball.cpp.o
+
+iceball.i: iceball.cpp.i
+
+.PHONY : iceball.i
+
+# target to preprocess a source file
+iceball.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/iceball.cpp.i
+.PHONY : iceball.cpp.i
+
+iceball.s: iceball.cpp.s
+
+.PHONY : iceball.s
+
+# target to generate assembly for a file
+iceball.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/iceball.cpp.s
+.PHONY : iceball.cpp.s
+
 input.o: input.cpp.o
 
 .PHONY : input.o
@@ -609,6 +636,33 @@ timer.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/timer.cpp.s
 .PHONY : timer.cpp.s
 
+viserion.o: viserion.cpp.o
+
+.PHONY : viserion.o
+
+# target to build an object file
+viserion.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/viserion.cpp.o
+.PHONY : viserion.cpp.o
+
+viserion.i: viserion.cpp.i
+
+.PHONY : viserion.i
+
+# target to preprocess a source file
+viserion.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/viserion.cpp.i
+.PHONY : viserion.cpp.i
+
+viserion.s: viserion.cpp.s
+
+.PHONY : viserion.s
+
+# target to generate assembly for a file
+viserion.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/viserion.cpp.s
+.PHONY : viserion.cpp.s
+
 wall.o: wall.cpp.o
 
 .PHONY : wall.o
@@ -666,6 +720,9 @@ help:
 	@echo "... fireline.o"
 	@echo "... fireline.i"
 	@echo "... fireline.s"
+	@echo "... iceball.o"
+	@echo "... iceball.i"
+	@echo "... iceball.s"
 	@echo "... input.o"
 	@echo "... input.i"
 	@echo "... input.s"
@@ -699,6 +756,9 @@ help:
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"
+	@echo "... viserion.o"
+	@echo "... viserion.i"
+	@echo "... viserion.s"
 	@echo "... wall.o"
 	@echo "... wall.i"
 	@echo "... wall.s"
