@@ -56,7 +56,7 @@ void Balloon::set_position(float x, float y) {
 }
 
 void Balloon::tick() {
-    if(this->position.y > 12.0f)
+    if(this->position.y > 13.0f)
         this->speedVer = 0;
     this->position.x += this->speedHor;
     this->speedVer -= 0.005;

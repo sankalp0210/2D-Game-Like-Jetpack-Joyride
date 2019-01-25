@@ -45,6 +45,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: platform.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: player.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: ring.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: score.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: specialobject.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: timer.h
@@ -63,6 +64,10 @@ CMakeFiles/graphics_asgn1.dir/platform.cpp.o: platform.h
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: player.cpp
 CMakeFiles/graphics_asgn1.dir/player.cpp.o: player.h
+
+CMakeFiles/graphics_asgn1.dir/ring.cpp.o: main.h
+CMakeFiles/graphics_asgn1.dir/ring.cpp.o: ring.cpp
+CMakeFiles/graphics_asgn1.dir/ring.cpp.o: ring.h
 
 CMakeFiles/graphics_asgn1.dir/score.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/score.cpp.o: score.cpp

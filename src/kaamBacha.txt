@@ -1,7 +1,5 @@
-Semi Circular Ring
 Shield
 Viserion
-Proper Zooming(mouse scroll)
 Jet Propulsion
 Proper Colors
 Special Flying Objects (2)
@@ -9,4 +7,4 @@ Spawn Randomly
 Stage
 Boomerang penalty
 Lives
-Coins deleted
+Move firebeam

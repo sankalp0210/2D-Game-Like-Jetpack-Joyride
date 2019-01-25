@@ -18,6 +18,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/sankalp/Jetpack-Joyride/src/other_handlers.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/other_handlers.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/platform.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/platform.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/player.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/player.cpp.o"
+  "/home/sankalp/Jetpack-Joyride/src/ring.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/ring.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/score.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/score.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/specialobject.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o"
   "/home/sankalp/Jetpack-Joyride/src/timer.cpp" "/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir/timer.cpp.o"

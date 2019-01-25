@@ -501,6 +501,33 @@ player.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/player.cpp.s
 .PHONY : player.cpp.s
 
+ring.o: ring.cpp.o
+
+.PHONY : ring.o
+
+# target to build an object file
+ring.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ring.cpp.o
+.PHONY : ring.cpp.o
+
+ring.i: ring.cpp.i
+
+.PHONY : ring.i
+
+# target to preprocess a source file
+ring.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ring.cpp.i
+.PHONY : ring.cpp.i
+
+ring.s: ring.cpp.s
+
+.PHONY : ring.s
+
+# target to generate assembly for a file
+ring.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ring.cpp.s
+.PHONY : ring.cpp.s
+
 score.o: score.cpp.o
 
 .PHONY : score.o
@@ -660,6 +687,9 @@ help:
 	@echo "... player.o"
 	@echo "... player.i"
 	@echo "... player.s"
+	@echo "... ring.o"
+	@echo "... ring.i"
+	@echo "... ring.s"
 	@echo "... score.o"
 	@echo "... score.i"
 	@echo "... score.s"

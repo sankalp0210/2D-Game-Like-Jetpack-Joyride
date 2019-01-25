@@ -129,6 +129,8 @@ wall.h
 /home/sankalp/Jetpack-Joyride/src/wall.h
 score.h
 /home/sankalp/Jetpack-Joyride/src/score.h
+ring.h
+/home/sankalp/Jetpack-Joyride/src/ring.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream
@@ -211,6 +213,16 @@ main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
 /home/sankalp/Jetpack-Joyride/src/player.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/ring.cpp
+ring.h
+/home/sankalp/Jetpack-Joyride/src/ring.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/ring.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 

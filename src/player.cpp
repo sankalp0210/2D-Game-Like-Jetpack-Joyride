@@ -73,12 +73,12 @@ void Player::tick() {
     this->position.x += this->speedHor;
     this->speedVer -= 0.01;
     this->position.y += (float)this->speedVer;
-    if(this->position.y < 0.5f){
-        this->position.y = 0.5f;
+    if(this->position.y < -0.5f){
+        this->position.y = -0.5f;
         this->speedVer = 0.0;
     }
-    if(this->position.y > 11.5f){
-        this->position.y = 11.5f;
+    if(this->position.y > 12.5f){
+        this->position.y = 12.5f;
         this->speedVer = 0.0;
     }
     screen_center_x = this->position.x;

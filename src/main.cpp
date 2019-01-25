@@ -11,6 +11,8 @@
 #include "balloon.h"
 #include "wall.h"
 #include "score.h"
+#include "ring.h"
+
 using namespace std;
 
 // Declarations
@@ -18,8 +20,10 @@ GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
 Score score[4];
+bool insideRing;
 Player pl;
 Magnet mg;
+Ring ring;
 vector<Balloon> balloon;
 vector<Boomerang> boom;
 vector<Coin> coins;
@@ -59,14 +63,16 @@ void draw() {
     glm::mat4 VP = Matrices.projection * Matrices.view;
     mg.draw(VP);
     int x = 1;
-    // cout<<"kyun ho rahi hai bt"<<endl;
     for(int i=0;i<4;i++)
     {
         score[i].draw(VP, (pl.score/x)%10);
         x*=10;
     }
-    // cout<<"bahut bt"<<endl;
 
+    ring.draw(VP);
+    for(int i=0;i<balloon.size();i++){
+        balloon[i].draw(VP);
+    }
     for(int i=0;i<boom.size();i++)
         boom[i].draw(VP);
 
@@ -78,9 +84,6 @@ void draw() {
         spObj[i].draw(VP);
     for(int i=0;i<coins.size();i++){
         coins[i].draw(VP);
-    }
-    for(int i=0;i<balloon.size();i++){
-        balloon[i].draw(VP);
     }
     pl.draw(VP);
     for(int i=0;i<fireline.size();i++){
@@ -107,17 +110,17 @@ void tick_input(GLFWwindow *window) {
     if (space) {
         pl.speedVer = 0.15;
     }
-    if (up) {
-        screen_zoom += 0.1;
-        if(screen_zoom > 4)
-            screen_zoom = 4;
-    }
-    if (down) {
-        pl.position.y -= 0.1;
-        screen_zoom -= 0.1;
-        if(screen_zoom < 0.4)
-            screen_zoom = 0.4;
-    }
+    // if (up) {
+    //     screen_zoom += 0.1;
+    //     if(screen_zoom > 2)
+    //         screen_zoom = 2;
+    // }
+    // if (down) {
+    //     pl.position.y -= 0.1;
+    //     screen_zoom -= 0.1;
+    //     if(screen_zoom < 0.4)
+    //         screen_zoom = 0.4;
+    // }
     if(b and pl.bal==1) {
         pl.bal = 2;
         balloon.push_back(Balloon(pl.position.x, pl.position.y));
@@ -151,15 +154,22 @@ void tick_elements() {
         wall[i].tick();
     for(int i=0;i<spObj.size();i++)
         spObj[i].tick();
-    
+
     for(int i=0;i<boom.size();i++)
         boom[i].tick();
 
     for(int i=0;i<balloon.size();i++)
         balloon[i].tick();
-    for(int i=0;i<4;i++)
-        score[i].tick(i);
-    
+
+    for(int i=0;i<4;i++) {
+        score[i].position.x = screen_center_x - 3.3 / screen_zoom - 0.7*i;
+        if(screen_zoom > 1.2f)
+            score[i].position.y = pl.position.y + 6 / screen_zoom ;
+        else
+            score[i].position.y = screen_center_y + 7 / screen_zoom;
+    }
+        
+    // player
     pl.tick();
     
     firebeam1.tick();
@@ -173,15 +183,19 @@ void initGL(GLFWwindow *window, int width, int height) {
     // Create the models
 
     // creating the player
+    insideRing = false;
     pl    = Player(2.0f, 1.0f, COLOR_GREEN, COLOR_RED);
     // creating platform
     for(int i=0;i<20;i++)
-        plat.push_back(Platform(-8.0f + (float)(i*2), -3.0f, i%2?COLOR_BLACK:COLOR_RED));
+        plat.push_back(Platform(-8.0f + (float)(i*2), -4.0f, i%2?COLOR_BLACK:COLOR_RED));
     
     // creating wall
     for(int i=0;i<20;i++)
-        wall.push_back(Wall(-8.0f + (float)(i*2), 12.5f, i%2?COLOR_BLACK:COLOR_RED));
+        wall.push_back(Wall(-8.0f + (float)(i*2), 13.5f, i%2?COLOR_BLACK:COLOR_RED));
     
+    // creating semi circular ring
+    ring = Ring(screen_center_x, screen_center_y - 3.5, COLOR_SCORE);
+
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 5, COLOR_YELLOW, 10));
     for(int i=0;i<10;i++)
@@ -222,6 +236,14 @@ void initGL(GLFWwindow *window, int width, int height) {
 
 void checkColissions()
 {
+    //Colission of player with ring
+    
+    if(detect_collision(pl.box, ring.box) && !insideRing) {
+        pl.position.x = ring.box.x + 1.0f;
+        pl.position.y = ring.box.y + 1.0f;
+        insideRing = true;
+    }
+
     // Colission of player with magnet
     if(mg.time < 60*mg.existTime and detect_collision(pl.box, mg.box)){
         pl.position.x = mg.position.x;
@@ -308,11 +330,20 @@ void checkColissions()
             }
         }
         if(flag) {
-            cout<<"erase"<<endl;
             fireline.erase(fireline.begin()+i);
             break;
         }
     }
+}
+
+void moveInsideRing()
+{
+    float ang = ring.angle*(2*3.1415926/360.0f);
+    pl.position.x = ring.centreX + ring.r1*cos(ang);
+    pl.position.y = ring.centreY + ring.r2*sin(ang);
+    ring.angle --;
+    if(ring.angle < -6)
+        insideRing = false;
 }
 
 // delete the objects that are far from view
@@ -324,19 +355,15 @@ void deleteObjects()
 
     // deleting balloons
     for(int i=0;i<balloon.size();i++){
-        if(balloon[i].position.y < -2)
+        if(balloon[i].position.y < -3)
             balloon.erase(balloon.begin() + i);
     }
-    for(int i=0;i<coins.size();i++)
-        cout<<coins[i].position.x<<" "<<screen_center_x<<endl;
 
     // deleting coins
-    // for(int i=0;i<coins.size();i++) {
-    //     if(coins[i].position.x < (screen_center_x - 40))
-    //         cout<<coins[i].position.x <<" "<<screen_center_x<<endl; 
-    //         cout<<"ud gaya "<<endl;
-    //         coins.erase(coins.begin() + i);
-    // }
+    for(int i=0;i<coins.size();i++) {
+        if(coins[i].position.x < (screen_center_x - 40))
+            coins.erase(coins.begin() + i);
+    }
 
     // deleting firelines
     for(int i=0;i<fireline.size();i++){
@@ -365,6 +392,9 @@ void generateNewObjects()
     int r = rand()%randV;
     float pr;
     
+    // generating semi-circular ring (Tunnel)
+    // if()
+
     // generating magnets
     if(mg.time > 60*(mg.gapTime + mg.existTime))
         mg.position.x = pl.position.x + 10, mg.time = 1;
@@ -411,17 +441,20 @@ int main(int argc, char **argv) {
         if (t60.processTick()) {
             // 60 fps
             // OpenGL Draw commands
-            generateNewObjects();
-            deleteObjects();
-            draw();
-            checkColissions();
             
+            draw();
+            tick_elements();
             // Swap Frame Buffer in double buffering
             glfwSwapBuffers(window);
-
-            tick_elements();
-            tick_input(window);
-            reset_screen();
+            if(!insideRing){
+                deleteObjects();
+                generateNewObjects();
+                tick_input(window);
+                reset_screen();
+                checkColissions();
+            }
+            else
+                moveInsideRing();         
         }
 
         // Poll for Keyboard and mouse events
@@ -442,7 +475,7 @@ bool detect_collision_fireline(bounding_box_t a, bounding_box_t b, float angle) 
     box.height = 0.5;
     box.width  = 0.5;
     angle *= (2*3.1415926/360.0f);
-    while(box.x < (b.x + b.width*cos(angle))){
+    while(box.x < (b.x + b.width*cos(angle) + 0.5)){
         if(detect_collision(a,box)) {
                 return true;
         }
@@ -452,8 +485,11 @@ bool detect_collision_fireline(bounding_box_t a, bounding_box_t b, float angle) 
     return false;
 }
 void reset_screen() {
-    float top    =  ( + 9) / screen_zoom;
-    float bottom =  ( - 8 ) / screen_zoom;
+    float y = 0.0f;
+    if(screen_zoom > 1.2)
+        y = pl.position.y - 3;
+    float top    =  (y + 10) / screen_zoom;
+    float bottom =  (y - 8) / screen_zoom;
     float left   =   - 8 / screen_zoom;
     float right  =   + 8 / screen_zoom;
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);

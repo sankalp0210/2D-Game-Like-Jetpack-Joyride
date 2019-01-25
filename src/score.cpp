@@ -111,6 +111,4 @@ void Score::set_position(float x, float y) {
 }
 
 void Score::tick(int i) {
-    this->position.x = screen_center_x - 3 - 0.7*i;
-    this->position.y = screen_center_y + 6;
 }
