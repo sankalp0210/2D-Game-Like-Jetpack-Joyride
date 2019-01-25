@@ -7,8 +7,10 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
     this->speedVer = 0.00;
     this->speedHor = 0.0;
     this->bal = 1;
+    this->jet = 1;
     this->score = 0;
-	GLfloat vertex_buffer_data[100] = {
+    this->lives = 5;
+	GLfloat vertex_buffer_data1[100] = {
         -1.0f, -0.5f, 0, 
          1.0f, -2.5f, 0,
          1.0f, -0.5f, 0, 
@@ -16,6 +18,31 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
          1.0f, -2.5f, 0,
         -1.0f, -2.5f, 0,
     };
+    GLfloat vertex_buffer_data2[100] = {
+        -1.7f, -1.0f, 0,
+        -1.1f, -2.0f, 0,
+        -1.1f, -1.0f, 0, 
+        -1.7f, -1.0f, 0, 
+        -1.1f, -2.0f, 0,
+        -1.7f, -2.0f, 0,
+    };
+    GLfloat vertex_buffer_data3[100] = {
+        -0.8f, -3.0f, 0, 
+        -0.4f, -2.5f, 0,
+        -0.4f, -3.0f, 0, 
+        -0.8f, -3.0f, 0, 
+        -0.4f, -2.5f, 0,
+        -0.8f, -2.5f, 0,
+    };
+    GLfloat vertex_buffer_data4[100] = {
+         0.8f, -3.0f, 0, 
+         0.4f, -2.5f, 0,
+         0.4f, -3.0f, 0, 
+         0.8f, -3.0f, 0, 
+         0.4f, -2.5f, 0,
+         0.8f, -2.5f, 0,
+    };
+    
     int n = 500;
     GLfloat g_vertex_buffer_data[9*n+100];
 	GLfloat deg = 2*3.1415926/((float)n), r = 0.75f;
@@ -33,13 +60,16 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
 		g_vertex_buffer_data[9*i + 7] = y1 = (r*sin(o));
 		g_vertex_buffer_data[9*i + 8] = z;
 	}
-    this->box.x = x - 1;
-    this->box.y = y - 2.75;
-    this->box.width = 2;
-    this->box.height = 3;
-
     this->object1 = create3DObject(GL_TRIANGLES, (n-2)*3, g_vertex_buffer_data, color2, GL_FILL);
-    this->object2 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data, color1, GL_FILL);
+    this->object2 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data1, color1, GL_FILL);
+    this->object3 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data2, color2, GL_FILL);
+    this->object4 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data3, color2, GL_FILL);
+    this->object5 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data4, color2, GL_FILL);
+
+    this->box.x      = x - 1.7f;
+    this->box.y      = y - 3.25;
+    this->box.width  = 2.5f;
+    this->box.height = 3.0f;
 }
 
 void Player::draw(glm::mat4 VP) {
@@ -53,6 +83,9 @@ void Player::draw(glm::mat4 VP) {
     glUniformMatrix4fv(Matrices.MatrixID, 1, GL_FALSE, &MVP[0][0]);
     draw3DObject(this->object1);
     draw3DObject(this->object2);
+    draw3DObject(this->object3);
+    draw3DObject(this->object4);
+    draw3DObject(this->object5);
 }
 
 void Player::set_position(float x, float y) {
@@ -62,6 +95,10 @@ void Player::set_position(float x, float y) {
 void Player::tick() {
     if(this->bal > 1)
         this->bal+=2;
+    if(this->jet > 1)
+        this->jet+=2;
+    if(this->jet == 6)
+        this->jet = 1;
     if(this->bal == 120)
         this->bal = 1;
     if(this->speedHor > 0)
@@ -73,8 +110,8 @@ void Player::tick() {
     this->position.x += this->speedHor;
     this->speedVer -= 0.01;
     this->position.y += (float)this->speedVer;
-    if(this->position.y < -0.5f){
-        this->position.y = -0.5f;
+    if(this->position.y < 0.0f){
+        this->position.y = 0.0f;
         this->speedVer = 0.0;
     }
     if(this->position.y > 12.5f){

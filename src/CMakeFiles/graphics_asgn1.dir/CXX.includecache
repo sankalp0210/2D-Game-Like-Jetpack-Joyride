@@ -102,6 +102,16 @@ glm/gtc/matrix_transform.hpp
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
+/home/sankalp/Jetpack-Joyride/src/jetprop.cpp
+jetprop.h
+/home/sankalp/Jetpack-Joyride/src/jetprop.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/jetprop.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
 /home/sankalp/Jetpack-Joyride/src/magnet.cpp
 magnet.h
 /home/sankalp/Jetpack-Joyride/src/magnet.h
@@ -145,6 +155,8 @@ viserion.h
 /home/sankalp/Jetpack-Joyride/src/viserion.h
 iceball.h
 /home/sankalp/Jetpack-Joyride/src/iceball.h
+jetprop.h
+/home/sankalp/Jetpack-Joyride/src/jetprop.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream

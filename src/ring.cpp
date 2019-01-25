@@ -5,7 +5,7 @@ Ring::Ring(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
     int n = 500;
     GLfloat g_vertex_buffer_data[9*n+100];
-	GLfloat deg = 2*3.1415926/((float)n), r1 = 15.5f, r2 = 12.5f;
+	GLfloat deg = 2*3.1415926/((float)n), r1 = 15.0f, r2 = 12.0f;
     float x1 = r1, y1 = 0.0f, z = 0.0f;
 	for(int i=0;i<n/2;i++){
 		GLfloat o = deg*(i+1);

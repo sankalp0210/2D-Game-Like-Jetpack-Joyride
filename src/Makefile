@@ -366,6 +366,33 @@ input.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/input.cpp.s
 .PHONY : input.cpp.s
 
+jetprop.o: jetprop.cpp.o
+
+.PHONY : jetprop.o
+
+# target to build an object file
+jetprop.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/jetprop.cpp.o
+.PHONY : jetprop.cpp.o
+
+jetprop.i: jetprop.cpp.i
+
+.PHONY : jetprop.i
+
+# target to preprocess a source file
+jetprop.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/jetprop.cpp.i
+.PHONY : jetprop.cpp.i
+
+jetprop.s: jetprop.cpp.s
+
+.PHONY : jetprop.s
+
+# target to generate assembly for a file
+jetprop.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/jetprop.cpp.s
+.PHONY : jetprop.cpp.s
+
 magnet.o: magnet.cpp.o
 
 .PHONY : magnet.o
@@ -726,6 +753,9 @@ help:
 	@echo "... input.o"
 	@echo "... input.i"
 	@echo "... input.s"
+	@echo "... jetprop.o"
+	@echo "... jetprop.i"
+	@echo "... jetprop.s"
 	@echo "... magnet.o"
 	@echo "... magnet.i"
 	@echo "... magnet.s"

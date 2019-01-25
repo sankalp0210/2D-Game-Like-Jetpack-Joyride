@@ -35,6 +35,10 @@ CMakeFiles/graphics_asgn1.dir/iceball.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: input.cpp
 CMakeFiles/graphics_asgn1.dir/input.cpp.o: main.h
 
+CMakeFiles/graphics_asgn1.dir/jetprop.cpp.o: jetprop.cpp
+CMakeFiles/graphics_asgn1.dir/jetprop.cpp.o: jetprop.h
+CMakeFiles/graphics_asgn1.dir/jetprop.cpp.o: main.h
+
 CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.cpp
 CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: magnet.h
 CMakeFiles/graphics_asgn1.dir/magnet.cpp.o: main.h
@@ -45,6 +49,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o: coin.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: firebeam.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: fireline.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: iceball.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: jetprop.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: magnet.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.cpp
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: main.h

@@ -10,7 +10,7 @@ public:
     Player(float x, float y, color_t color1,  color_t color2);
     glm::vec3 position;
     float rotation;
-    int dir1, dir2, bal, score;
+    int dir1, dir2, bal, jet, score, lives;
     bounding_box_t box;
     void draw(glm::mat4 VP);
     void set_position(float x, float y);
@@ -19,6 +19,9 @@ public:
 private:
     VAO *object1;
     VAO *object2;
+    VAO *object3;
+    VAO *object4;
+    VAO *object5;
 };
 
 #endif // PLAYER_H

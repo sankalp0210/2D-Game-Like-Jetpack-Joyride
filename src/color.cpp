@@ -9,3 +9,4 @@ const color_t COLOR_BACKGROUND = { 52, 73, 94 };
 const color_t COLOR_BALLOON = { 52, 73, 194 };
 const color_t COLOR_SCORE = { 20, 20, 20};
 const color_t COLOR_ICEBALL = { 52, 40, 244};
+const color_t COLOR_JETPROP = { 230, 230, 74};

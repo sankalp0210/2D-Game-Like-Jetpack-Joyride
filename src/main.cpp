@@ -14,6 +14,7 @@
 #include "ring.h"
 #include "viserion.h"
 #include "iceball.h"
+#include "jetprop.h"
 
 using namespace std;
 
@@ -28,6 +29,7 @@ Magnet mg;
 Ring ring;
 Viserion viserion;
 vector<Balloon> balloon;
+vector<Jetprop> jetprop;
 vector<Iceball> iceball;
 vector<Boomerang> boom;
 vector<Coin> coins;
@@ -76,6 +78,9 @@ void draw() {
     for(int i=0;i<balloon.size();i++)
         balloon[i].draw(VP);
 
+    for(int i=0;i<jetprop.size();i++)
+        jetprop[i].draw(VP);
+
     for(int i=0;i<iceball.size();i++)
         iceball[i].draw(VP);
 
@@ -116,6 +121,9 @@ void tick_input(GLFWwindow *window) {
     }
     if (space) {
         pl.speedVer = 0.15;
+        if(pl.jet == 1){
+            jetprop.push_back(Jetprop(pl.position.x - 1.5f, pl.position.y-2.0f)), pl.jet = 2;
+        }
     }
     // if (up) {
     //     screen_zoom += 0.1;
@@ -167,7 +175,8 @@ void tick_elements() {
 
     for(int i=0;i<balloon.size();i++)
         balloon[i].tick();
-
+    for(int i=0;i<jetprop.size();i++)
+        jetprop[i].tick();
     for(int i=0;i<iceball.size();i++)
         iceball[i].tick();
 
@@ -209,7 +218,7 @@ void initGL(GLFWwindow *window, int width, int height) {
         wall.push_back(Wall(-8.0f + (float)(i*2), 13.5f, i%2?COLOR_BLACK:COLOR_RED));
     
     // creating semi circular ring
-    ring = Ring(screen_center_x + 40, screen_center_y - 3.5, COLOR_SCORE);
+    ring = Ring(screen_center_x + 40, screen_center_y - 3.0, COLOR_SCORE);
 
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 5, COLOR_YELLOW, 10));
@@ -255,15 +264,13 @@ void checkColissions()
     for(int i=0;i<iceball.size();i++){
         if(detect_collision(pl.box, iceball[i].box)){
             iceball.erase(iceball.begin()+i);
-            cout<<"ice ball se mar gaya"<<endl;
-            // decrease life
+            player_killed();
             break;
         }
     }
     // Colission of player with dragon
     if(detect_collision(pl.box, viserion.box)) {
-        cout<<"dragon ne chod diya"<<endl;
-        // decrease life
+        player_killed();
     }
 
     // Colission of player with ring   
@@ -291,8 +298,9 @@ void checkColissions()
     // Colission of player with boomerang
     for(int i=0;i<boom.size();i++){
         if(detect_collision(pl.box, boom[i].box)){
-            cout<<"btbtbtbtbt"<<endl;
-            // decrease life
+            boom.erase(boom.begin() + i);
+            player_killed();
+            break;
         }
     }
 
@@ -309,9 +317,8 @@ void checkColissions()
     {
         if(detect_collision(pl.box,firebeam1.box) or detect_collision(pl.box,firebeam2.box))
         {
-            cout<<"mar gaya : "<<firebeam1.time<<endl;
-            // decrease life
-            // exit(0);
+            firebeam1.time = firebeam1.col = firebeam2.time = firebeam2.col = 0;
+            player_killed();
         }
     }
     
@@ -324,14 +331,12 @@ void checkColissions()
                 balloon.erase(balloon.begin() + i);
                 firebeam1.time = 0;
                 firebeam1.col = 0;
-                cout<<"aag bhuj gayi : "<<firebeam1.time<<endl;
             }
             if(detect_collision(balloon[i].box,firebeam2.box))
             {
                 balloon.erase(balloon.begin() + i);
                 firebeam2.time =  0;
                 firebeam2.col = 0;
-                cout<<"aag bhuj gayi : "<<firebeam2.time<<endl;
             }
         }
     }
@@ -341,9 +346,9 @@ void checkColissions()
     for(int i=0;i<fireline.size();i++){
         if(detect_collision_fireline(pl.box,fireline[i].box,fireline[i].rotation))
         {
-            cout<<"mar gaya : fireline "<<endl;
-            // decrease life
-            // exit(0);
+            fireline.erase(fireline.begin() + i);
+            player_killed();
+            break;
         }
     }
 
@@ -352,7 +357,6 @@ void checkColissions()
         int flag = 0;
         for(int j=0;j<balloon.size();j++){
             if(detect_collision_fireline(balloon[j].box,fireline[i].box,fireline[i].rotation)) {
-                cout<<"aag bhuj gayi "<<endl;
                 balloon.erase(balloon.begin() + j);
                 flag = 1;
                 break;
@@ -371,7 +375,7 @@ void moveInsideRing()
     pl.position.x = ring.centreX + ring.r1*cos(ang);
     pl.position.y = ring.centreY + ring.r2*sin(ang);
     ring.angle -= 0.5f;
-    if(ring.angle < -6)
+    if(ring.angle < -1)
         insideRing = false;
 }
 
@@ -381,6 +385,13 @@ void deleteObjects()
     // no need to delete magnet as only 1 object
     // no need to delete firebeams as they change position with time
     // platform and wall ahead and back as per the movement of player
+
+    // deleting jetprops
+    for(int i=0;i<jetprop.size();i++){
+        if(jetprop[i].position.y < jetprop[i].originY - 2.0f)
+            jetprop.erase(jetprop.begin() + i);
+    }
+
 
     // deleting balloons
     for(int i=0;i<balloon.size();i++){
@@ -536,4 +547,16 @@ void reset_screen() {
     float left   =   - 8 / screen_zoom;
     float right  =   + 8 / screen_zoom;
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);
+}
+
+void player_killed()
+{
+    pl.lives--;
+    cout << endl ;
+    cout << "Lives left :- " << pl.lives << endl;
+    cout << "Final Score :- " << pl.score << endl;
+    if(pl.lives == 0)
+        exit(0);
+    pl.position.x += 3.0f;
+    pl.position.y = 1.0f;
 }

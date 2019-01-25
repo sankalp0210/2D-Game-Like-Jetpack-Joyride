@@ -30,7 +30,7 @@ Iceball::Iceball(float x, float y) {
     this->box.width = 2*r;
     this->box.height = 2*r;
 
-    this->object = create3DObject(GL_TRIANGLES, n*3,g_vertex_buffer_data,COLOR_BALLOON, GL_FILL);
+    this->object = create3DObject(GL_TRIANGLES, n*3,g_vertex_buffer_data,COLOR_ICEBALL, GL_FILL);
 }
 
 void Iceball::draw(glm::mat4 VP) {

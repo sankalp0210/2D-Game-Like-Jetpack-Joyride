@@ -8,6 +8,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/fireline.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/iceball.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/input.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/jetprop.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/magnet.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/main.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/nonedit.cpp.o"

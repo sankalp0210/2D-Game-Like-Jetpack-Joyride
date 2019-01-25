@@ -77,6 +77,7 @@ bool detect_collision_fireline(bounding_box_t a, bounding_box_t b, float angle);
 
 extern float screen_zoom, screen_center_x, screen_center_y;
 void reset_screen();
+void player_killed();
 
 // ---- Colors ----
 extern const color_t COLOR_RED;
@@ -88,5 +89,6 @@ extern const color_t COLOR_BACKGROUND;
 extern const color_t COLOR_BALLOON;
 extern const color_t COLOR_SCORE;
 extern const color_t COLOR_ICEBALL;
+extern const color_t COLOR_JETPROP;
 
 #endif
