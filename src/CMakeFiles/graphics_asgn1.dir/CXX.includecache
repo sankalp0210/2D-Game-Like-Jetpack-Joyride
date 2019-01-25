@@ -125,6 +125,10 @@ boomerang.h
 /home/sankalp/Jetpack-Joyride/src/boomerang.h
 balloon.h
 /home/sankalp/Jetpack-Joyride/src/balloon.h
+wall.h
+/home/sankalp/Jetpack-Joyride/src/wall.h
+score.h
+/home/sankalp/Jetpack-Joyride/src/score.h
 
 /home/sankalp/Jetpack-Joyride/src/main.h
 iostream
@@ -210,6 +214,16 @@ main.h
 main.h
 /home/sankalp/Jetpack-Joyride/src/main.h
 
+/home/sankalp/Jetpack-Joyride/src/score.cpp
+score.h
+/home/sankalp/Jetpack-Joyride/src/score.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/score.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
 /home/sankalp/Jetpack-Joyride/src/specialobject.cpp
 specialobject.h
 /home/sankalp/Jetpack-Joyride/src/specialobject.h
@@ -227,4 +241,14 @@ GLFW/glfw3.h
 -
 
 /home/sankalp/Jetpack-Joyride/src/timer.h
+
+/home/sankalp/Jetpack-Joyride/src/wall.cpp
+wall.h
+/home/sankalp/Jetpack-Joyride/src/wall.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
+
+/home/sankalp/Jetpack-Joyride/src/wall.h
+main.h
+/home/sankalp/Jetpack-Joyride/src/main.h
 

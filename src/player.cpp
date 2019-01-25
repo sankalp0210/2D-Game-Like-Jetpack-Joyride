@@ -64,7 +64,10 @@ void Player::tick() {
         this->bal+=2;
     if(this->bal == 120)
         this->bal = 1;
-    this->speedHor -= 0.01;
+    if(this->speedHor > 0)
+        this->speedHor -= 0.01;
+    else if(this->speedHor < 0)
+        this->speedHor += 0.01;
     if((this->speedHor < 0.02 and this->speedHor > 0) or (this->speedHor > -0.02 and this->speedHor < 0))
         this->speedHor = 0;
     this->position.x += this->speedHor;

@@ -10,6 +10,7 @@
 #include <GLFW/glfw3.h>
 
 #define GLM_FORCE_RADIANS
+#define GLM_ENABLE_EXPERIMENTAL
 #include <glm/glm.hpp>
 #include <glm/gtx/transform.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -85,5 +86,6 @@ extern const color_t COLOR_YELLOW;
 extern const color_t COLOR_BLUE;
 extern const color_t COLOR_BACKGROUND;
 extern const color_t COLOR_BALLOON;
+extern const color_t COLOR_SCORE;
 
 #endif

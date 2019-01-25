@@ -501,6 +501,33 @@ player.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/player.cpp.s
 .PHONY : player.cpp.s
 
+score.o: score.cpp.o
+
+.PHONY : score.o
+
+# target to build an object file
+score.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/score.cpp.o
+.PHONY : score.cpp.o
+
+score.i: score.cpp.i
+
+.PHONY : score.i
+
+# target to preprocess a source file
+score.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/score.cpp.i
+.PHONY : score.cpp.i
+
+score.s: score.cpp.s
+
+.PHONY : score.s
+
+# target to generate assembly for a file
+score.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/score.cpp.s
+.PHONY : score.cpp.s
+
 specialobject.o: specialobject.cpp.o
 
 .PHONY : specialobject.o
@@ -555,6 +582,33 @@ timer.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/timer.cpp.s
 .PHONY : timer.cpp.s
 
+wall.o: wall.cpp.o
+
+.PHONY : wall.o
+
+# target to build an object file
+wall.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/wall.cpp.o
+.PHONY : wall.cpp.o
+
+wall.i: wall.cpp.i
+
+.PHONY : wall.i
+
+# target to preprocess a source file
+wall.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/wall.cpp.i
+.PHONY : wall.cpp.i
+
+wall.s: wall.cpp.s
+
+.PHONY : wall.s
+
+# target to generate assembly for a file
+wall.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/wall.cpp.s
+.PHONY : wall.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -606,12 +660,18 @@ help:
 	@echo "... player.o"
 	@echo "... player.i"
 	@echo "... player.s"
+	@echo "... score.o"
+	@echo "... score.i"
+	@echo "... score.s"
 	@echo "... specialobject.o"
 	@echo "... specialobject.i"
 	@echo "... specialobject.s"
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"
+	@echo "... wall.o"
+	@echo "... wall.i"
+	@echo "... wall.s"
 .PHONY : help
 
 

@@ -9,19 +9,22 @@
 #include "specialobject.h"
 #include "boomerang.h"
 #include "balloon.h"
-
+#include "wall.h"
+#include "score.h"
 using namespace std;
 
 // Declarations
 GLMatrices Matrices;
 GLuint     programID;
 GLFWwindow *window;
+Score score[4];
 Player pl;
 Magnet mg;
 vector<Balloon> balloon;
 vector<Boomerang> boom;
 vector<Coin> coins;
 vector<Platform> plat;
+vector<Wall> wall;
 Firebeam firebeam1, firebeam2;
 vector<Fireline> fireline;
 vector<Specialobject> spObj;
@@ -55,11 +58,22 @@ void draw() {
     Matrices.view = glm::lookAt( eye, target, up ); // Rotating Camera for 3D
     glm::mat4 VP = Matrices.projection * Matrices.view;
     mg.draw(VP);
+    int x = 1;
+    // cout<<"kyun ho rahi hai bt"<<endl;
+    for(int i=0;i<4;i++)
+    {
+        score[i].draw(VP, (pl.score/x)%10);
+        x*=10;
+    }
+    // cout<<"bahut bt"<<endl;
+
     for(int i=0;i<boom.size();i++)
         boom[i].draw(VP);
-    // plat.draw(VP);
+
     for(int i=0;i<plat.size();i++)
         plat[i].draw(VP);
+    for(int i=0;i<wall.size();i++)
+        wall[i].draw(VP);
     for(int i=0;i<spObj.size();i++)
         spObj[i].draw(VP);
     for(int i=0;i<coins.size();i++){
@@ -101,8 +115,8 @@ void tick_input(GLFWwindow *window) {
     if (down) {
         pl.position.y -= 0.1;
         screen_zoom -= 0.1;
-        if(screen_zoom < 1)
-            screen_zoom = 1;
+        if(screen_zoom < 0.4)
+            screen_zoom = 0.4;
     }
     if(b and pl.bal==1) {
         pl.bal = 2;
@@ -128,10 +142,13 @@ void tick_elements() {
         if(ycomp > 0.000001)
             pl.position.y += ycomp;
     }
-    // platform 
+    // Platform 
     for(int i=0;i<plat.size();i++)
         plat[i].tick();
-    
+
+    // Wall
+    for(int i=0;i<wall.size();i++)
+        wall[i].tick();
     for(int i=0;i<spObj.size();i++)
         spObj[i].tick();
     
@@ -140,10 +157,8 @@ void tick_elements() {
 
     for(int i=0;i<balloon.size();i++)
         balloon[i].tick();
-    for(int i=0;i<balloon.size();i++){
-        if(balloon[i].position.y < -2)
-            balloon.erase(balloon.begin() + i);
-    }
+    for(int i=0;i<4;i++)
+        score[i].tick(i);
     
     pl.tick();
     
@@ -163,11 +178,16 @@ void initGL(GLFWwindow *window, int width, int height) {
     for(int i=0;i<20;i++)
         plat.push_back(Platform(-8.0f + (float)(i*2), -3.0f, i%2?COLOR_BLACK:COLOR_RED));
     
+    // creating wall
+    for(int i=0;i<20;i++)
+        wall.push_back(Wall(-8.0f + (float)(i*2), 12.5f, i%2?COLOR_BLACK:COLOR_RED));
+    
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 5, COLOR_YELLOW, 10));
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 6, COLOR_RED, 20));
-    
+    for(int i=0;i<4;i++)
+        score[i] = Score(screen_center_x - 2 - 0.5*i, screen_center_y + 4);
     mg = Magnet(screen_center_x + 20, 6, COLOR_BLUE);
     fireline.push_back(Fireline(20.0f, 4.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
     
@@ -203,7 +223,7 @@ void initGL(GLFWwindow *window, int width, int height) {
 void checkColissions()
 {
     // Colission of player with magnet
-    if(detect_collision(pl.box, mg.box)){
+    if(mg.time < 60*mg.existTime and detect_collision(pl.box, mg.box)){
         pl.position.x = mg.position.x;
         pl.position.y = mg.position.y;
     }
@@ -295,6 +315,49 @@ void checkColissions()
     }
 }
 
+// delete the objects that are far from view
+void deleteObjects()
+{
+    // no need to delete magnet as only 1 object
+    // no need to delete firebeams as they change position with time
+    // platform and wall ahead and back as per the movement of player
+
+    // deleting balloons
+    for(int i=0;i<balloon.size();i++){
+        if(balloon[i].position.y < -2)
+            balloon.erase(balloon.begin() + i);
+    }
+    for(int i=0;i<coins.size();i++)
+        cout<<coins[i].position.x<<" "<<screen_center_x<<endl;
+
+    // deleting coins
+    // for(int i=0;i<coins.size();i++) {
+    //     if(coins[i].position.x < (screen_center_x - 40))
+    //         cout<<coins[i].position.x <<" "<<screen_center_x<<endl; 
+    //         cout<<"ud gaya "<<endl;
+    //         coins.erase(coins.begin() + i);
+    // }
+
+    // deleting firelines
+    for(int i=0;i<fireline.size();i++){
+        if(fireline[i].position.x < (screen_center_x -40))
+            fireline.erase(fireline.begin() + i);
+    }
+
+    // deleting boomerang
+    for(int i=0;i<boom.size();i++){
+        if(boom[i].position.x < (screen_center_x -40))
+            boom.erase(boom.begin() + i);
+    }
+
+    // deleting special objects
+    for(int i=0;i<spObj.size();i++){
+        if(spObj[i].position.x < (screen_center_x -40))
+            spObj.erase(spObj.begin() + i);
+    }
+    
+}
+
 void generateNewObjects()
 {
     //rand value
@@ -304,7 +367,7 @@ void generateNewObjects()
     
     // generating magnets
     if(mg.time > 60*(mg.gapTime + mg.existTime))
-        mg.position.x = screen_center_x + 10, mg.time = 1;
+        mg.position.x = pl.position.x + 10, mg.time = 1;
 
     // generating coins
     // int 
@@ -322,8 +385,10 @@ void generateNewObjects()
         }
     }
 
+    //generating firelines
+
     // generating boomerang
-    pr = 0.000005;
+    pr = 0.0005;
     if(r < 10*pr*randV and r > 9*pr*randV){
         boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BLACK));
     }
@@ -343,11 +408,11 @@ int main(int argc, char **argv) {
     /* Draw in loop */
     while (!glfwWindowShouldClose(window)) {
         // Process timers
-        // reset_screen();
         if (t60.processTick()) {
             // 60 fps
             // OpenGL Draw commands
             generateNewObjects();
+            deleteObjects();
             draw();
             checkColissions();
             
@@ -387,9 +452,9 @@ bool detect_collision_fireline(bounding_box_t a, bounding_box_t b, float angle) 
     return false;
 }
 void reset_screen() {
-    float top    =  + 8 / screen_zoom;
-    float bottom =  - 8 / screen_zoom;
-    float left   =  - 8 / screen_zoom;
-    float right  =  + 8 / screen_zoom;
+    float top    =  ( + 9) / screen_zoom;
+    float bottom =  ( - 8 ) / screen_zoom;
+    float left   =   - 8 / screen_zoom;
+    float right  =   + 8 / screen_zoom;
     Matrices.projection = glm::ortho(left, right, bottom, top, 0.1f, 500.0f);
 }
