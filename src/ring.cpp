@@ -37,7 +37,7 @@ Ring::Ring(float x, float y, color_t color) {
 		g_vertex_buffer_data[9*i + 7] = y1 = (r2*sin(o));
 		g_vertex_buffer_data[9*i + 8] = z;
 	}
-    this->object2 = create3DObject(GL_TRIANGLES, n/2*3, g_vertex_buffer_data, COLOR_BACKGROUND, GL_FILL);
+    this->object2 = create3DObject(GL_TRIANGLES, n/2*3, g_vertex_buffer_data, COLOR_BACKGROUND1, GL_FILL);
     this->centreX = x;
     this->centreY = y;
     this->angle = 180.0f;

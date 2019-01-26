@@ -27,6 +27,7 @@ GLuint     programID;
 GLFWwindow *window;
 Score score[4];
 bool insideRing;
+int level;
 Player pl;
 Magnet mg;
 Ring ring;
@@ -229,6 +230,7 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     // creating the player
     insideRing = false;
+    level = 0;
     pl    = Player(2.0f, 1.0f, COLOR_GREEN, COLOR_RED);
     
     // Initialising the dragon
@@ -265,7 +267,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     reshapeWindow (window, width, height);
 
     // Background color of the scene
-    glClearColor (COLOR_BACKGROUND.r / 256.0, COLOR_BACKGROUND.g / 256.0, COLOR_BACKGROUND.b / 256.0, 1.0f); // R, G, B, A
+    glClearColor (COLOR_BACKGROUND[level].r / 256.0, COLOR_BACKGROUND[level].g / 256.0, COLOR_BACKGROUND[level].b / 256.0, 1.0f); // R, G, B, A
     glClearDepth (1.0f);
 
     glEnable (GL_DEPTH_TEST);
@@ -602,11 +604,17 @@ int main(int argc, char **argv) {
         if (t60.processTick()) {
             // 60 fps
             // OpenGL Draw commands
-            
+            glClearColor (COLOR_BACKGROUND[level].r / 256.0, COLOR_BACKGROUND[level].g / 256.0, COLOR_BACKGROUND[level].b / 256.0, 1.0f);
             draw();
             tick_elements();
             // Swap Frame Buffer in double buffering
             glfwSwapBuffers(window);
+            if(screen_center_x > 200*level){
+                level++;
+                if(level > 3)
+                    level = 3;
+                pl.speed += 0.01;
+            }
             if(!insideRing){
                 deleteObjects();
                 generateNewObjects();

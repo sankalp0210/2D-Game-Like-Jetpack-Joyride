@@ -71,7 +71,6 @@ struct bounding_box_t {
     float width;
     float height;
 };
-
 bool detect_collision(bounding_box_t a, bounding_box_t b);
 bool detect_collision_fireline(bounding_box_t a, bounding_box_t b, float angle);
 
@@ -90,7 +89,8 @@ extern const color_t COLOR_BLACK;
 extern const color_t COLOR_YELLOW;
 extern const color_t COLOR_PURPLE;
 extern const color_t COLOR_BLUE;
-extern const color_t COLOR_BACKGROUND;
+extern const color_t COLOR_BACKGROUND [];
+extern const color_t COLOR_BACKGROUND1;
 extern const color_t COLOR_BOOMERANG;
 extern const color_t COLOR_BALLOON;
 extern const color_t COLOR_SCORE;

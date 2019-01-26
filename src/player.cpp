@@ -105,7 +105,7 @@ Player::Player(float x, float y, color_t color1, color_t color2) {
     this->object4 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data3, color2, GL_FILL);
     this->object5 = create3DObject(GL_TRIANGLES, 2*3, vertex_buffer_data4, color2, GL_FILL);
     this->objectShield1 = create3DObject(GL_TRIANGLES,(2*n/5)*3, g_vertex_buffer_data2, color2, GL_FILL);
-    this->objectShield2 = create3DObject(GL_TRIANGLES,(2*n/5)*3, g_vertex_buffer_data3, COLOR_BACKGROUND, GL_FILL);
+    this->objectShield2 = create3DObject(GL_TRIANGLES,(2*n/5)*3, g_vertex_buffer_data3, COLOR_BACKGROUND1, GL_FILL);
 
     this->box.x      = x - 1.7f;
     this->box.y      = y - 3.25;
