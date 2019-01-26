@@ -123,33 +123,6 @@ graphics_asgn1/fast:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/build
 .PHONY : graphics_asgn1/fast
 
-ball.o: ball.cpp.o
-
-.PHONY : ball.o
-
-# target to build an object file
-ball.cpp.o:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ball.cpp.o
-.PHONY : ball.cpp.o
-
-ball.i: ball.cpp.i
-
-.PHONY : ball.i
-
-# target to preprocess a source file
-ball.cpp.i:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ball.cpp.i
-.PHONY : ball.cpp.i
-
-ball.s: ball.cpp.s
-
-.PHONY : ball.s
-
-# target to generate assembly for a file
-ball.cpp.s:
-	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/ball.cpp.s
-.PHONY : ball.cpp.s
-
 balloon.o: balloon.cpp.o
 
 .PHONY : balloon.o
@@ -807,9 +780,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... graphics_asgn1"
 	@echo "... edit_cache"
-	@echo "... ball.o"
-	@echo "... ball.i"
-	@echo "... ball.s"
 	@echo "... balloon.o"
 	@echo "... balloon.i"
 	@echo "... balloon.s"

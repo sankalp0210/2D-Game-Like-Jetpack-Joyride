@@ -6,16 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/sankalp/courses/Jetpack-Joyride/src/ball.cpp
-ball.h
-/home/sankalp/courses/Jetpack-Joyride/src/ball.h
-main.h
-/home/sankalp/courses/Jetpack-Joyride/src/main.h
-
-/home/sankalp/courses/Jetpack-Joyride/src/ball.h
-main.h
-/home/sankalp/courses/Jetpack-Joyride/src/main.h
-
 /home/sankalp/courses/Jetpack-Joyride/src/balloon.cpp
 balloon.h
 /home/sankalp/courses/Jetpack-Joyride/src/balloon.h

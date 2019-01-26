@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/sankalp/courses/Jetpack-Joyride/src/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sankalp/courses/Jetpack-Joyride/output/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

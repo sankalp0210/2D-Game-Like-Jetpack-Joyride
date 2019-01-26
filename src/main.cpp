@@ -216,6 +216,7 @@ void tick_elements() {
     if(viserion.position.x + 2 > pl.position.x)
         viserion.tick();
     
+    ring.tick();
     firebeam1.tick();
     firebeam2.tick();
 }
@@ -458,8 +459,10 @@ void deleteObjects()
         viserion.position.x += 200.0f;
     
     // moving ring forward
-    if(ring.position.x < screen_center_x - 40)
+    if(ring.position.x < screen_center_x - 40){
         ring.position.x += 200.0f;
+        ring.centreX += 200.0f;
+    }
     
     // deleting jetprops
     for(int i=0;i<jetprop.size();i++){
@@ -561,7 +564,7 @@ void generateNewObjects()
 
     //generating firelines
     if(r < 8*pr*randV and r > 6*pr*randV and fireline.size() < 3){
-        fireline.push_back(Fireline(screen_center_x + 8, screen_center_y-4 + rand()%8,COLOR_BLACK,COLOR_YELLOW, rand()%180));
+        fireline.push_back(Fireline(screen_center_x + 8, screen_center_y-4 + rand()%8,COLOR_BLACK,COLOR_YELLOW, rand()%90));
     }
 
     // generating boomerang

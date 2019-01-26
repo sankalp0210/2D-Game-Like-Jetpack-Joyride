@@ -3,7 +3,7 @@
 
 # Relative path conversion top directories.
 set(CMAKE_RELATIVE_PATH_TOP_SOURCE "/home/sankalp/courses/Jetpack-Joyride")
-set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/sankalp/courses/Jetpack-Joyride/src")
+set(CMAKE_RELATIVE_PATH_TOP_BINARY "/home/sankalp/courses/Jetpack-Joyride/output")
 
 # Force unix paths in dependencies.
 set(CMAKE_FORCE_UNIX_PATHS 1)

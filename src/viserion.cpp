@@ -88,7 +88,7 @@ void Viserion::set_position(float x, float y) {
 void Viserion::tick() {
     if(this->bal > 1)
         this->bal+=2;
-    if(this->bal == 180)
+    if(this->bal == 20)
         this->bal = 1;
     
     // this->position.y += this->speedVer;

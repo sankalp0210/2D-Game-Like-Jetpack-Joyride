@@ -43,8 +43,7 @@ Ring::Ring(float x, float y, color_t color) {
     this->angle = 180.0f;
     this->box.height = 0.1f;
     this->box.width  = 1.6f;
-    this->box.y = y;
-    this->box.x = x - this->r1 + 0.8f;
+    
 }
 
 void Ring::draw(glm::mat4 VP) {
@@ -68,4 +67,6 @@ void Ring::set_position(float x, float y) {
 }
 
 void Ring::tick() {
+    this->box.y = this->centreY;
+    this->box.x = this->centreX - this->r1 + 0.8f;
 }
