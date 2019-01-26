@@ -1,5 +1,4 @@
 Viserion
-Proper Colors
 Spawn Randomly
 Stage
 Move firebeam

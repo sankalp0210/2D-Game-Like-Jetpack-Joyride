@@ -81,14 +81,22 @@ void player_killed();
 
 // ---- Colors ----
 extern const color_t COLOR_RED;
+extern const color_t COLOR_PINK;
+extern const color_t COLOR_GOLD;
+extern const color_t COLOR_SHIELD;
+extern const color_t COLOR_SPEED;
 extern const color_t COLOR_GREEN;
 extern const color_t COLOR_BLACK;
 extern const color_t COLOR_YELLOW;
+extern const color_t COLOR_PURPLE;
 extern const color_t COLOR_BLUE;
 extern const color_t COLOR_BACKGROUND;
+extern const color_t COLOR_BOOMERANG;
 extern const color_t COLOR_BALLOON;
 extern const color_t COLOR_SCORE;
 extern const color_t COLOR_ICEBALL;
 extern const color_t COLOR_JETPROP;
+extern const color_t COLOR_GROUND1;
+extern const color_t COLOR_GROUND2;
 
 #endif

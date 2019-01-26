@@ -18,6 +18,9 @@ public:
 private:
     VAO *object1;
     VAO *object2;
+    VAO *object3;
+    VAO *object4;
+    VAO *object5;
 };
 
 #endif // Viserion_H

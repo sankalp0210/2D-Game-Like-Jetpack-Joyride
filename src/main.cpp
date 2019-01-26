@@ -207,7 +207,14 @@ void tick_elements() {
         
     // player
     pl.tick();
-    viserion.tick();
+
+    // dragon
+    if(viserion.position.y < pl.position.y)
+        viserion.position.y += viserion.speedVer;
+    else if(viserion.position.y > pl.position.y)
+        viserion.position.y -= viserion.speedVer;
+    if(viserion.position.x + 2 > pl.position.x)
+        viserion.tick();
     
     firebeam1.tick();
     firebeam2.tick();
@@ -228,11 +235,11 @@ void initGL(GLFWwindow *window, int width, int height) {
     
     // creating platform
     for(int i=0;i<20;i++)
-        plat.push_back(Platform(-8.0f + (float)(i*2), -4.0f, i%2?COLOR_BLACK:COLOR_RED));
+        plat.push_back(Platform(-8.0f + (float)(i*2), -4.0f, i%2?COLOR_GROUND1:COLOR_GROUND2));
     
     // creating wall
     for(int i=0;i<20;i++)
-        wall.push_back(Wall(-8.0f + (float)(i*2), 13.5f, i%2?COLOR_BLACK:COLOR_RED));
+        wall.push_back(Wall(-8.0f + (float)(i*2), 13.5f, i%2?COLOR_GROUND1:COLOR_GROUND2));
     
     // creating semi circular ring
     ring = Ring(screen_center_x + 40, screen_center_y - 3.0, COLOR_SCORE);
@@ -240,7 +247,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     for(int i=0;i<10;i++)
         coins.push_back(Coin(10+i, 5, COLOR_YELLOW, 10));
     for(int i=0;i<10;i++)
-        coins.push_back(Coin(10+i, 6, COLOR_RED, 20));
+        coins.push_back(Coin(10+i, 6, COLOR_PURPLE, 20));
     for(int i=0;i<4;i++)
         score[i] = Score(screen_center_x - 2 - 0.5*i, screen_center_y + 4);
     mg = Magnet(screen_center_x + 20, 6, COLOR_BLUE);
@@ -251,7 +258,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     firebeam2 = Firebeam(screen_center_x,screen_center_y,COLOR_BLACK, COLOR_RED);
     
     // creating boomerang
-    boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BLACK));
+    boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BOOMERANG));
 
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
@@ -390,7 +397,7 @@ void checkColissions()
             }
         }
     }
-    
+
 
     // Colission of player with firelines
     for(int i=0;i<fireline.size();i++){
@@ -510,7 +517,7 @@ void generateNewObjects()
     // generating dragon
 
     // generating ice balls
-    if(viserion.bal==1) {
+    if(viserion.bal==1 and viserion.position.x + 2 > pl.position.x) {
         viserion.bal = 2;
         iceball.push_back(Iceball(viserion.position.x, viserion.position.y));
     }
@@ -543,28 +550,28 @@ void generateNewObjects()
     // generating boomerang
     pr = 0.0005;
     if(r < 10*pr*randV and r > 9*pr*randV){
-        boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BLACK));
+        boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BOOMERANG));
     }
 
     // generating special objects
     pr = 0.0005;
     if(r < 12*pr*randV and r > 11*pr*randV)
-        spObj.push_back(Specialobject(screen_center_x + 20, 6.0f,COLOR_RED));
+        spObj.push_back(Specialobject(screen_center_x + 20, 6.0f,COLOR_PINK));
     
     // generating special Coins
     pr = 0.0005;
     if(r < 14*pr*randV and r > 13*pr*randV)
-        spCoin.push_back(Specialcoins(screen_center_x + 20, 6.0f,COLOR_YELLOW));
+        spCoin.push_back(Specialcoins(screen_center_x + 20, 6.0f,COLOR_GOLD));
 
     // generating special speedups
     pr = 0.0005;
     if(r < 16*pr*randV and r > 15*pr*randV)
-        speedUp.push_back(Speedup(screen_center_x + 20, 6.0f,COLOR_ICEBALL));
+        speedUp.push_back(Speedup(screen_center_x + 20, 6.0f,COLOR_BLUE));
     
     // generating special Shield
     pr = 0.0005;
     if(r < 18*pr*randV and r > 17*pr*randV)
-        shield.push_back(Shield(screen_center_x + 20, 6.0f,COLOR_GREEN));
+        shield.push_back(Shield(screen_center_x + 20, 6.0f,COLOR_SHIELD));
 
 }
 
@@ -639,7 +646,7 @@ void player_killed()
     pl.lives--;
     cout << endl ;
     cout << "Lives left :- " << pl.lives << endl;
-    cout << "Final Score :- " << pl.score << endl;
+    cout << "Score :- " << pl.score << endl;
     if(pl.lives == 0)
         exit(0);
     pl.position.x += 3.0f;
