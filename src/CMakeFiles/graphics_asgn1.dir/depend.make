@@ -57,8 +57,10 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o: platform.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: player.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: ring.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: score.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: shield.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: specialcoins.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: specialobject.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: speedup.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: timer.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: viserion.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: wall.h
@@ -85,6 +87,10 @@ CMakeFiles/graphics_asgn1.dir/score.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/score.cpp.o: score.cpp
 CMakeFiles/graphics_asgn1.dir/score.cpp.o: score.h
 
+CMakeFiles/graphics_asgn1.dir/shield.cpp.o: main.h
+CMakeFiles/graphics_asgn1.dir/shield.cpp.o: shield.cpp
+CMakeFiles/graphics_asgn1.dir/shield.cpp.o: shield.h
+
 CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o: specialcoins.cpp
 CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o: specialcoins.h
@@ -92,6 +98,10 @@ CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o: specialcoins.h
 CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: specialobject.cpp
 CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: specialobject.h
+
+CMakeFiles/graphics_asgn1.dir/speedup.cpp.o: main.h
+CMakeFiles/graphics_asgn1.dir/speedup.cpp.o: speedup.cpp
+CMakeFiles/graphics_asgn1.dir/speedup.cpp.o: speedup.h
 
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.cpp
 CMakeFiles/graphics_asgn1.dir/timer.cpp.o: timer.h

@@ -8,6 +8,8 @@
 #include "firebeam.h"
 #include "specialobject.h"
 #include "specialcoins.h"
+#include "speedup.h"
+#include "shield.h"
 #include "boomerang.h"
 #include "balloon.h"
 #include "wall.h"
@@ -40,6 +42,8 @@ Firebeam firebeam1, firebeam2;
 vector<Fireline> fireline;
 vector<Specialobject> spObj;
 vector<Specialcoins> spCoin;
+vector<Speedup> speedUp;
+vector<Shield> shield;
 float screen_zoom = 1, screen_center_x = 4, screen_center_y = 4;
 float camera_rotation_angle = 0;
 int width  = 600;
@@ -89,19 +93,23 @@ void draw() {
     for(int i=0;i<boom.size();i++)
         boom[i].draw(VP);
 
-    for(int i=0;i<plat.size();i++)
-        plat[i].draw(VP);
-    for(int i=0;i<wall.size();i++)
-        wall[i].draw(VP);
     for(int i=0;i<spObj.size();i++)
         spObj[i].draw(VP);
     for(int i=0;i<spCoin.size();i++)
         spCoin[i].draw(VP);
+    for(int i=0;i<speedUp.size();i++)
+        speedUp[i].draw(VP);
+    for(int i=0;i<shield.size();i++)
+        shield[i].draw(VP);
     for(int i=0;i<coins.size();i++){
         coins[i].draw(VP);
     }
     pl.draw(VP);
     viserion.draw(VP);
+    for(int i=0;i<plat.size();i++)
+        plat[i].draw(VP);
+    for(int i=0;i<wall.size();i++)
+        wall[i].draw(VP);
     for(int i=0;i<fireline.size();i++){
         fireline[i].draw(VP);
     }
@@ -118,10 +126,10 @@ void tick_input(GLFWwindow *window) {
     int space = glfwGetKey(window, GLFW_KEY_SPACE);
     int b = glfwGetKey(window, GLFW_KEY_B);
     if (left) {
-        pl.speedHor = -0.2;
+        pl.speedHor = -pl.speed;
     }
     if (right) {
-        pl.speedHor = 0.2;
+        pl.speedHor = pl.speed;
     }
     if (space) {
         pl.speedVer = 0.15;
@@ -175,7 +183,10 @@ void tick_elements() {
         spObj[i].tick();
     for(int i=0;i<spCoin.size();i++)
         spCoin[i].tick();
-
+    for(int i=0;i<speedUp.size();i++)
+        speedUp[i].tick();
+    for(int i=0;i<shield.size();i++)
+        shield[i].tick();
     for(int i=0;i<boom.size();i++)
         boom[i].tick();
 
@@ -270,13 +281,17 @@ void checkColissions()
     for(int i=0;i<iceball.size();i++){
         if(detect_collision(pl.box, iceball[i].box)){
             iceball.erase(iceball.begin()+i);
-            player_killed();
+            if(!pl.shield)
+                player_killed();
             break;
         }
     }
     // Colission of player with dragon
     if(detect_collision(pl.box, viserion.box)) {
-        player_killed();
+        if(!pl.shield)
+            player_killed();
+        else
+            viserion.position.x = -100.0f;        
     }
 
     // Colission of player with ring   
@@ -305,7 +320,8 @@ void checkColissions()
     for(int i=0;i<boom.size();i++){
         if(detect_collision(pl.box, boom[i].box)){
             boom.erase(boom.begin() + i);
-            player_killed();
+            if(!pl.shield)
+                player_killed();
             break;
         }
     }
@@ -328,13 +344,31 @@ void checkColissions()
         }
     }
 
+    // Colission of player with special objects (SpeedUp)
+    for(int i=0;i<speedUp.size();i++){
+        if(detect_collision(pl.box, speedUp[i].box)){
+            speedUp.erase(speedUp.begin()+i);
+            pl.speedup = 1;
+            pl.speed += pl.speedInc;
+        }
+    }
+
+    // Colission of player with special objects (Shield)
+    for(int i=0;i<shield.size();i++){
+        if(detect_collision(pl.box, shield[i].box)){
+            shield.erase(shield.begin()+i);
+            pl.shield = 1;
+        }
+    }
+
     // Colission of player with firebeams
     if(firebeam1.col)
     {
         if(detect_collision(pl.box,firebeam1.box) or detect_collision(pl.box,firebeam2.box))
         {
             firebeam1.time = firebeam1.col = firebeam2.time = firebeam2.col = 0;
-            player_killed();
+            if(!pl.shield)
+                player_killed();
         }
     }
     
@@ -363,7 +397,8 @@ void checkColissions()
         if(detect_collision_fireline(pl.box,fireline[i].box,fireline[i].rotation))
         {
             fireline.erase(fireline.begin() + i);
-            player_killed();
+            if(!pl.shield)
+                player_killed();
             break;
         }
     }
@@ -451,6 +486,18 @@ void deleteObjects()
             spCoin.erase(spCoin.begin() + i);
     }
     
+    // deleting special speedups
+    for(int i=0;i<speedUp.size();i++){
+        if(speedUp[i].position.x < (screen_center_x -40))
+            speedUp.erase(speedUp.begin() + i);
+    }
+
+    // deleting special shield
+    for(int i=0;i<shield.size();i++){
+        if(shield[i].position.x < (screen_center_x -40))
+            shield.erase(shield.begin() + i);
+    }
+
 }
 
 void generateNewObjects()
@@ -501,13 +548,24 @@ void generateNewObjects()
 
     // generating special objects
     pr = 0.0005;
-    if(r >= (randV-pr*randV))
+    if(r < 12*pr*randV and r > 11*pr*randV)
         spObj.push_back(Specialobject(screen_center_x + 20, 6.0f,COLOR_RED));
     
     // generating special Coins
     pr = 0.0005;
-    if(r >= (randV-pr*randV))
+    if(r < 14*pr*randV and r > 13*pr*randV)
         spCoin.push_back(Specialcoins(screen_center_x + 20, 6.0f,COLOR_YELLOW));
+
+    // generating special speedups
+    pr = 0.0005;
+    if(r < 16*pr*randV and r > 15*pr*randV)
+        speedUp.push_back(Speedup(screen_center_x + 20, 6.0f,COLOR_ICEBALL));
+    
+    // generating special Shield
+    pr = 0.0005;
+    if(r < 18*pr*randV and r > 17*pr*randV)
+        shield.push_back(Shield(screen_center_x + 20, 6.0f,COLOR_GREEN));
+
 }
 
 int main(int argc, char **argv) {

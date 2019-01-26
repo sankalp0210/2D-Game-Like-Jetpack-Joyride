@@ -1,6 +1,5 @@
 Viserion
 Proper Colors
-Special Flying Objects (SpeedUp and Shield)
 Spawn Randomly
 Stage
 Move firebeam

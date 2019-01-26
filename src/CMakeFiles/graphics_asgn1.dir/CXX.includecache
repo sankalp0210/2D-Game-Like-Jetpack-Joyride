@@ -143,6 +143,10 @@ specialobject.h
 /home/sankalp/courses/Jetpack-Joyride/src/specialobject.h
 specialcoins.h
 /home/sankalp/courses/Jetpack-Joyride/src/specialcoins.h
+speedup.h
+/home/sankalp/courses/Jetpack-Joyride/src/speedup.h
+shield.h
+/home/sankalp/courses/Jetpack-Joyride/src/shield.h
 boomerang.h
 /home/sankalp/courses/Jetpack-Joyride/src/boomerang.h
 balloon.h
@@ -264,6 +268,16 @@ main.h
 main.h
 /home/sankalp/courses/Jetpack-Joyride/src/main.h
 
+/home/sankalp/courses/Jetpack-Joyride/src/shield.cpp
+shield.h
+/home/sankalp/courses/Jetpack-Joyride/src/shield.h
+main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
+
+/home/sankalp/courses/Jetpack-Joyride/src/shield.h
+main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
+
 /home/sankalp/courses/Jetpack-Joyride/src/specialcoins.cpp
 specialcoins.h
 /home/sankalp/courses/Jetpack-Joyride/src/specialcoins.h
@@ -281,6 +295,16 @@ main.h
 /home/sankalp/courses/Jetpack-Joyride/src/main.h
 
 /home/sankalp/courses/Jetpack-Joyride/src/specialobject.h
+main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
+
+/home/sankalp/courses/Jetpack-Joyride/src/speedup.cpp
+speedup.h
+/home/sankalp/courses/Jetpack-Joyride/src/speedup.h
+main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
+
+/home/sankalp/courses/Jetpack-Joyride/src/speedup.h
 main.h
 /home/sankalp/courses/Jetpack-Joyride/src/main.h
 

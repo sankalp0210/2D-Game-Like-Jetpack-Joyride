@@ -609,6 +609,33 @@ score.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/score.cpp.s
 .PHONY : score.cpp.s
 
+shield.o: shield.cpp.o
+
+.PHONY : shield.o
+
+# target to build an object file
+shield.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/shield.cpp.o
+.PHONY : shield.cpp.o
+
+shield.i: shield.cpp.i
+
+.PHONY : shield.i
+
+# target to preprocess a source file
+shield.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/shield.cpp.i
+.PHONY : shield.cpp.i
+
+shield.s: shield.cpp.s
+
+.PHONY : shield.s
+
+# target to generate assembly for a file
+shield.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/shield.cpp.s
+.PHONY : shield.cpp.s
+
 specialcoins.o: specialcoins.cpp.o
 
 .PHONY : specialcoins.o
@@ -662,6 +689,33 @@ specialobject.s: specialobject.cpp.s
 specialobject.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/specialobject.cpp.s
 .PHONY : specialobject.cpp.s
+
+speedup.o: speedup.cpp.o
+
+.PHONY : speedup.o
+
+# target to build an object file
+speedup.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/speedup.cpp.o
+.PHONY : speedup.cpp.o
+
+speedup.i: speedup.cpp.i
+
+.PHONY : speedup.i
+
+# target to preprocess a source file
+speedup.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/speedup.cpp.i
+.PHONY : speedup.cpp.i
+
+speedup.s: speedup.cpp.s
+
+.PHONY : speedup.s
+
+# target to generate assembly for a file
+speedup.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/speedup.cpp.s
+.PHONY : speedup.cpp.s
 
 timer.o: timer.cpp.o
 
@@ -807,12 +861,18 @@ help:
 	@echo "... score.o"
 	@echo "... score.i"
 	@echo "... score.s"
+	@echo "... shield.o"
+	@echo "... shield.i"
+	@echo "... shield.s"
 	@echo "... specialcoins.o"
 	@echo "... specialcoins.i"
 	@echo "... specialcoins.s"
 	@echo "... specialobject.o"
 	@echo "... specialobject.i"
 	@echo "... specialobject.s"
+	@echo "... speedup.o"
+	@echo "... speedup.i"
+	@echo "... speedup.s"
 	@echo "... timer.o"
 	@echo "... timer.i"
 	@echo "... timer.s"
