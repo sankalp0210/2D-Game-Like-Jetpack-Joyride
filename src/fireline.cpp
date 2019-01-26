@@ -55,6 +55,4 @@ void Fireline::set_position(float x, float y) {
 }
 
 void Fireline::tick() {
-    if(this->position.x < (screen_center_x - 8))
-        this->position.x += 40;
 }

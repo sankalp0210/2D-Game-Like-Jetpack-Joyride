@@ -1,4 +1,2 @@
-Viserion
-Spawn Randomly
 Stage
-Move firebeam
+fireline angle

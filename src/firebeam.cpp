@@ -3,8 +3,10 @@
 
 Firebeam::Firebeam(float x, float y, color_t color1, color_t color2) {
     this->position = glm::vec3(x, y, 0);
+    this->originY = y;
     float var = 1.0f;
     float len = 6.0f;
+    this->dir = 1;
     GLfloat vertex_buffer_data[40] = {
          0.0f,  0.0f, 0, 
          1.0f,  0.0f, 0,
@@ -63,6 +65,13 @@ void Firebeam::tick() {
         this->time++;
     if(this->time > 2*60)
         this->col = 1;
+    if(this->time > 3*60)
+        this->position.y += this->dir*0.02f;
+    
+    if(this->position.y > this->originY + 2)
+        this->dir = -1;
+    if(this->position.y < this->originY - 2)
+        this->dir = 1;
     if(this->time > 60*this->existTime){
         this->time = 0;
         this->col = 0;

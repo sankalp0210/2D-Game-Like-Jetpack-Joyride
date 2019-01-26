@@ -5,7 +5,7 @@ Iceball::Iceball(float x, float y) {
     this->position = glm::vec3(x, y, 0);
     this->rotation = 0;
     this->speedVer = 0.2;
-    this->speedHor = -0.1;
+    this->speedHor = -0.05;
 
     int n = 500;
     GLfloat g_vertex_buffer_data[9*n+100];

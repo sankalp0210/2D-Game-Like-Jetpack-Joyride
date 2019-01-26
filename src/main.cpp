@@ -231,7 +231,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     pl    = Player(2.0f, 1.0f, COLOR_GREEN, COLOR_RED);
     
     // Initialising the dragon
-    viserion = Viserion(100.0f, 1.0f,COLOR_RED, COLOR_GREEN);
+    viserion = Viserion(200.0f, 1.0f,COLOR_RED, COLOR_GREEN);
     
     // creating platform
     for(int i=0;i<20;i++)
@@ -242,24 +242,19 @@ void initGL(GLFWwindow *window, int width, int height) {
         wall.push_back(Wall(-8.0f + (float)(i*2), 13.5f, i%2?COLOR_GROUND1:COLOR_GROUND2));
     
     // creating semi circular ring
-    ring = Ring(screen_center_x + 40, screen_center_y - 3.0, COLOR_SCORE);
+    ring = Ring(120, screen_center_y - 3.0, COLOR_SCORE);
 
-    for(int i=0;i<10;i++)
-        coins.push_back(Coin(10+i, 5, COLOR_YELLOW, 10));
-    for(int i=0;i<10;i++)
-        coins.push_back(Coin(10+i, 6, COLOR_PURPLE, 20));
     for(int i=0;i<4;i++)
         score[i] = Score(screen_center_x - 2 - 0.5*i, screen_center_y + 4);
+    
     mg = Magnet(screen_center_x + 20, 6, COLOR_BLUE);
-    fireline.push_back(Fireline(20.0f, 4.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
+    
+    // fireline.push_back(Fireline(20.0f, 4.0f,COLOR_BLACK,COLOR_YELLOW,60.0f));
     
     // initialising firebeam 
     firebeam1 = Firebeam(screen_center_x,screen_center_y,COLOR_BLACK, COLOR_RED);
     firebeam2 = Firebeam(screen_center_x,screen_center_y,COLOR_BLACK, COLOR_RED);
     
-    // creating boomerang
-    boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BOOMERANG));
-
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
@@ -298,7 +293,7 @@ void checkColissions()
         if(!pl.shield)
             player_killed();
         else
-            viserion.position.x = -100.0f;        
+            viserion.position.x += 200.0f;        
     }
 
     // Colission of player with ring   
@@ -385,12 +380,14 @@ void checkColissions()
         for(int i=0;i<balloon.size();i++) {
             if(detect_collision(balloon[i].box,firebeam1.box))
             {
+                pl.score += 100;
                 balloon.erase(balloon.begin() + i);
                 firebeam1.time = 0;
                 firebeam1.col = 0;
             }
             if(detect_collision(balloon[i].box,firebeam2.box))
             {
+                pl.score += 100;
                 balloon.erase(balloon.begin() + i);
                 firebeam2.time =  0;
                 firebeam2.col = 0;
@@ -416,6 +413,7 @@ void checkColissions()
         for(int j=0;j<balloon.size();j++){
             if(detect_collision_fireline(balloon[j].box,fireline[i].box,fireline[i].rotation)) {
                 balloon.erase(balloon.begin() + j);
+                pl.score += 100;
                 flag = 1;
                 break;
             }
@@ -429,27 +427,45 @@ void checkColissions()
 
 void moveInsideRing()
 {
+    int left  = glfwGetKey(window, GLFW_KEY_LEFT);
+    int right = glfwGetKey(window, GLFW_KEY_RIGHT);
+    if(ring.angle > 182){
+        insideRing = false;
+        ring.angle = 180.0f;
+    }
+    if(left)
+        ring.angle += 0.5f;
+    if(right)
+        ring.angle -= 0.5f;
     float ang = ring.angle*(2*3.1415926/360.0f);
     pl.position.x = ring.centreX + ring.r1*cos(ang);
     pl.position.y = ring.centreY + ring.r2*sin(ang);
-    ring.angle -= 0.5f;
-    if(ring.angle < -1)
+    if(ring.angle < -1){
+        ring.angle = 180.0f;
         insideRing = false;
+    }
 }
 
 // delete the objects that are far from view
 void deleteObjects()
 {
-    // no need to delete magnet as only 1 object
-    // no need to delete firebeams as they change position with time
+    // no need to delete magnet and firebeams as they change position with time
     // platform and wall ahead and back as per the movement of player
+    // 
 
+    // moving dragon forward
+    if(viserion.position.x < screen_center_x - 40)
+        viserion.position.x += 200.0f;
+    
+    // moving ring forward
+    if(ring.position.x < screen_center_x - 40)
+        ring.position.x += 200.0f;
+    
     // deleting jetprops
     for(int i=0;i<jetprop.size();i++){
         if(jetprop[i].position.y < jetprop[i].originY - 2.0f)
             jetprop.erase(jetprop.begin() + i);
     }
-
 
     // deleting balloons
     for(int i=0;i<balloon.size();i++){
@@ -512,65 +528,61 @@ void generateNewObjects()
     //rand value
     int randV = 10000;
     int r = rand()%randV;
-    float pr;
+    float pr = 0.0005;
     
-    // generating dragon
-
     // generating ice balls
-    if(viserion.bal==1 and viserion.position.x + 2 > pl.position.x) {
+    if(viserion.bal==1 and viserion.position.x + 2 > pl.position.x and viserion.position.x < pl.position.x + 8) {
         viserion.bal = 2;
         iceball.push_back(Iceball(viserion.position.x, viserion.position.y));
     }
-
-    // generating semi-circular ring (Tunnel)
-    // if()
 
     // generating magnets
     if(mg.time > 60*(mg.gapTime + mg.existTime))
         mg.position.x = pl.position.x + 10, mg.time = 1;
 
     // generating coins
-    // int 
+    if(r < 6*pr*randV and r > 3*pr*randV and coins.size() < 5){
+        for(int i=0;i<10;i++)
+            coins.push_back(Coin(screen_center_x+10+i, screen_center_y-4+rand()%10, COLOR_YELLOW, 10));
+        for(int i=0;i<10;i++)
+            coins.push_back(Coin(screen_center_x+10+i,screen_center_y-4+rand()%10, COLOR_RED, 20));
+    }
 
     // generating firebeams
     if(!firebeam1.time)
     {
-        pr = 0.0005;
         if(r < pr*randV){
             firebeam1.time = firebeam2.time = 1;
             firebeam1.position.x = firebeam2.position.x = screen_center_x - 4;
-            float y = (rand()%3) + 3.0f;
-            firebeam1.position.y = screen_center_y - y;
-            firebeam2.position.y = screen_center_y + y;
+            firebeam1.position.y = firebeam1.originY = screen_center_y - 5;
+            firebeam2.position.y = firebeam2.originY = screen_center_y + 5;
         }
     }
 
     //generating firelines
+    if(r < 8*pr*randV and r > 6*pr*randV and fireline.size() < 3){
+        fireline.push_back(Fireline(screen_center_x + 8, screen_center_y-4 + rand()%8,COLOR_BLACK,COLOR_YELLOW, rand()%180));
+    }
 
     // generating boomerang
-    pr = 0.0005;
-    if(r < 10*pr*randV and r > 9*pr*randV){
+    if(r < 10*pr*randV and r > 8*pr*randV and boom.size() < 3){
         boom.push_back(Boomerang(screen_center_x + 8, screen_center_y, COLOR_BOOMERANG));
     }
 
     // generating special objects
-    pr = 0.0005;
-    if(r < 12*pr*randV and r > 11*pr*randV)
+    if(r < 12*pr*randV and r > 11*pr*randV and spObj.size() < 1)
         spObj.push_back(Specialobject(screen_center_x + 20, 6.0f,COLOR_PINK));
     
     // generating special Coins
-    pr = 0.0005;
-    if(r < 14*pr*randV and r > 13*pr*randV)
+    if(r < 14*pr*randV and r > 13*pr*randV and spCoin.size() < 1)
         spCoin.push_back(Specialcoins(screen_center_x + 20, 6.0f,COLOR_GOLD));
 
     // generating special speedups
-    pr = 0.0005;
-    if(r < 16*pr*randV and r > 15*pr*randV)
+    if(r < 16*pr*randV and r > 14*pr*randV and speedUp.size() < 1)
         speedUp.push_back(Speedup(screen_center_x + 20, 6.0f,COLOR_BLUE));
     
     // generating special Shield
-    pr = 0.0005;
-    if(r < 18*pr*randV and r > 17*pr*randV)
+    if(r < 18*pr*randV and r > 17*pr*randV and shield.size() < 1)
         shield.push_back(Shield(screen_center_x + 20, 6.0f,COLOR_SHIELD));
 
 }
@@ -618,10 +630,11 @@ bool detect_collision(bounding_box_t a, bounding_box_t b) {
 
 bool detect_collision_fireline(bounding_box_t a, bounding_box_t b, float angle) {
     bounding_box_t box = b;
-    box.height = 0.5;
-    box.width  = 0.5;
+    box.height = 0.3;
+    box.width  = 0.3;
     angle *= (2*3.1415926/360.0f);
-    while(box.x < (b.x + b.width*cos(angle) + 0.5)){
+    int fl = cos(angle) / abs(cos(angle)) ;
+    while(box.x*fl < (b.x + b.width*cos(angle) + 0.3*fl)){
         if(detect_collision(a,box)) {
                 return true;
         }
