@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/sankalp/Jetpack-Joyride
+CMAKE_SOURCE_DIR = /home/sankalp/courses/Jetpack-Joyride
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/sankalp/Jetpack-Joyride/src
+CMAKE_BINARY_DIR = /home/sankalp/courses/Jetpack-Joyride/src
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sankalp/Jetpack-Joyride/src/CMakeFiles /home/sankalp/Jetpack-Joyride/src/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sankalp/courses/Jetpack-Joyride/src/CMakeFiles /home/sankalp/courses/Jetpack-Joyride/src/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/sankalp/Jetpack-Joyride/src/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/sankalp/courses/Jetpack-Joyride/src/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -609,6 +609,33 @@ score.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/score.cpp.s
 .PHONY : score.cpp.s
 
+specialcoins.o: specialcoins.cpp.o
+
+.PHONY : specialcoins.o
+
+# target to build an object file
+specialcoins.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o
+.PHONY : specialcoins.cpp.o
+
+specialcoins.i: specialcoins.cpp.i
+
+.PHONY : specialcoins.i
+
+# target to preprocess a source file
+specialcoins.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.i
+.PHONY : specialcoins.cpp.i
+
+specialcoins.s: specialcoins.cpp.s
+
+.PHONY : specialcoins.s
+
+# target to generate assembly for a file
+specialcoins.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.s
+.PHONY : specialcoins.cpp.s
+
 specialobject.o: specialobject.cpp.o
 
 .PHONY : specialobject.o
@@ -780,6 +807,9 @@ help:
 	@echo "... score.o"
 	@echo "... score.i"
 	@echo "... score.s"
+	@echo "... specialcoins.o"
+	@echo "... specialcoins.i"
+	@echo "... specialcoins.s"
 	@echo "... specialobject.o"
 	@echo "... specialobject.i"
 	@echo "... specialobject.s"

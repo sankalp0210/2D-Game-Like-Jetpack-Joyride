@@ -17,6 +17,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/player.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/ring.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/score.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/timer.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/viserion.cpp.o"

@@ -1,10 +1,6 @@
-Shield
 Viserion
-Jet Propulsion(Jetpack and legs of player)
 Proper Colors
-Special Flying Objects (2)
+Special Flying Objects (SpeedUp and Shield)
 Spawn Randomly
 Stage
-Boomerang penalty
-Lives
 Move firebeam

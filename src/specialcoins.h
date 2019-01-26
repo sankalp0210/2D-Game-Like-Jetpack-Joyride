@@ -1,15 +1,15 @@
 #include "main.h"
 
-#ifndef SPECIALOBJECT_H
-#define SPECIALOBJECT_H
+#ifndef SPECIALCOINS_H
+#define SPECIALCOINS_H
 
 
-class Specialobject {
+class Specialcoins {
 public:
-    Specialobject() {}
-    Specialobject(float x, float y, color_t color1);
+    Specialcoins() {}
+    Specialcoins(float x, float y, color_t color1);
     glm::vec3 position;
-    float r;
+    float r, rotation;
     int dir;
     bounding_box_t box;
     void draw(glm::mat4 VP);
@@ -19,4 +19,4 @@ private:
     VAO *object;
 };
 
-#endif // Specialobject_H
+#endif // Specialcoins_H

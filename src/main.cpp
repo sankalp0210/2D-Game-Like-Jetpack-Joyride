@@ -7,6 +7,7 @@
 #include "fireline.h"
 #include "firebeam.h"
 #include "specialobject.h"
+#include "specialcoins.h"
 #include "boomerang.h"
 #include "balloon.h"
 #include "wall.h"
@@ -38,6 +39,7 @@ vector<Wall> wall;
 Firebeam firebeam1, firebeam2;
 vector<Fireline> fireline;
 vector<Specialobject> spObj;
+vector<Specialcoins> spCoin;
 float screen_zoom = 1, screen_center_x = 4, screen_center_y = 4;
 float camera_rotation_angle = 0;
 int width  = 600;
@@ -93,6 +95,8 @@ void draw() {
         wall[i].draw(VP);
     for(int i=0;i<spObj.size();i++)
         spObj[i].draw(VP);
+    for(int i=0;i<spCoin.size();i++)
+        spCoin[i].draw(VP);
     for(int i=0;i<coins.size();i++){
         coins[i].draw(VP);
     }
@@ -169,6 +173,8 @@ void tick_elements() {
         wall[i].tick();
     for(int i=0;i<spObj.size();i++)
         spObj[i].tick();
+    for(int i=0;i<spCoin.size();i++)
+        spCoin[i].tick();
 
     for(int i=0;i<boom.size();i++)
         boom[i].tick();
@@ -304,10 +310,20 @@ void checkColissions()
         }
     }
 
-    // Colission of player with special objects
+    // Colission of player with special objects (Lives)
     for(int i=0;i<spObj.size();i++){
         if(detect_collision(pl.box, spObj[i].box)){
             spObj.erase(spObj.begin()+i);
+            pl.lives ++ ;
+            break;
+        }
+    }
+
+    // Colission of player with special objects (Coins)
+    for(int i=0;i<spCoin.size();i++){
+        if(detect_collision(pl.box, spCoin[i].box)){
+            spCoin.erase(spCoin.begin()+i);
+            pl.score += 100 ;
             break;
         }
     }
@@ -428,6 +444,12 @@ void deleteObjects()
         if(spObj[i].position.x < (screen_center_x -40))
             spObj.erase(spObj.begin() + i);
     }
+
+    // deleting special coins
+    for(int i=0;i<spCoin.size();i++){
+        if(spCoin[i].position.x < (screen_center_x -40))
+            spCoin.erase(spCoin.begin() + i);
+    }
     
 }
 
@@ -481,6 +503,11 @@ void generateNewObjects()
     pr = 0.0005;
     if(r >= (randV-pr*randV))
         spObj.push_back(Specialobject(screen_center_x + 20, 6.0f,COLOR_RED));
+    
+    // generating special Coins
+    pr = 0.0005;
+    if(r >= (randV-pr*randV))
+        spCoin.push_back(Specialcoins(screen_center_x + 20, 6.0f,COLOR_YELLOW));
 }
 
 int main(int argc, char **argv) {
@@ -508,7 +535,7 @@ int main(int argc, char **argv) {
                 checkColissions();
             }
             else
-                moveInsideRing();         
+                moveInsideRing();
         }
 
         // Poll for Keyboard and mouse events

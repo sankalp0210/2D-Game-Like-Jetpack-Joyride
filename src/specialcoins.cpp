@@ -1,12 +1,13 @@
-#include "specialobject.h"
+#include "specialcoins.h"
 #include "main.h"
 
-Specialobject::Specialobject(float x, float y, color_t color) {
+Specialcoins::Specialcoins(float x, float y, color_t color) {
     this->position = glm::vec3(x, y, 0);
     this->dir = 1;
+    this->rotation = 0.0f;
     int n = 5000;
     GLfloat g_vertex_buffer_data[9*n+100];
-	GLfloat deg = 2*3.1415926/((float)n), r = 0.40f;
+	GLfloat deg = 2*3.1415926/((float)n), r = 0.6f;
     float x1 = r, y1 = 0.0f, z = 0.0f;
 	for(int i=0;i<n;i++)
 	{
@@ -30,25 +31,25 @@ Specialobject::Specialobject(float x, float y, color_t color) {
     this->object = create3DObject(GL_TRIANGLES, (n)*3, g_vertex_buffer_data, color, GL_FILL);
 }
 
-void Specialobject::draw(glm::mat4 VP) {
+void Specialcoins::draw(glm::mat4 VP) {
     Matrices.model = glm::mat4(1.0f);
     glm::mat4 translate = glm::translate (this->position);    // glTranslatef
-    // No need as coords centered at 0, 0, 0 of cube arouund which we waant to rotate
-    // rotate          = rotate * glm::translate(glm::vec3(0, -0.6, 0));
-    Matrices.model *= (translate);
+    glm::mat4 rotate   = glm::rotate((float) (this->rotation * M_PI / 180.0f), glm::vec3(1, 1, 0));
+    Matrices.model *= (translate * rotate);
     glm::mat4 MVP = VP * Matrices.model;
     glUniformMatrix4fv(Matrices.MatrixID, 1, GL_FALSE, &MVP[0][0]);
     draw3DObject(this->object);
 }
 
-void Specialobject::set_position(float x, float y) {
+void Specialcoins::set_position(float x, float y) {
     this->position = glm::vec3(x, y, 0);
 }
 
-void Specialobject::tick() {
-    if(this->position.y > screen_center_y + 8)
+void Specialcoins::tick() {
+    this->rotation += 5.0f;
+    if(this->position.y > screen_center_y + 5)
         this->dir = -1;
-    else if(this->position.y < screen_center_y - 3)
+    else if(this->position.y < screen_center_y - 1)
         this->dir = 1;
     this->position.x -= 0.03;
     this->position.y += this->dir*0.05;

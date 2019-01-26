@@ -1,3 +1,3 @@
-/home/sankalp/Jetpack-Joyride/src/CMakeFiles/rebuild_cache.dir
-/home/sankalp/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir
-/home/sankalp/Jetpack-Joyride/src/CMakeFiles/edit_cache.dir
+/home/sankalp/courses/Jetpack-Joyride/src/CMakeFiles/rebuild_cache.dir
+/home/sankalp/courses/Jetpack-Joyride/src/CMakeFiles/graphics_asgn1.dir
+/home/sankalp/courses/Jetpack-Joyride/src/CMakeFiles/edit_cache.dir

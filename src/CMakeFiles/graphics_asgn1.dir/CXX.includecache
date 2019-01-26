@@ -6,81 +6,81 @@
 
 #IncludeRegexTransform: 
 
-/home/sankalp/Jetpack-Joyride/src/ball.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/ball.cpp
 ball.h
-/home/sankalp/Jetpack-Joyride/src/ball.h
+/home/sankalp/courses/Jetpack-Joyride/src/ball.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/ball.h
+/home/sankalp/courses/Jetpack-Joyride/src/ball.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/balloon.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/balloon.cpp
 balloon.h
-/home/sankalp/Jetpack-Joyride/src/balloon.h
+/home/sankalp/courses/Jetpack-Joyride/src/balloon.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/balloon.h
+/home/sankalp/courses/Jetpack-Joyride/src/balloon.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/boomerang.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/boomerang.cpp
 boomerang.h
-/home/sankalp/Jetpack-Joyride/src/boomerang.h
+/home/sankalp/courses/Jetpack-Joyride/src/boomerang.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/boomerang.h
+/home/sankalp/courses/Jetpack-Joyride/src/boomerang.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/coin.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/coin.cpp
 coin.h
-/home/sankalp/Jetpack-Joyride/src/coin.h
+/home/sankalp/courses/Jetpack-Joyride/src/coin.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/coin.h
+/home/sankalp/courses/Jetpack-Joyride/src/coin.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/color.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/color.cpp
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/firebeam.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/firebeam.cpp
 firebeam.h
-/home/sankalp/Jetpack-Joyride/src/firebeam.h
+/home/sankalp/courses/Jetpack-Joyride/src/firebeam.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/firebeam.h
+/home/sankalp/courses/Jetpack-Joyride/src/firebeam.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/fireline.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/fireline.cpp
 fireline.h
-/home/sankalp/Jetpack-Joyride/src/fireline.h
+/home/sankalp/courses/Jetpack-Joyride/src/fireline.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/fireline.h
+/home/sankalp/courses/Jetpack-Joyride/src/fireline.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/iceball.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/iceball.cpp
 iceball.h
-/home/sankalp/Jetpack-Joyride/src/iceball.h
+/home/sankalp/courses/Jetpack-Joyride/src/iceball.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/iceball.h
+/home/sankalp/courses/Jetpack-Joyride/src/iceball.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/input.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/input.cpp
 iostream
 -
 cmath
@@ -100,65 +100,67 @@ glm/gtx/transform.hpp
 glm/gtc/matrix_transform.hpp
 -
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/jetprop.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/jetprop.cpp
 jetprop.h
-/home/sankalp/Jetpack-Joyride/src/jetprop.h
+/home/sankalp/courses/Jetpack-Joyride/src/jetprop.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/jetprop.h
+/home/sankalp/courses/Jetpack-Joyride/src/jetprop.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/magnet.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/magnet.cpp
 magnet.h
-/home/sankalp/Jetpack-Joyride/src/magnet.h
+/home/sankalp/courses/Jetpack-Joyride/src/magnet.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/magnet.h
+/home/sankalp/courses/Jetpack-Joyride/src/magnet.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/main.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/main.cpp
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 timer.h
-/home/sankalp/Jetpack-Joyride/src/timer.h
+/home/sankalp/courses/Jetpack-Joyride/src/timer.h
 player.h
-/home/sankalp/Jetpack-Joyride/src/player.h
+/home/sankalp/courses/Jetpack-Joyride/src/player.h
 platform.h
-/home/sankalp/Jetpack-Joyride/src/platform.h
+/home/sankalp/courses/Jetpack-Joyride/src/platform.h
 coin.h
-/home/sankalp/Jetpack-Joyride/src/coin.h
+/home/sankalp/courses/Jetpack-Joyride/src/coin.h
 magnet.h
-/home/sankalp/Jetpack-Joyride/src/magnet.h
+/home/sankalp/courses/Jetpack-Joyride/src/magnet.h
 fireline.h
-/home/sankalp/Jetpack-Joyride/src/fireline.h
+/home/sankalp/courses/Jetpack-Joyride/src/fireline.h
 firebeam.h
-/home/sankalp/Jetpack-Joyride/src/firebeam.h
+/home/sankalp/courses/Jetpack-Joyride/src/firebeam.h
 specialobject.h
-/home/sankalp/Jetpack-Joyride/src/specialobject.h
+/home/sankalp/courses/Jetpack-Joyride/src/specialobject.h
+specialcoins.h
+/home/sankalp/courses/Jetpack-Joyride/src/specialcoins.h
 boomerang.h
-/home/sankalp/Jetpack-Joyride/src/boomerang.h
+/home/sankalp/courses/Jetpack-Joyride/src/boomerang.h
 balloon.h
-/home/sankalp/Jetpack-Joyride/src/balloon.h
+/home/sankalp/courses/Jetpack-Joyride/src/balloon.h
 wall.h
-/home/sankalp/Jetpack-Joyride/src/wall.h
+/home/sankalp/courses/Jetpack-Joyride/src/wall.h
 score.h
-/home/sankalp/Jetpack-Joyride/src/score.h
+/home/sankalp/courses/Jetpack-Joyride/src/score.h
 ring.h
-/home/sankalp/Jetpack-Joyride/src/ring.h
+/home/sankalp/courses/Jetpack-Joyride/src/ring.h
 viserion.h
-/home/sankalp/Jetpack-Joyride/src/viserion.h
+/home/sankalp/courses/Jetpack-Joyride/src/viserion.h
 iceball.h
-/home/sankalp/Jetpack-Joyride/src/iceball.h
+/home/sankalp/courses/Jetpack-Joyride/src/iceball.h
 jetprop.h
-/home/sankalp/Jetpack-Joyride/src/jetprop.h
+/home/sankalp/courses/Jetpack-Joyride/src/jetprop.h
 
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 iostream
 -
 cmath
@@ -178,29 +180,7 @@ glm/gtx/transform.hpp
 glm/gtc/matrix_transform.hpp
 -
 
-/home/sankalp/Jetpack-Joyride/src/nonedit.cpp
-iostream
--
-cmath
--
-fstream
--
-vector
--
-GL/glew.h
--
-GLFW/glfw3.h
--
-glm/glm.hpp
--
-glm/gtx/transform.hpp
--
-glm/gtc/matrix_transform.hpp
--
-main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
-
-/home/sankalp/Jetpack-Joyride/src/other_handlers.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/nonedit.cpp
 iostream
 -
 cmath
@@ -220,83 +200,115 @@ glm/gtx/transform.hpp
 glm/gtc/matrix_transform.hpp
 -
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/platform.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/other_handlers.cpp
+iostream
+-
+cmath
+-
+fstream
+-
+vector
+-
+GL/glew.h
+-
+GLFW/glfw3.h
+-
+glm/glm.hpp
+-
+glm/gtx/transform.hpp
+-
+glm/gtc/matrix_transform.hpp
+-
+main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
+
+/home/sankalp/courses/Jetpack-Joyride/src/platform.cpp
 platform.h
-/home/sankalp/Jetpack-Joyride/src/platform.h
+/home/sankalp/courses/Jetpack-Joyride/src/platform.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/platform.h
+/home/sankalp/courses/Jetpack-Joyride/src/platform.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/player.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/player.cpp
 player.h
-/home/sankalp/Jetpack-Joyride/src/player.h
+/home/sankalp/courses/Jetpack-Joyride/src/player.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/player.h
+/home/sankalp/courses/Jetpack-Joyride/src/player.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/ring.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/ring.cpp
 ring.h
-/home/sankalp/Jetpack-Joyride/src/ring.h
+/home/sankalp/courses/Jetpack-Joyride/src/ring.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/ring.h
+/home/sankalp/courses/Jetpack-Joyride/src/ring.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/score.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/score.cpp
 score.h
-/home/sankalp/Jetpack-Joyride/src/score.h
+/home/sankalp/courses/Jetpack-Joyride/src/score.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/score.h
+/home/sankalp/courses/Jetpack-Joyride/src/score.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/specialobject.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/specialcoins.cpp
+specialcoins.h
+/home/sankalp/courses/Jetpack-Joyride/src/specialcoins.h
+main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
+
+/home/sankalp/courses/Jetpack-Joyride/src/specialcoins.h
+main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
+
+/home/sankalp/courses/Jetpack-Joyride/src/specialobject.cpp
 specialobject.h
-/home/sankalp/Jetpack-Joyride/src/specialobject.h
+/home/sankalp/courses/Jetpack-Joyride/src/specialobject.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/specialobject.h
+/home/sankalp/courses/Jetpack-Joyride/src/specialobject.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/timer.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/timer.cpp
 timer.h
-/home/sankalp/Jetpack-Joyride/src/timer.h
+/home/sankalp/courses/Jetpack-Joyride/src/timer.h
 GLFW/glfw3.h
 -
 
-/home/sankalp/Jetpack-Joyride/src/timer.h
+/home/sankalp/courses/Jetpack-Joyride/src/timer.h
 
-/home/sankalp/Jetpack-Joyride/src/viserion.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/viserion.cpp
 viserion.h
-/home/sankalp/Jetpack-Joyride/src/viserion.h
+/home/sankalp/courses/Jetpack-Joyride/src/viserion.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/viserion.h
+/home/sankalp/courses/Jetpack-Joyride/src/viserion.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/wall.cpp
+/home/sankalp/courses/Jetpack-Joyride/src/wall.cpp
 wall.h
-/home/sankalp/Jetpack-Joyride/src/wall.h
+/home/sankalp/courses/Jetpack-Joyride/src/wall.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 
-/home/sankalp/Jetpack-Joyride/src/wall.h
+/home/sankalp/courses/Jetpack-Joyride/src/wall.h
 main.h
-/home/sankalp/Jetpack-Joyride/src/main.h
+/home/sankalp/courses/Jetpack-Joyride/src/main.h
 

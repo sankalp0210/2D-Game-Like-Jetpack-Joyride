@@ -57,6 +57,7 @@ CMakeFiles/graphics_asgn1.dir/main.cpp.o: platform.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: player.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: ring.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: score.h
+CMakeFiles/graphics_asgn1.dir/main.cpp.o: specialcoins.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: specialobject.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: timer.h
 CMakeFiles/graphics_asgn1.dir/main.cpp.o: viserion.h
@@ -83,6 +84,10 @@ CMakeFiles/graphics_asgn1.dir/ring.cpp.o: ring.h
 CMakeFiles/graphics_asgn1.dir/score.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/score.cpp.o: score.cpp
 CMakeFiles/graphics_asgn1.dir/score.cpp.o: score.h
+
+CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o: main.h
+CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o: specialcoins.cpp
+CMakeFiles/graphics_asgn1.dir/specialcoins.cpp.o: specialcoins.h
 
 CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: main.h
 CMakeFiles/graphics_asgn1.dir/specialobject.cpp.o: specialobject.cpp
